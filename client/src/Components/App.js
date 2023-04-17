@@ -7,12 +7,10 @@ import Home from './Home';
 function App() {
   return (
     <div className="App">
-      <UserProvider>
         <Navbar />
         <Routes>
           <Route exact path="/home" element={<Home />} />
         </Routes>
-      </UserProvider>
     </div>
   );
 }
