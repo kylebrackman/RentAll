@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import NavBar from "./Navbar";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -13,6 +14,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
+        <NavBar />
         <Switch>
           <Route path="/testing">
             <h1>Test Route</h1>
