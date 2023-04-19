@@ -17,7 +17,7 @@ function UserProvider({ children }) {
                 if (data.errors) {
                     setLoggedIn(false)
                 } else {
-                    // setLoggedIn(true)
+                    setLoggedIn(true)
                 }
             })
     }, [])

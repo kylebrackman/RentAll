@@ -1,9 +1,5 @@
 # config/routes.rb
 Rails.application.routes.draw do
-  resources :rentals
-  resources :items
-  resources :users
-
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
@@ -11,6 +7,11 @@ Rails.application.routes.draw do
   get '/me', to: 'users#show'
   
   get '/hello', to: 'application#hello_world'
+
+
+  resources :rentals
+  resources :items
+  resources :users
 
   get '*path',
       to: 'fallback#index',
