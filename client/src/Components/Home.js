@@ -5,7 +5,6 @@ function Home() {
     const { user, loggedIn } = useContext(UserContext)
 
     if (loggedIn && user) {
-        console.log(user)
         return (
             <div>
                 <h1>Welcome to RentAll {user.username} !</h1>

@@ -20,7 +20,6 @@ const NavBar = () => {
 
     // had to add the && user for this to work...?
     if (loggedIn && user) {
-        console.log(loggedIn)
         return (
             <div>
                 <h1>RentAll</h1>
