@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
 
     def set_item
         @item = @current_user.items.find_by(id: params[:id])
-        render json: { error: "Item not found" }. status: :not_found unless @item
+        render json: { error: "Item not found" }, status: :not_found unless @item
     end
 
 end
