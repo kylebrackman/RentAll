@@ -26,6 +26,9 @@ const NavBar = () => {
                 <NavLink to='/home'>
                     <button> Home Page </button>
                 </NavLink>
+                <NavLink to='/uploaditem'>
+                    <button> Upload Item!</button>
+                </NavLink>
                 <button onClick={logoutUser}>Logout</button>
                 <br />
                 <h3>Hello {user.username} </h3>
