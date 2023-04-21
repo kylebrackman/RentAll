@@ -6,22 +6,27 @@ import { useNavigate } from 'react-router-dom'
 
 const UploadItem = () => {
     const [itemName, setItemName] = useState("")
-    const [itemType, setItemType] = useState("")
+    const [type, setType] = useState("")
     const [description, setDescription] = useState("")
     const [condition, setCondition] = useState("")
+    const [image, setImage] = useState("")
     // create addNewItem function in global state
-    const { addNewItem, errors } = useContext(UserContext)
+    const { addNewItem, errors, user } = useContext(UserContext)
     const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault()
         addNewItem({
+            owner_id: user.id,
             name: itemName,
-            type: itemType,
+            type: type,
+            image: image,
+            description: description,
+            type: type,
         })
         navigate('/allitems')
         setItemName("")
-        setItemType("")
+        setType("")
     }
 
     return (
@@ -42,9 +47,9 @@ const UploadItem = () => {
             /> <br />
             <label> Item type: </label>
             <select
-                id="itemType"
-                value={itemType}
-                onChange={(e) => setItemType(e.target.value)}
+                id="type"
+                value={type}
+                onChange={(e) => setType(e.target.value)}
             >
                 <option>Select</option>
                 <option>Hardware</option>
@@ -61,7 +66,7 @@ const UploadItem = () => {
             <label> Condition: </label>
             <select
                 id="itemCondition"
-                value={itemType}
+                value={type}
                 onChange={(e) => setCondition(e.target.value)}
             >
                 <option>Select</option>
@@ -71,6 +76,9 @@ const UploadItem = () => {
                 <option>Medium Use</option>
                 <option>Heavy Use</option>
             </ select >
+            <br />
+            <label> Image: </label>
+            <input type="file" name="image" id="image"></input>
             <br />
             <input className='submit-item-button' type="submit" />
             <>

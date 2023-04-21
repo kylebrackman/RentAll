@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+
     skip_before_action :authorize, only: :index
 
 
@@ -6,7 +7,9 @@ class ItemsController < ApplicationController
         if params[:all_items]
             items = Item.all
         else
-            items = @current_user.items
+            #adding in finding the current user because i'm skipping authorize above
+            @current_user = User.find_by(id: session[:user_id])
+            items = @current_user.owned_items
         end
         render json: items
     end
@@ -28,7 +31,7 @@ class ItemsController < ApplicationController
     private
 
     def item_params
-        params.permit(:name, :type, :condition, :image)
+        params.permit(:name, :type, :condition, :image, :description)
     end
 
     def set_item

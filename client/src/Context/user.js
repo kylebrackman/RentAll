@@ -7,6 +7,9 @@ function UserProvider({ children }) {
 
     const [user, setUser] = useState({})
     const [loggedIn, setLoggedIn] = useState(false)
+    const [allItemsList, setAllItemsList] = useState([])
+    const [errors, setErrors] = useState([])
+
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -18,10 +21,11 @@ function UserProvider({ children }) {
                     setLoggedIn(false)
                 } else {
                     setLoggedIn(true)
+                    fetchAllItemsList()
                 }
             })
-    }, [])
 
+    }, [])
 
     const login = (user) => {
         setUser(user)
@@ -38,6 +42,32 @@ function UserProvider({ children }) {
         setLoggedIn(true)
     }
 
+    const fetchAllItemsList = () => {
+        fetch('/items?all_items=true')
+            .then(res => res.json())
+            .then(data => (
+                setAllItemsList(data)
+            ))
+    }
+
+    const addNewItem = (newItem) => {
+        fetch('/items', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newItem)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (!data.errors) {
+                    setAllItemsList([...allItemsList, data]
+                    )
+                } else {
+                    const errorLis = data.errors.map ( e => <li>{e}</li>)
+                    setErrors(errorLis)
+                }
+            })
+    }
+
     return (
         <UserContext.Provider
             value={{
@@ -45,7 +75,8 @@ function UserProvider({ children }) {
                 login,
                 logout,
                 signup,
-                loggedIn
+                loggedIn,
+                allItemsList
             }}>
             {children}
         </UserContext.Provider>
