@@ -1,24 +1,9 @@
-# README
+# RentAll
+RentAll is an application where users can rent out various types of gear, games, or hardware, that others may just need for a few days, or just want to test out! Currently, to rent outdoor gear, one must go to a large, corporate, recreational store to rent out low quality equipment for too high of prices. Now, users can rent out their gear to whoever may need it!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## How RentAll is Written
+RentAll is written using a React front end and a Ruby on Rails back end.
 
-Things you may want to cover:
+## Future Additions
+Future additions of RentAll will include multiple photo uploads for each item, as well as password reset options.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
