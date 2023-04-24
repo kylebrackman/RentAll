@@ -6,7 +6,6 @@ const NavBar = () => {
     const { user, logout, loggedIn } = useContext(UserContext)
     const navigate = useNavigate()
 
-
     function logoutUser() {
         fetch('/logout', {
             method: 'DELETE',
@@ -18,39 +17,51 @@ const NavBar = () => {
             })
     }
 
-    // had to add the && user for this to work...?
     if (loggedIn && user) {
         return (
-            <div>
-                <h1>RentAll</h1>
-                <NavLink to='/home'>
-                    <button> Home Page </button>
-                </NavLink>
-                <NavLink to='/uploaditem'>
-                    <button> Upload Item!</button>
-                </NavLink>
-                <NavLink to='/allItems'>
-                    <button> All Items!</button>
-                </NavLink>
-                <NavLink to='/myItems'>
-                    <button> Your Items!</button>
-                </NavLink>
-                <button onClick={logoutUser}>Logout</button>
-                <br />
-                <h3>Hello {user.username} </h3>
-            </div>
+            <nav className="navbar">
+                <div className="navbar__left">
+                    <h1 className="navbar__logo">RentAll</h1>
+                </div>
+                <div className="navbar__center">
+                    <NavLink to='/home' className="navbar__button">
+                        Home Page
+                    </NavLink>
+                    <NavLink to='/uploaditem' className="navbar__button">
+                        Upload Item
+                    </NavLink>
+                    <NavLink to='/allItems' className="navbar__button">
+                        All Items
+                    </NavLink>
+                    <NavLink to='/myItems' className="navbar__button">
+                        Your Items
+                    </NavLink>
+                </div>
+                <div className="navbar__right">
+                    <h3>Hello {user.username}</h3>
+
+                    <button onClick={logoutUser} className="navbar__logout">
+                        Logout
+                    </button>
+                </div>
+            </nav>
         )
     } else {
         return (
-            <div>
-                <NavLink to='/login'>
-                    <button>Login</button>
-                </NavLink >
-                <NavLink to='/signup'>
-                    <button>Signup</button>
-                </NavLink>
-                <hr />
-            </div>
+            <nav className="navbar">
+                <div className="navbar__left">
+                    <h1 className="navbar__logo">RentAll</h1>
+                </div>
+                <div className="navbar__center">
+                    <NavLink to='/login' className="navbar__button">
+                        Login
+                    </NavLink>
+                    <NavLink to='/signup' className="navbar__button">
+                        Signup
+                    </NavLink>
+                </div>
+                <div className="navbar__right"></div>
+            </nav>
         )
     }
 }

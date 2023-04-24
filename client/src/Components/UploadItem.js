@@ -31,20 +31,6 @@ const UploadItem = () => {
         setItemType("")
     }
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     addNewItem({
-    //         owner_id: user.id,
-    //         name: itemName,
-    //         item_type: itemType,
-    //         image: image,
-    //         description: description,
-    //     })
-    //     navigate('/allitems')
-    //     setItemName("")
-    //     setItemType("")
-    // }
-
     return (
         <form className='add-item-submission-form' onSubmit={handleSubmit}>
             <label> Item Name: </label>

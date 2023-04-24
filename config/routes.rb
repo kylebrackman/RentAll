@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/me', to: 'users#show'
   
   get '/hello', to: 'application#hello_world'
+  #q: ActionController::RoutingError (No route matches [GET] "/[object%20Object]"): why is this happening?
+  #a:  because you're not using the right url.  you're using the url that you would use in the browser, but you're not in the browser.  you're in the console.  you need to use the url that you would use in the console.  you can find that url by running the command:  rails routes
 
 
   resources :rentals

@@ -9,6 +9,8 @@ const ItemCard = ( { id, itemName, type, condition, image, description } ) => {
             <div className="block">
                     <div>
                         <h1>{itemName}</h1>
+                        <h2>{condition}</h2>
+                        <h2></h2>
                         <img src={image} ></img>
                         <p></p>
                     </div>
