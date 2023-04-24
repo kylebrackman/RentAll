@@ -20,27 +20,27 @@ const NavBar = () => {
     if (loggedIn && user) {
         return (
             <nav className="navbar">
-                <div className="navbar__left">
-                    <h1 className="navbar__logo">RentAll</h1>
+                <div className="navbar_left">
+                    <h1 className="navbar_logo">RentAll</h1>
                 </div>
-                <div className="navbar__center">
-                    <NavLink to='/home' className="navbar__button">
+                <div className="navbar_center">
+                    <NavLink to='/home' className="navbar_button">
                         Home Page
                     </NavLink>
-                    <NavLink to='/uploaditem' className="navbar__button">
+                    <NavLink to='/uploaditem' className="navbar_button">
                         Upload Item
                     </NavLink>
-                    <NavLink to='/allItems' className="navbar__button">
+                    <NavLink to='/allItems' className="navbar_button">
                         All Items
                     </NavLink>
-                    <NavLink to='/myItems' className="navbar__button">
+                    <NavLink to='/myItems' className="navbar_button">
                         Your Items
                     </NavLink>
                 </div>
-                <div className="navbar__right">
+                <div className="navbar_right">
                     <h3>Hello {user.username}</h3>
 
-                    <button onClick={logoutUser} className="navbar__logout">
+                    <button onClick={logoutUser} className="navbar_logout">
                         Logout
                     </button>
                 </div>
@@ -49,18 +49,18 @@ const NavBar = () => {
     } else {
         return (
             <nav className="navbar">
-                <div className="navbar__left">
-                    <h1 className="navbar__logo">RentAll</h1>
+                <div className="navbar_left">
+                    <h1 className="navbar_logo">RentAll</h1>
                 </div>
-                <div className="navbar__center">
-                    <NavLink to='/login' className="navbar__button">
+                <div className="navbar_center">
+                    <NavLink to='/login' className="navbar_button">
                         Login
                     </NavLink>
-                    <NavLink to='/signup' className="navbar__button">
+                    <NavLink to='/signup' className="navbar_button">
                         Signup
                     </NavLink>
                 </div>
-                <div className="navbar__right"></div>
+                <div className="navbar_right"></div>
             </nav>
         )
     }

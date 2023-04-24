@@ -18,38 +18,42 @@ code {
   align-items: center;
   height: 50px;
   padding: 0 20px;
-  background-color: #333;
+  background-color: #659DBD;
   color: #fff;
 }
 
-.navbar__left {
-  
+.navbar_left {
   display: flex;
   align-items: center;
 }
 
-.navbar__logo {
+.navbar_logo {
   font-size: 1.5rem;
   margin-right: 20px;
 }
 
-.navbar__center {
+.navbar_center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.navbar__button {
-  color: white;
+.navbar_button {
+  color: #659DBD;
   margin: 0 10px;
+  background-color: #fff;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 10px 20px;
 }
 
-.navbar__right {
+.navbar_right {
   display: flex;
   align-items: center;
 }
 
-.navbar__logout {
+.navbar_logout {
   background-color: transparent;
   border: none;
   color: #fff;
