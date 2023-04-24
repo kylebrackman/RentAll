@@ -6,35 +6,52 @@ import { useNavigate } from 'react-router-dom'
 
 const UploadItem = () => {
     const [itemName, setItemName] = useState("")
-    const [type, setType] = useState("")
+    const [itemType, setItemType] = useState("")
     const [description, setDescription] = useState("")
     const [condition, setCondition] = useState("")
     const [image, setImage] = useState("")
-    // create addNewItem function in global state
     const { addNewItem, errors, user } = useContext(UserContext)
     const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        addNewItem({
-            owner_id: user.id,
-            name: itemName,
-            type: type,
-            image: image,
-            description: description,
-            type: type,
-        })
+
+        const newItemData = new FormData()
+
+        newItemData.append("name", itemName)
+        newItemData.append("owner_id", user.id)
+        newItemData.append("item_type", itemType)
+        newItemData.append("description", description)
+        newItemData.append("condition", condition)
+        newItemData.append("image", image)
+
+        addNewItem(newItemData)
         navigate('/allitems')
         setItemName("")
-        setType("")
+        setItemType("")
     }
+
+    // const handleSubmit = (e) => {
+    //     e.preventDefault()
+    //     addNewItem({
+    //         owner_id: user.id,
+    //         name: itemName,
+    //         item_type: itemType,
+    //         image: image,
+    //         description: description,
+    //     })
+    //     navigate('/allitems')
+    //     setItemName("")
+    //     setItemType("")
+    // }
 
     return (
         <form className='add-item-submission-form' onSubmit={handleSubmit}>
             <label> Item Name: </label>
             <input
                 type="text"
-                id="itemName"
+                id="name"
+                name="name"
                 value={itemName}
                 onChange={(e) => setItemName(e.target.value)}
             /> <br />
@@ -45,11 +62,11 @@ const UploadItem = () => {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
             /> <br />
-            <label> Item type: </label>
+            <label> Item Type: </label>
             <select
                 id="type"
-                value={type}
-                onChange={(e) => setType(e.target.value)}
+                value={itemType}
+                onChange={(e) => setItemType(e.target.value)}
             >
                 <option>Select</option>
                 <option>Hardware</option>
@@ -66,7 +83,7 @@ const UploadItem = () => {
             <label> Condition: </label>
             <select
                 id="itemCondition"
-                value={type}
+                value={condition}
                 onChange={(e) => setCondition(e.target.value)}
             >
                 <option>Select</option>
@@ -78,7 +95,7 @@ const UploadItem = () => {
             </ select >
             <br />
             <label> Image: </label>
-            <input type="file" name="image" id="image"></input>
+            <input type="file" name="image" id="image" accept='image/*' onChange={(e) => setImage(e.target.files[0])}/>
             <br />
             <input className='submit-item-button' type="submit" />
             <>

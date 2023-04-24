@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
 
     def index
         if params[:all_items]
-            items = Item.all
+            items = Item.all.with_attached_image
         else
             #adding in finding the current user because i'm skipping authorize above
             @current_user = User.find_by(id: session[:user_id])
@@ -20,6 +20,7 @@ class ItemsController < ApplicationController
 
     def create
         item = @current_user.items.create!(item_params)
+        item.image.attach(params[:image])
         render json: item, status: :created
     end
 
@@ -31,7 +32,7 @@ class ItemsController < ApplicationController
     private
 
     def item_params
-        params.permit(:name, :type, :condition, :image, :description)
+        params.permit(:name, :owner_id, :item_type, :description, :condition, :image)
     end
 
     def set_item

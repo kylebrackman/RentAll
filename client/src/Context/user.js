@@ -50,11 +50,10 @@ function UserProvider({ children }) {
             ))
     }
 
-    const addNewItem = (newItem) => {
+    const addNewItem = (newItemData) => {
         fetch('/items', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(newItem)
+            body: newItemData
         })
             .then(res => res.json())
             .then(data => {
@@ -76,7 +75,8 @@ function UserProvider({ children }) {
                 logout,
                 signup,
                 loggedIn,
-                allItemsList
+                allItemsList,
+                addNewItem
             }}>
             {children}
         </UserContext.Provider>

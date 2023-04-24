@@ -1,3 +1,8 @@
 class ItemSerializer < ActiveModel::Serializer
-  attributes :id, :owner_id, :name, :type, :condition, :created_at, :description, :image
+  include Rails.application.routes.url_helpers
+  attributes :id, :owner_id, :name, :item_type, :condition, :created_at, :description, :image
+
+  def image
+    rails_blob_path(object.image, only_path: true) if object.image.attached?
+  end
 end

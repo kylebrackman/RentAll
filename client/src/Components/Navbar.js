@@ -17,7 +17,7 @@ const NavBar = () => {
                 navigate('/home')
             })
     }
-
+    
     // had to add the && user for this to work...?
     if (loggedIn && user) {
         return (
