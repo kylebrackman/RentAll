@@ -7,7 +7,8 @@ function UserProvider({ children }) {
 
     const [user, setUser] = useState({})
     const [loggedIn, setLoggedIn] = useState(false)
-    const [allItemsList, setAllItemsList] = useState([])
+    const [allItems, setAllItems] = useState([])
+    const [userItems, setUserItems] = useState([])
     const [errors, setErrors] = useState([])
 
     const navigate = useNavigate()
@@ -21,7 +22,8 @@ function UserProvider({ children }) {
                     setLoggedIn(false)
                 } else {
                     setLoggedIn(true)
-                    fetchAllItemsList()
+                    fetchAllItems()
+                    fetchUserItems()
                 }
             })
 
@@ -42,11 +44,19 @@ function UserProvider({ children }) {
         setLoggedIn(true)
     }
 
-    const fetchAllItemsList = () => {
+    const fetchAllItems = () => {
         fetch('/items?all_items=true')
             .then(res => res.json())
             .then(data => (
-                setAllItemsList(data)
+                setAllItems(data)
+            ))
+    }
+
+    const fetchUserItems = () => {
+        fetch('/items')
+            .then(res => res.json())
+            .then(data => (
+                setUserItems(data)
             ))
     }
 
@@ -58,7 +68,7 @@ function UserProvider({ children }) {
             .then(res => res.json())
             .then(data => {
                 if (!data.errors) {
-                    setAllItemsList([...allItemsList, data]
+                    setAllItems([...allItems, data]
                     )
                 } else {
                     const errorLis = data.errors.map ( e => <li>{e}</li>)
@@ -75,8 +85,9 @@ function UserProvider({ children }) {
                 logout,
                 signup,
                 loggedIn,
-                allItemsList,
-                addNewItem
+                allItems,
+                addNewItem,
+                userItems,
             }}>
             {children}
         </UserContext.Provider>

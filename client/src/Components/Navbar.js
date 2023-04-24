@@ -17,7 +17,7 @@ const NavBar = () => {
                 navigate('/home')
             })
     }
-    
+
     // had to add the && user for this to work...?
     if (loggedIn && user) {
         return (
@@ -31,6 +31,9 @@ const NavBar = () => {
                 </NavLink>
                 <NavLink to='/allItems'>
                     <button> All Items!</button>
+                </NavLink>
+                <NavLink to='/myItems'>
+                    <button> Your Items!</button>
                 </NavLink>
                 <button onClick={logoutUser}>Logout</button>
                 <br />

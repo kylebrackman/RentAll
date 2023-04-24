@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../context/user';
 import ItemCard from './ItemCard';
+import UploadItem from './UploadItem';
 
-const AllItems = () => {
-    const { allItems } = useContext(UserContext)
 
-    const allItemsList = allItems.map(i => {
+const UserItems = () => {
+    const { userItems } = useContext(UserContext)
+
+    const userItemsList = userItems.map(i => {
         return <ItemCard
             key={i.id}
             id={i.owner_id}
@@ -22,10 +24,10 @@ const AllItems = () => {
             <h2>Submit a New Item!</h2>
             <br />
             <h1>All Items!</h1>
-            {allItemsList}
+            {userItemsList}
         </div>
     )
 
 }
 
-export default AllItems
+export default UserItems
