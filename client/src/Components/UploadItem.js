@@ -10,6 +10,7 @@ const UploadItem = () => {
     const [description, setDescription] = useState("")
     const [condition, setCondition] = useState("")
     const [image, setImage] = useState("")
+    const [itemPrice, setItemPrice] = useState("")
     const { addNewItem, errors, user } = useContext(UserContext)
     const navigate = useNavigate()
 
@@ -24,6 +25,7 @@ const UploadItem = () => {
         newItemData.append("description", description)
         newItemData.append("condition", condition)
         newItemData.append("image", image)
+        newItemData.append("price", itemPrice)
 
         addNewItem(newItemData)
         navigate('/allitems')
@@ -80,8 +82,16 @@ const UploadItem = () => {
                 <option>Heavy Use</option>
             </ select >
             <br />
+            <label> Price </label>
+            <input
+                type="text"
+                id="price"
+                name="price"
+                value={itemPrice}
+                onChange={(e) => setItemPrice(e.target.value)}
+            /> <br />
             <label> Image: </label>
-            <input type="file" name="image" id="image" accept='image/*' onChange={(e) => setImage(e.target.files[0])}/>
+            <input type="file" name="image" id="image" accept='image/*' onChange={(e) => setImage(e.target.files[0])} />
             <br />
             <input className='submit-item-button' type="submit" />
             <>

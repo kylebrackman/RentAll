@@ -14,6 +14,7 @@ const AllItems = () => {
             condition={i.condition}
             image={i.image}
             description={i.description}
+            itemPrice={i.price}
         />
     })
 // q: why is the All Items text overlapping with the ItemCard?

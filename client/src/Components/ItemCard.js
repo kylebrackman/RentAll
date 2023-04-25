@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 
 
-const ItemCard = ( { id, itemName, type, condition, image, description } ) => {
+const ItemCard = ( { id, itemName, itemType, condition, image, description, itemPrice } ) => {
 
     return (
         <div >
@@ -12,7 +12,8 @@ const ItemCard = ( { id, itemName, type, condition, image, description } ) => {
                         <h2>{condition}</h2>
                         <h2></h2>
                         <img src={image} className='item-image'></img>
-                        <p></p>
+                        <h2></h2>
+                        <p>${itemPrice} Per Day</p>
                     </div>
                     <p>{description}</p>
                     <hr />
