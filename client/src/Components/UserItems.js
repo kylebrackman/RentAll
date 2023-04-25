@@ -1,8 +1,6 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../context/user';
 import ItemCard from './ItemCard';
-import UploadItem from './UploadItem';
-
 
 const UserItems = () => {
     const { userItems } = useContext(UserContext)

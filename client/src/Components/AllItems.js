@@ -16,13 +16,19 @@ const AllItems = () => {
             description={i.description}
         />
     })
+// q: why is the All Items text overlapping with the ItemCard?
+// a:   
 
     return (
         <div>
-            <h2>Submit a New Item!</h2>
             <br />
-            <h1>All Items!</h1>
-            {allItemsList}
+            <div>
+                <h1>All Items!</h1>
+            </div>
+            <div className="item-card-container">
+                {allItemsList}
+            </div>
+
         </div>
     )
 

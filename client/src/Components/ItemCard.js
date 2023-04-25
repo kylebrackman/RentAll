@@ -5,13 +5,13 @@ import {Link} from 'react-router-dom'
 const ItemCard = ( { id, itemName, type, condition, image, description } ) => {
 
     return (
-        <div className="row">
-            <div className="block">
+        <div >
+            <div className='card'>
                     <div>
                         <h1>{itemName}</h1>
                         <h2>{condition}</h2>
                         <h2></h2>
-                        <img src={image} ></img>
+                        <img src={image} className='item-image'></img>
                         <p></p>
                     </div>
                     <p>{description}</p>
