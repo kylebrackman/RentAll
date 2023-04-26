@@ -1,12 +1,13 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
-const ItemCard = ( { id, itemName, itemType, condition, image, description, itemPrice } ) => {
+const ItemCard = ({ id, itemName, itemType, condition, image, description, itemPrice }) => {
 
     return (
-        <div >
-            <div className='card'>
+        <Link to={`/item/${id}`}>
+            <div >
+                <div className='card' >
                     <div>
                         <h1>{itemName}</h1>
                         <h2>{condition}</h2>
@@ -17,8 +18,9 @@ const ItemCard = ( { id, itemName, itemType, condition, image, description, item
                     </div>
                     <p>{description}</p>
                     <hr />
+                </div>
             </div>
-        </div>
+        </Link>
     )
 }
 
