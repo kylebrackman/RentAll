@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { UserContext } from '../Context/user';
+import { UserContext } from '../context/user';
 import AllItemCard from './AllItemCard';
 
 const AllItems = () => {
