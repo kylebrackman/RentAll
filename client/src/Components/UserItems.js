@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../context/user';
-import ItemCard from './ItemCard';
+import UserItemCard from './UserItemCard';
 
 const UserItems = () => {
     const { userItems } = useContext(UserContext)
 
     const userItemsList = userItems.map(i => {
-        return <ItemCard
+        return <UserItemCard
             key={i.id}
             id={i.owner_id}
             itemName={i.name}
@@ -19,10 +19,14 @@ const UserItems = () => {
 
     return (
         <div>
-            <h2>Submit a New Item!</h2>
             <br />
-            <h1>All Items!</h1>
-            {userItemsList}
+            <div>
+                <h1>Your Items</h1>
+            </div>
+            <div className="item-card-container">
+                {userItemsList}
+            </div>
+
         </div>
     )
 

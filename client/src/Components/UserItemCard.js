@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 
-const ItemCard = ({ id, itemName, itemType, condition, image, description, itemPrice }) => {
+const UserItemCard = ({ id, itemName, itemType, condition, image, description, itemPrice }) => {
 
     return (
         <Link to={`/item/${id}`}>
@@ -24,4 +24,4 @@ const ItemCard = ({ id, itemName, itemType, condition, image, description, itemP
     )
 }
 
-export default ItemCard
+export default UserItemCard

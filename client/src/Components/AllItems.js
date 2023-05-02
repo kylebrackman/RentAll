@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../context/user';
-import ItemCard from './ItemCard';
+import AllItemCard from './AllItemCard';
 
 const AllItems = () => {
     const { allItems } = useContext(UserContext)
 
     const allItemsList = allItems.map(i => {
-        return <ItemCard
+        return <AllItemCard
             key={i.id}
             id={i.owner_id}
             itemName={i.name}
@@ -16,9 +16,7 @@ const AllItems = () => {
             description={i.description}
             itemPrice={i.price}
         />
-    })
-// q: why is the All Items text overlapping with the ItemCard?
-// a:   
+    }) 
 
     return (
         <div>
