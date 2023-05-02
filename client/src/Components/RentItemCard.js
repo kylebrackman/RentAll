@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
-import { UserContext } from '../context/user';
+import { UserContext } from '../Context/user';
 
 const RentItemCard = () => {
 

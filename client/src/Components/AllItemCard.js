@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom'
-import { UserContext } from '../context/user';
+import { UserContext } from '../Context/user';
 
 
 const AllItemCard = ({ id, itemName, itemType, condition, image, description, itemPrice }) => {
 
     const { user } = useContext(UserContext)
 
-    if (user.id === id) {
+    if (user.id !== id) {
         return (
             <Link to={`/item/${id}`}>
                 <div >
