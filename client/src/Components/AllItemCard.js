@@ -7,6 +7,8 @@ const AllItemCard = ({ id, itemName, itemId, condition, image, description, item
 
     const { user } = useContext(UserContext)
 
+    console.log(itemId)
+
     if (user.id !== ownerId) {
         return (
             <Link to={`/item/${itemId}`}>
@@ -28,7 +30,7 @@ const AllItemCard = ({ id, itemName, itemId, condition, image, description, item
         )
     } else {
         return (
-            <Link to={`/item/${id}`}>
+            <Link to={`/item/${itemId}`}>
                 <div >
                     <div className='card' >
                         <div>
