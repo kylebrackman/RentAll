@@ -32,11 +32,13 @@ function UserProvider({ children }) {
     const login = (user) => {
         setUser(user)
         setLoggedIn(true)
+        fetchUserItems()
     }
 
     const logout = () => {
         setLoggedIn(false)
         navigate('/')
+        setUserItems([])
     }
 
     const signup = (user) => {
@@ -71,7 +73,7 @@ function UserProvider({ children }) {
                     setAllItems([...allItems, data]
                     )
                 } else {
-                    const errorLis = data.errors.map ( e => <li>{e}</li>)
+                    const errorLis = data.errors.map(e => <li>{e}</li>)
                     setErrors(errorLis)
                 }
             })

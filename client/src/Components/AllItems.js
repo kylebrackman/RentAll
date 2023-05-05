@@ -15,6 +15,7 @@ const AllItems = () => {
             image={i.image}
             description={i.description}
             itemPrice={i.price}
+            ownerId={i.owner_id}
         />
     }) 
 
