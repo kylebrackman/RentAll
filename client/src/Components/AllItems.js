@@ -9,6 +9,7 @@ const AllItems = () => {
         return <AllItemCard
             key={i.id}
             id={i.owner_id}
+            itemId={i.id}
             itemName={i.name}
             type={i.type}
             condition={i.condition}

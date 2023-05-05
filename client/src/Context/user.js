@@ -37,8 +37,8 @@ function UserProvider({ children }) {
 
     const logout = () => {
         setLoggedIn(false)
-        navigate('/')
         setUserItems([])
+        navigate('/')
     }
 
     const signup = (user) => {

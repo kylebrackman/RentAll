@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom'
 import { UserContext } from '../Context/user';
 
 
-const AllItemCard = ({ id, itemName, itemType, condition, image, description, itemPrice, ownerId }) => {
+const AllItemCard = ({ id, itemName, itemId, condition, image, description, itemPrice, ownerId }) => {
 
     const { user } = useContext(UserContext)
 
     if (user.id !== ownerId) {
         return (
-            <Link to={`/item/${id}`}>
+            <Link to={`/item/${itemId}`}>
                 <div >
                     <div className='card' >
                         <div>
