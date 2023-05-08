@@ -10,6 +10,7 @@ function UserProvider({ children }) {
     const [allItems, setAllItems] = useState([])
     const [userItems, setUserItems] = useState([])
     const [errors, setErrors] = useState([])
+    const [userRentals, setUserRentals] = useState(user.rentals)
 
     const navigate = useNavigate()
 
@@ -29,6 +30,7 @@ function UserProvider({ children }) {
 
     }, [])
 
+    console.log(allItems)
     const login = (user) => {
         setUser(user)
         setLoggedIn(true)
@@ -78,6 +80,23 @@ function UserProvider({ children }) {
                 }
             })
     }
+
+    const createRental = (rentalData) => {
+        fetch('/rentals', {
+            method: 'POST',
+            body: rentalData
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (!data.errors) {
+                    setUserRentals([...userRentals, data])
+                } else {
+                    const errorLis = data.errors.map(e => <li>{e}</li>)
+                    setErrors(errorLis)
+                }
+            })
+    }
+
 
     return (
         <UserContext.Provider

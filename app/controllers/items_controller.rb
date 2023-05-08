@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
             @current_user = User.find_by(id: session[:user_id])
             items = @current_user.owned_items
         end
+        byebug
         render json: items
     end
 
@@ -19,7 +20,9 @@ class ItemsController < ApplicationController
     end
 
     def create
-        item = @current_user.items.create!(item_params)
+        # item = @current_user.items.create!(item_params)
+        byebug
+        item = @current_user.owned_items.create!(owned_item_params)
         item.image.attach(params[:image])
         render json: item, status: :created
     end
@@ -31,8 +34,9 @@ class ItemsController < ApplicationController
 
     private
 
-    def item_params
-        params.permit(:name, :owner_id, :item_type, :description, :condition, :image, :price, )
+    def owned_item_params
+        # might want to change to owned_item_params
+        params.permit(:name, :item_type, :description, :condition, :image, :price)
     end
 
     def set_item

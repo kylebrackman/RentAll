@@ -27,17 +27,21 @@ const RentItemCard = () => {
     } if (item && item.owner_id !== user.id) {
         return (
             <div>
-                <h2>{item.name}</h2>
-                <h3>{item.item_type}</h3>
-                <h3>{item.condition}</h3>
-                <img src={item.image} className='item-image'></img>
-                <p>{item.description}</p>
-                <p>${item.price} Per Day</p>
-                <p>Start Date</p>
-                <input type="date" value={startDate} onChange={handleStartDateChange} />
-                <br />
-                <p>End Date</p>
-                <input type="date" value={endDate} onChange={handleEndDateChange} />
+                <form>
+                    <h2>{item.name}</h2>
+                    <h3>{item.item_type}</h3>
+                    <h3>{item.condition}</h3>
+                    <img src={item.image} className='item-image'></img>
+                    <p>{item.description}</p>
+                    <p>${item.price} Per Day</p>
+                    <p>Start Date</p>
+                    <input type="date" value={startDate} onChange={handleStartDateChange} />
+                    <br />
+                    <p>End Date</p>
+                    <input type="date" value={endDate} onChange={handleEndDateChange} />
+                    <br />
+                    <button>RENT</button>
+                </form>
             </div>
         )
     } else {
