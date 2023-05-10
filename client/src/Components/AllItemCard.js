@@ -7,8 +7,6 @@ const AllItemCard = ({ id, itemName, itemId, condition, image, description, item
 
     const { user } = useContext(UserContext)
 
-    console.log(itemId)
-
     if (user.id !== ownerId) {
         return (
             <Link to={`/item/${itemId}`}>

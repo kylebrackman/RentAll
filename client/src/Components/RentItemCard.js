@@ -1,13 +1,15 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import { UserContext } from '../Context/user';
 
 const RentItemCard = () => {
 
     const { id } = useParams()
-    const { allItems, user } = useContext(UserContext)
+    const { allItems, user, createRental } = useContext(UserContext)
     const [startDate, setStartDate] = useState(new Date().toISOString().substring(0, 10)); // set initial value to today's date
     const [endDate, setEndDate] = useState(new Date().toISOString().substring(0, 10)); // set initial value to today's date
+    const navigate = useNavigate()
 
     const item = allItems.find(i => i.id === parseInt(id))
 
@@ -16,6 +18,18 @@ const RentItemCard = () => {
     }
     const handleEndDateChange = (event) => {
         setEndDate(event.target.value);
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        createRental({
+            start_date: startDate,
+            end_date: endDate,
+            renter_id: user.id,
+            item_id: item.id,
+            owner_id: item.owner_id
+        })
+        navigate('/')
     }
 
     if (!item) {
@@ -40,7 +54,7 @@ const RentItemCard = () => {
                     <p>End Date</p>
                     <input type="date" value={endDate} onChange={handleEndDateChange} />
                     <br />
-                    <button>RENT</button>
+                    <button onClick={handleSubmit}>RENT</button>
                 </form>
             </div>
         )

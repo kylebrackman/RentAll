@@ -30,7 +30,10 @@ class ItemsController < ApplicationController
         head :no_content
     end
 
-    private
+    # def my_rentals
+    #     @current_user.
+
+    # private
 
     def owned_item_params
         # might want to change to owned_item_params
