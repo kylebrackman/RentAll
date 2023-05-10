@@ -7,6 +7,11 @@ class RentalsController < ApplicationController
         render json: rental, status: :created
     end
 
+    def index
+        rentals = @current_user.rentals
+        render json: rentals
+    end
+
     private
 
     def rental_params

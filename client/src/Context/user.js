@@ -10,8 +10,7 @@ function UserProvider({ children }) {
     const [allItems, setAllItems] = useState([])
     const [userItems, setUserItems] = useState([])
     const [errors, setErrors] = useState([])
-    const [currentRentals, setCurrentRentals] = useState(user.rentals)
-    console.log(user.rentals)
+    const [currentRentals, setCurrentRentals] = useState([])
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -25,6 +24,7 @@ function UserProvider({ children }) {
                     setLoggedIn(true)
                     fetchAllItems()
                     fetchUserItems()
+                    fetchCurrentRentals()
                 }
             })
 
@@ -35,6 +35,7 @@ function UserProvider({ children }) {
         setLoggedIn(true)
         fetchUserItems()
     }
+    console.log(currentRentals) 
 
     const logout = () => {
         setLoggedIn(false)
@@ -54,6 +55,15 @@ function UserProvider({ children }) {
                 setAllItems(data)
             ))
     }
+
+    const fetchCurrentRentals = () => {
+        fetch('/rentals')
+            .then(res => res.json())
+            .then(data => (
+                setCurrentRentals(data)
+            ))
+    }
+
 
     const fetchUserItems = () => {
         fetch('/items')
@@ -109,7 +119,8 @@ function UserProvider({ children }) {
                 allItems,
                 addNewItem,
                 userItems,
-                createRental
+                createRental,
+                currentRentals
             }}>
             {children}
         </UserContext.Provider>

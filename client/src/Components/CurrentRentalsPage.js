@@ -2,10 +2,10 @@ import React, { useContext } from 'react';
 import { UserContext } from '../Context/user';
 import UserItemCard from './UserItemCard';
 
-const CurrentRentals = () => {
-    const { userItems } = useContext(UserContext)
+const CurrentRentalsPage = () => {
+    const { currentRentals } = useContext(UserContext)
 
-    const userItemsList = userItems.map(i => {
+    const currentRentalsList = userRentals.map(i => {
         return <UserItemCard
             key={i.id}
             id={i.owner_id}
@@ -32,4 +32,4 @@ const CurrentRentals = () => {
 
 }
 
-export default UserItems
+export default CurrentRentalsPage
