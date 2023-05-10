@@ -9,6 +9,7 @@ import UploadItem from './UploadItem';
 import AllItems from './AllItems';
 import UserItems from './UserItems';  
 import RentItemCard from './RentItemCard';
+import CurrentRentalsPage from './CurrentRentalsPage';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route exact path="/allItems" element={<AllItems />} />
           <Route exact path="/myItems" element={<UserItems />} />
           <Route exact path = "/item/:id" element={<RentItemCard />} />
+          <Route exact path = "/myRentals" element={<CurrentRentalsPage />} />
         </Routes>
       </UserProvider>
     </div>

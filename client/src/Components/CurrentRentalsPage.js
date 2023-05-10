@@ -5,15 +5,14 @@ import UserItemCard from './UserItemCard';
 const CurrentRentalsPage = () => {
     const { currentRentals } = useContext(UserContext)
 
-    const currentRentalsList = userRentals.map(i => {
+    const currentRentalsList = currentRentals.map(r => {
         return <UserItemCard
-            key={i.id}
-            id={i.owner_id}
-            itemName={i.name}
-            type={i.type}
-            condition={i.condition}
-            image={i.image}
-            description={i.description}
+            key={r.id}
+            itemName={r.item.name}
+            type={r.item.type}
+            condition={r.item.condition}
+            image={r.item.image}
+            description={r.item.description}
         />
     })
 
@@ -21,10 +20,10 @@ const CurrentRentalsPage = () => {
         <div>
             <br />
             <div>
-                <h1>Your Items</h1>
+                <h1>Current Rentals</h1>
             </div>
             <div className="item-card-container">
-                {userItemsList}
+                {currentRentalsList}
             </div>
 
         </div>

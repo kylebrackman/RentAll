@@ -35,7 +35,6 @@ function UserProvider({ children }) {
         setLoggedIn(true)
         fetchUserItems()
     }
-    console.log(currentRentals) 
 
     const logout = () => {
         setLoggedIn(false)
