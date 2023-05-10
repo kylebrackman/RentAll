@@ -11,7 +11,6 @@ class ItemsController < ApplicationController
             @current_user = User.find_by(id: session[:user_id])
             items = @current_user.owned_items
         end
-        byebug
         render json: items
     end
 
@@ -21,7 +20,6 @@ class ItemsController < ApplicationController
 
     def create
         # item = @current_user.items.create!(item_params)
-        byebug
         item = @current_user.owned_items.create!(owned_item_params)
         item.image.attach(params[:image])
         render json: item, status: :created

@@ -4,6 +4,7 @@ import AllItemCard from './AllItemCard';
 
 const AllItems = () => {
     const { allItems } = useContext(UserContext)
+    console.log(allItems)
 
     const allItemsList = allItems.map(i => {
         return <AllItemCard
