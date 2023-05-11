@@ -28,9 +28,11 @@ const UploadItem = () => {
         newItemData.append("price", itemPrice)
 
         addNewItem(newItemData)
-        navigate('/allitems')
-        setItemName("")
-        setItemType("")
+        if (!errors) {
+            navigate('/allitems')
+            setItemName("")
+            setItemType("")
+        }
     }
 
     return (

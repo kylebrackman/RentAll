@@ -119,7 +119,8 @@ function UserProvider({ children }) {
                 addNewItem,
                 userItems,
                 createRental,
-                currentRentals
+                currentRentals,
+                errors
             }}>
             {children}
         </UserContext.Provider>

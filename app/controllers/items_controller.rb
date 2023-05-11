@@ -19,6 +19,9 @@ class ItemsController < ApplicationController
     end
 
     def create
+        if params[:image].blank?
+            raise ActionController::BadRequest, "Please add a photo"
+        end
         # item = @current_user.items.create!(item_params)
         item = @current_user.owned_items.create!(owned_item_params)
         item.image.attach(params[:image])
@@ -29,11 +32,6 @@ class ItemsController < ApplicationController
         @item.delete
         head :no_content
     end
-
-    # def my_rentals
-    #     @current_user.
-
-    # private
 
     def owned_item_params
         # might want to change to owned_item_params

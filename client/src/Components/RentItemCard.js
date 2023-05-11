@@ -6,9 +6,10 @@ import { UserContext } from '../Context/user';
 const RentItemCard = () => {
 
     const { id } = useParams()
-    const { allItems, user, createRental } = useContext(UserContext)
+    const { allItems, user, createRental, errors } = useContext(UserContext)
     const [startDate, setStartDate] = useState(new Date().toISOString().substring(0, 10)); // set initial value to today's date
     const [endDate, setEndDate] = useState(new Date().toISOString().substring(0, 10)); // set initial value to today's date
+
     const navigate = useNavigate()
 
     const item = allItems.find(i => i.id === parseInt(id))
@@ -28,8 +29,10 @@ const RentItemCard = () => {
             renter_id: user.id,
             item_id: item.id,
             owner_id: item.owner_id
-        })
-        navigate('/')
+        } )
+         if (!errors) {
+            navigate('/myRentals')
+         } 
     }
 
     if (!item) {
@@ -55,6 +58,9 @@ const RentItemCard = () => {
                     <input type="date" value={endDate} onChange={handleEndDateChange} />
                     <br />
                     <button onClick={handleSubmit}>RENT</button>
+                    <>
+                        {errors}
+                    </>
                 </form>
             </div>
         )
