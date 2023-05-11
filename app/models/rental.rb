@@ -7,6 +7,6 @@ class Rental < ApplicationRecord
     belongs_to :item, class_name: "Item"
     
     def self.current_rentals(user)
-        where(renter_id: user.id).where("rental_end_date >= ?", Date.today)
+        where(renter_id: user.id).where("start_date >= ? AND end_date <= ? ", Date.today, Date.today)
     end
 end

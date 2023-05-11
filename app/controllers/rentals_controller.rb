@@ -8,9 +8,9 @@ class RentalsController < ApplicationController
     end
 
     def index
-        rentals = @current_user.rentals
+        rentals = Rental.current_rentals(@current_user)
         render json: rentals
-    end
+      end
 
     private
 
