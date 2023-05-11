@@ -19,9 +19,6 @@ class ItemsController < ApplicationController
     end
 
     def create
-        if params[:image].blank?
-            raise ActionController::BadRequest, "Please add a photo"
-        end
         # item = @current_user.items.create!(item_params)
         item = @current_user.owned_items.create!(owned_item_params)
         item.image.attach(params[:image])
