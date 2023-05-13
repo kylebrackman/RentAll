@@ -97,7 +97,9 @@ const UploadItem = () => {
             <br />
             <input className='submit-item-button' type="submit" />
             <>
-                {errors}
+                {errors && errors.length > 0 && (
+                    <ul className="error-list">{errors}</ul>
+                )}
             </>
         </form>
     )
