@@ -34,11 +34,13 @@ function UserProvider({ children }) {
         setUser(user)
         setLoggedIn(true)
         fetchUserItems()
+        fetchCurrentRentals()
     }
 
     const logout = () => {
         setLoggedIn(false)
         setUserItems([])
+        setCurrentRentals([])
         navigate('/')
     }
 

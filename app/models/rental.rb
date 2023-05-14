@@ -8,8 +8,10 @@ class Rental < ApplicationRecord
     belongs_to :item, class_name: "Item"
     
     def self.current_rentals(user)
-        where(renter_id: user.id).where("start_date >= ? AND end_date <= ? ", Date.today, Date.today)
-    end
+        query = where(renter_id: user.id).where("start_date <= ? AND end_date >= ?", Date.today, Date.today)
+        puts query.to_sql
+        query
+      end
 
     def no_overlapping_rentals
         existing_rentals = Rental.where(item_id: item_id).where("start_date <= ? AND end_date >= ?", start_date, end_date)

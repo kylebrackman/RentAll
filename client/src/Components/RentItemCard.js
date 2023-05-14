@@ -13,7 +13,7 @@ const RentItemCard = () => {
     const navigate = useNavigate()
 
     const item = allItems.find(i => i.id === parseInt(id))
-
+    console.log(item)
     const handleStartDateChange = (event) => {
         setStartDate(event.target.value);
     }

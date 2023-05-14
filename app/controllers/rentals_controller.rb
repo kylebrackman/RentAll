@@ -1,7 +1,5 @@
 class RentalsController < ApplicationController
 
-    before_action :authorize
-
     def create
         rental = @current_user.rentals.create!(rental_params)
         render json: rental, status: :created
@@ -10,7 +8,7 @@ class RentalsController < ApplicationController
     def index
         rentals = Rental.current_rentals(@current_user)
         render json: rentals
-      end
+    end
 
     private
 
