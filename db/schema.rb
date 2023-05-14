@@ -59,7 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_10_202836) do
     t.datetime "updated_at", null: false
     t.integer "renter_id"
     t.integer "item_id"
-    t.date "start_date", default: "2023-05-09"
+    t.date "start_date", default: "2023-05-13"
     t.date "end_date"
     t.integer "owner_id"
   end
