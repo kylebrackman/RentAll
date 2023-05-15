@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { UserContext } from '../Context/user';
 
 const Profile = () => {
-    return (
-        <div>
-            <h1>Profile</h1>
-        </div>
-    )
-}
+  const { user } = useContext(UserContext);
 
-export default Profile
+  const defaultImageUrl = 'https://i.imgur.com/2d8Z3hF.png';
+
+  return (
+    <div>
+      <h1>Profile</h1>
+      {user.profile_image ? (
+        <img src={user.profile_image} alt="Profile" />
+      ) : (
+        <img src={defaultImageUrl} alt="Default Profile" />
+      )}
+    </div>
+  );
+};
+
+export default Profile;
