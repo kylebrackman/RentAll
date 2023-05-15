@@ -13,6 +13,7 @@ const CurrentRentalsPage = () => {
             condition={r.item.condition}
             image={r.item.image}
             description={r.item.description}
+            id={r.item.id}
         />
     })
 

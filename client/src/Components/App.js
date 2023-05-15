@@ -10,6 +10,7 @@ import AllItems from './AllItems';
 import UserItems from './UserItems';  
 import RentItemCard from './RentItemCard';
 import CurrentRentalsPage from './CurrentRentalsPage';
+import Profile from './Profile';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
       <UserProvider>
         <Navbar />
         <Routes>
-          <Route exact path="/home" element={<Home />} />
+          <Route exact path="/" element={<Home />} />
           <Route exact path="/signup" element={<Signup />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/uploaditem" element={<UploadItem />} />
@@ -25,6 +26,7 @@ function App() {
           <Route exact path="/myItems" element={<UserItems />} />
           <Route exact path = "/item/:id" element={<RentItemCard />} />
           <Route exact path = "/myRentals" element={<CurrentRentalsPage />} />
+          <Route exact path = "/profile" element={<Profile />} />
         </Routes>
       </UserProvider>
     </div>
