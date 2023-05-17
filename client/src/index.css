@@ -53,51 +53,6 @@ code {
   text-decoration: underline;
 }
 
-.navbar_right {
-  display: flex;
-  align-items: center;
-}
-
-.navbar_logout {
-  background-color: transparent;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-}
-
-
-.item-image {
-  width: 200px;
-  height: 200px;
-}
-
-.item-card-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  justify-items: center;
-  align-items: center;
-  gap: 20px;
-  padding: 0 20px;
-  margin: 0 auto;
-  max-width: 1200px;
-}
-
-.card {
-  width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.card p {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .navbar_dropdown-content {
   display: none;
   position: absolute;
@@ -105,6 +60,10 @@ code {
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 10;
+  right: 0;
+  left: auto;
+  margin-right: 15px;
+  border-radius: 15px;
 }
 
 .navbar_dropdown.open .navbar_dropdown-content {
@@ -123,9 +82,46 @@ code {
 .navbar_dropdown-content a:hover,
 .navbar_dropdown-content button:hover {
   background-color: #f1f1f1;
+  border-radius: 15px;
+
+}
+
+.logged-out-dropdown.open .logged-out-dropdown-content {
+  display: block;
+}
+
+.logged-out-dropdown {
+  position: relative;
+  overflow: hidden;
+}
+
+.logged-out-dropdown-content a,
+.logged-out-dropdown-content button {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  right: 5px;
+}
+
+.logged-out-dropdown-content a:hover,
+.logged-out-dropdown-content button:hover {
+  background-color: #f1f1f1;
+  right: 5px;
+}
+
+.placeholder-image {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .profile-image {
-  width: 200px;
-  height: auto;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
 }

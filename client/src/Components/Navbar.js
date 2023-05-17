@@ -7,6 +7,8 @@ const NavBar = () => {
     const navigate = useNavigate();
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
+    const defaultImageUrl = 'https://raw.githubusercontent.com/kylebrackman/RentAll/main/client/public/User%20Default%20Pic.png';
+
     function logoutUser() {
         fetch("/logout", {
             method: "DELETE",
@@ -65,14 +67,21 @@ const NavBar = () => {
                     </NavLink>
                 </div>
                 <div className="navbar_center">
-                    <NavLink to="/login" className="navbar_button">
-                        Login
-                    </NavLink>
-                    <NavLink to="/signup" className="navbar_button">
-                        Signup
-                    </NavLink>
+                    <div className={`navbar_dropdown ${dropdownOpen ? "open" : ""}`}>
+                        <button
+                            className="navbar_button"
+                            onClick={toggleDropdown}>
+                            <img src={defaultImageUrl} alt="Default" className="placeholder-image" />
+                        </button>
+
+                        <div className="navbar_dropdown-content">
+                            <NavLink to="/login">Login</NavLink>
+                            <NavLink to="/signup">Signup</NavLink>
+                            <hr />
+                        </div>
+                    </div>
                 </div>
-            </nav>
+            </nav >
         );
     }
 };

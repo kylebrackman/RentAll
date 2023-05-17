@@ -3,7 +3,6 @@ import { UserContext } from '../Context/user';
 
 function Home() {
     const { user, loggedIn } = useContext(UserContext)
-    console.log(user)
 
     if (loggedIn && user) {
         return (
