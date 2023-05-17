@@ -10,6 +10,7 @@ function UserProvider({ children }) {
     const [allItems, setAllItems] = useState([])
     const [userItems, setUserItems] = useState([])
     const [errors, setErrors] = useState([])
+    const [profile, setProfile] = useState([])
     const [currentRentals, setCurrentRentals] = useState([])
     const navigate = useNavigate()
 
@@ -108,6 +109,24 @@ function UserProvider({ children }) {
             })
     }
 
+    const newProfile = (newProfileData) => {
+        fetch('/createprofile', {
+            method: 'POST',
+            body: newProfileData
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (!data.errors) {
+                    setProfile(data)
+                } else {
+                    const errorLis = data.errors.map(e => <li>{e}</li>)
+                    setErrors(errorLis)
+                }
+            })
+    }
+
+
+
 
     return (
         <UserContext.Provider
@@ -122,7 +141,8 @@ function UserProvider({ children }) {
                 userItems,
                 createRental,
                 currentRentals,
-                errors
+                errors,
+                newProfile
             }}>
             {children}
         </UserContext.Provider>

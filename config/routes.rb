@@ -1,17 +1,18 @@
 # config/routes.rb
 Rails.application.routes.draw do
-  resources :profiles
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
   post '/signup', to: 'users#create'
   get '/me', to: 'users#show'
   
-  get '/hello', to: 'application#hello_world'
+  post '/createprofile', to: 'profiles#create'
   
   resources :rentals
   resources :items
   resources :users
+  resources :profiles
+
 
   get '*path',
       to: 'fallback#index',

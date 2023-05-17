@@ -25,7 +25,7 @@ function Signup() {
         .then(user => {
             if (!user.errors) {
                 signup(user)
-                navigate('/home')
+                navigate('/createprofile')
             } else {
                 setUsername("")
                 setPassword("")
