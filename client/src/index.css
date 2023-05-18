@@ -1,10 +1,9 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Copperplate', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #F8F8F8;
 }
 
 code {
@@ -18,7 +17,7 @@ code {
   align-items: center;
   height: 50px;
   padding: 0 20px;
-  background-color: #659DBD;
+  background-color: #0B75B3;
   color: #fff;
 }
 
@@ -124,4 +123,94 @@ code {
   object-fit: cover;
   border-radius: 50%;
   margin-right: 10px;
+}
+
+.signup-container {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+
+.signup-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-right: 20px;
+  margin-left: 90px;
+
+}
+
+.signup-container form {
+  margin-top: 20px;
+  
+}
+
+.signup-container input[type="text"],
+.signup-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 300px;
+}
+
+.signup-container input[type="submit"] {
+  border: none;
+  height: 30px;
+  width: auto;
+  margin-top: 10px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.signup-container ul {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.signup-container ul li {
+  margin-bottom: 5px;
+}
+
+.sign-up-button {
+  background-color: #2B0087;
+  border: none;
+  height: 30px;
+  width: auto;
+  margin-top: 5px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.sign-up-button:hover {
+  background-color: #a271eb;
+  cursor: pointer;
+}
+/* sign-up-button is also used for login buttons */
+
+
+.signup-cover {
+  margin-top: 50px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: 150px;
+  background-color: #0B75B3;
+  border-radius: 20px;
+  padding: 15px;
+  color: #F8F8F8
+}
+
+.signup-form-container {
+  margin-right: 20px;
+  margin-top: 50px;
+  margin-left: 45px;
+}
+
+.signup-cover-header {
+  font-size: 20px;
+  text-decoration: underline;
 }
