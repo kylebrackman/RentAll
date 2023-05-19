@@ -1,51 +1,26 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom'
-import { UserContext } from '../Context/user';
 
 
-const AllItemCard = ({ id, itemName, itemId, condition, image, description, itemPrice, ownerId }) => {
+const AllItemCard = ({ itemName, itemId, condition, image, description, itemPrice }) => {
+    // how can i remove the underline from my link?
+    //aL 
+    return (
+        <div className='item-card'>
 
-    const { user } = useContext(UserContext)
-
-    if (user.id !== ownerId) {
-        return (
             <Link to={`/item/${itemId}`}>
                 <div >
-                    <div className='card' >
-                        <div>
-                            <h1>{itemName}</h1>
-                            <h2>{condition}</h2>
-                            <h2></h2>
-                            <img src={image} className='item-image'></img>
-                            <h2></h2>
-                            <p>${itemPrice} Per Day</p>
-                        </div>
-                        <p>{description}</p>
-                        <hr />
+                    <div>
+                        <h1 className="item-card-name">{itemName}</h1>
+                        <img src={image} className='item-image' alt={itemName}></img>
+                        <p>${itemPrice} Per Day</p>
                     </div>
+                    <hr />
                 </div>
             </Link>
-        )
-    } else {
-        return (
-            <Link to={`/item/${itemId}`}>
-                <div >
-                    <div className='card' >
-                        <div>
-                            <h1>{itemName}</h1>
-                            <h2>{condition}</h2>
-                            <h2></h2>
-                            <img src={image} className='item-image'></img>
-                            <h2></h2>
-                            <p>${itemPrice} Per Day</p>
-                        </div>
-                        <p>{description}</p>
-                        <div>EDIT</div>
-                        <hr />
-                    </div>
-                </div>
-            </Link>
-        )
-    }
+        </div>
+
+    )
 }
-    export default AllItemCard
+
+export default AllItemCard
