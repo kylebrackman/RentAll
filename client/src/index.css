@@ -310,3 +310,52 @@ code {
   text-decoration: none;
   color: black
 }
+
+
+.rent-item-card-container {
+  align-items: center;
+  text-decoration: none;
+  justify-content: center;
+  display: flex;
+}
+
+.rent-item-card {
+  background-color: #fffafa;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 600px;
+  width: 350px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.rent-item-card-info-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-decoration: none;
+} 
+
+.rent-button {
+  background-color: #2B0087;
+  border: none;
+  height: 30px;
+  width: 100px;
+  margin-top: 5px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.price-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price-container p {
+  margin-left: 120px;
+}

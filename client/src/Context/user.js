@@ -5,7 +5,7 @@ const UserContext = React.createContext();
 function UserProvider({ children }) {
 
 
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState([])
     const [loggedIn, setLoggedIn] = useState(false)
     const [allItems, setAllItems] = useState([])
     const [userItems, setUserItems] = useState([])
@@ -42,7 +42,7 @@ function UserProvider({ children }) {
         setLoggedIn(false)
         setUserItems([])
         setCurrentRentals([])
-        navigate('/')
+        navigate('/login')
     }
 
     const signup = (user) => {

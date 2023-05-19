@@ -3,7 +3,7 @@ import { UserContext } from '../Context/user';
 import AllItemCard from './AllItemCard';
 
 const AllItems = () => {
-    const { allItems } = useContext(UserContext)
+    const { allItems, loggedIn } = useContext(UserContext)
 
     const allItemsList = allItems.map(i => {
         return <AllItemCard
@@ -18,20 +18,29 @@ const AllItems = () => {
             itemPrice={i.price}
             ownerId={i.owner_id}
         />
-    }) 
-
-    return (
-        <div>
-            <br />
+    })
+    if (loggedIn) {
+        return (
             <div>
-                <h1>All Items!</h1>
+                <br />
+                <div>
+                    <h1>All Items!</h1>
+                </div>
+                <div className="item-card-container">
+                    {allItemsList}
+                </div>
             </div>
-            <div className="item-card-container">
-                {allItemsList}
+        )
+    } else {
+        return (
+            <div>
+                <h1>
+                    Please Log In  
+                </h1>            
             </div>
+        )
+    }
 
-        </div>
-    )
 
 }
 
