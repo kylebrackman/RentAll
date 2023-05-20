@@ -36,72 +36,76 @@ const UploadItem = () => {
     }
 
     return (
-        <form className='add-item-submission-form' onSubmit={handleSubmit}>
-            <label> Item Name: </label>
-            <input
-                type="text"
-                id="name"
-                name="name"
-                value={itemName}
-                onChange={(e) => setItemName(e.target.value)}
-            /> <br />
-            <label> Description: </label>
-            <textarea
-                type="text"
-                id="description"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-            /> <br />
-            <label> Item Type: </label>
-            <select
-                id="type"
-                value={itemType}
-                onChange={(e) => setItemType(e.target.value)}
-            >
-                <option>Select</option>
-                <option>Hardware</option>
-                <option>Winter Sport</option>
-                <option>Sport (General)</option>
-                <option>Fishing</option>
-                <option>Camping</option>
-                <option>Musical</option>
-                <option>Beach</option>
-                <option>Climb</option>
-                <option>Outdoor Game</option>
-            </ select >
-            <br />
-            <label> Condition: </label>
-            <select
-                id="itemCondition"
-                value={condition}
-                onChange={(e) => setCondition(e.target.value)}
-            >
-                <option>Select</option>
-                <option>New</option>
-                <option>Like New</option>
-                <option>Light Use</option>
-                <option>Medium Use</option>
-                <option>Heavy Use</option>
-            </ select >
-            <br />
-            <label> Price </label>
-            <input
-                type="text"
-                id="price"
-                name="price"
-                value={itemPrice}
-                onChange={(e) => setItemPrice(e.target.value)}
-            /> <br />
-            <label> Image: </label>
-            <input type="file" name="image" id="image" accept='image/*' onChange={(e) => setImage(e.target.files[0])} />
-            <br />
-            <input className='submit-item-button' type="submit" />
-            <>
-                {errors && errors.length > 0 && (
-                    <ul className="error-list">{errors}</ul>
-                )}
-            </>
-        </form>
+        <div className='upload-item-container'>
+            <form className='upload-item-card' onSubmit={handleSubmit}>
+                <h1>Upload Item</h1>
+                <label style={{ marginRight: "30px" }}> Item Name </label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={itemName}
+                    onChange={(e) => setItemName(e.target.value)}
+                /> <br />
+                <label style={{ marginRight: "10px" }}> Description: </label>
+                <textarea
+
+                    type="text"
+                    id="description"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                /> <br />
+                <label style={{ marginRight: "37px" }}> Item Type </label>
+                <select
+                    id="type"
+                    value={itemType}
+                    onChange={(e) => setItemType(e.target.value)}
+                >
+                    <option>Select</option>
+                    <option>Hardware</option>
+                    <option>Winter Sport</option>
+                    <option>Sport (General)</option>
+                    <option>Fishing</option>
+                    <option>Camping</option>
+                    <option>Musical</option>
+                    <option>Beach</option>
+                    <option>Climb</option>
+                    <option>Outdoor Game</option>
+                </ select >
+                <br />
+                <label style={{ marginRight: "26px" }}> Condition: </label>
+                <select
+                    id="itemCondition"
+                    value={condition}
+                    onChange={(e) => setCondition(e.target.value)}
+                >
+                    <option>Select</option>
+                    <option>New</option>
+                    <option>Like New</option>
+                    <option>Light Use</option>
+                    <option>Medium Use</option>
+                    <option>Heavy Use</option>
+                </ select >
+                <br />
+                <label> Price Per Day </label>
+                <input
+                    type="text"
+                    id="price"
+                    name="price"
+                    value={itemPrice}
+                    onChange={(e) => setItemPrice(e.target.value)}
+                /> <br />
+                <label style={{ marginRight: "64px" }}> Image: </label>
+                <input type="file" name="image" id="image" accept='image/*' onChange={(e) => setImage(e.target.files[0])} />
+                <br />
+                <button onClick={handleSubmit} className='sign-up-button'>Upload Item</button>
+                <>
+                    {errors && errors.length > 0 && (
+                        <ul className="error-list">{errors}</ul>
+                    )}
+                </>
+            </form>
+        </div>
     )
 }
 

@@ -36,6 +36,9 @@ const CreateProfile = () => {
             navigate('/home');
             setBio('');
             setProfileName('');
+        } else {
+            const errorLi = <li>{error}</li>;
+            setError(errorLi);
         }
     };
 
