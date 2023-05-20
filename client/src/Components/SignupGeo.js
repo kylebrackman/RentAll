@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import { useJsApiLoader } from "@react-google-maps/api";
 import { UserContext } from "../Context/user";
 
-const SignupGeo = () => {
+const SignupGeo = ( { onUpdateLocation } ) => {
     const { user, errors, updateMyProfile } = useContext(UserContext);
 
     const [position, setPosition] = useState({ lat: 0, lng: 0 });
@@ -30,8 +30,9 @@ const SignupGeo = () => {
             map.controls[window.google.maps.ControlPosition.TOP_CENTER].push(
                 locationButton
             );
-            locationButton.addEventListener("click", () => {
 
+            locationButton.addEventListener("click", (e) => {
+                e.preventDefault();
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(
                         (position) => {
@@ -39,11 +40,10 @@ const SignupGeo = () => {
                                 lat: position.coords.latitude,
                                 lng: position.coords.longitude,
                             };
-
+                            onUpdateLocation(pos);
                             setPosition(pos);
-
                             infoWindow.open(map);
-                            map.setZoom(12)
+                            map.setZoom(13)
                             map.setCenter(pos);
 
                         },
@@ -69,9 +69,11 @@ const SignupGeo = () => {
         }
     }, [isLoaded]);
 
-    const handleUpdateLocation = () => {
-        updateMyProfile(position);
-    };
+    // const handleUpdateLocation = () => {
+    //     updateMyProfile(position);
+    // };
+
+    // create new function to update location later on
 
     return (
         <div className="signup-map-container">
@@ -81,13 +83,7 @@ const SignupGeo = () => {
                 <small>Only you can see your location. </small>
                 <div id="map" style={{ height: "400px", width: "500px" }}></div>
                 <br />
-                <button
-                    type="submit"
-                    className="primary-button"
-                    onClick={handleUpdateLocation}
-                >
-                    Save
-                </button>
+
                 <br />
                 {errors.map((error, index) => (
                     <small key={index} className="errors">

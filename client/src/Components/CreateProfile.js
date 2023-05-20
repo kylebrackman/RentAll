@@ -9,8 +9,15 @@ const CreateProfile = () => {
     const [bio, setBio] = useState('');
     const [error, setError] = useState('');
     const [image, setImage] = useState('');
+    const [position, setPosition] = useState({ lat: 0, lng: 0 });
+
     const navigate = useNavigate();
     const { newProfile } = useContext(UserContext);
+
+    const handleUpdateLocation = (newPosition) => {
+        setPosition(newPosition);
+    };
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -20,6 +27,8 @@ const CreateProfile = () => {
         newProfileData.append('bio', bio);
         newProfileData.append('name', profileName);
         newProfileData.append('image', image);
+        newProfileData.append('lat', position.lat);
+        newProfileData.append('lng', position.lng);
 
         newProfile(newProfileData);
 
@@ -58,21 +67,14 @@ const CreateProfile = () => {
                     <br />
                     <label className='profile-picture-label'>Profile Picture:</label>
                     <br />
-                    <button
-                        className='choose-file-button'
-                        type="file"
-                        name="image"
-                        id="image"
-                        accept="image/*"
-                        onChange={(e) => setImage(e.target.files[0])}>
-                        Choose Photo
-                    </button>
+                    <input type="file" name="image" id="image" accept='image/*' onChange={(e) => setImage(e.target.files[0])} />
+
 
 
                     <br />
                     <br />
                     <br />
-                    <SignupGeo />
+                    <SignupGeo onUpdateLocation={handleUpdateLocation}/>
 
                     <input type="submit" value="Submit" className="primary-button" />
                 </form>
