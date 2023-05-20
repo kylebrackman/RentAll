@@ -137,7 +137,7 @@ code {
   display: flex;
   align-items: flex-start;
   padding-top: 20px;
-  
+
 }
 
 .signup-header {
@@ -226,13 +226,15 @@ code {
   font-size: 20px;
   text-decoration: underline;
 }
+
 .login-container {
   background-color: #fffafa;
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   width: 400px;
-  margin: 0 auto; /* Center horizontally */
+  margin: 0 auto;
+  /* Center horizontally */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -339,7 +341,7 @@ code {
   align-items: flex-start;
   justify-content: flex-start;
   text-decoration: none;
-} 
+}
 
 .rent-button {
   background-color: #2B0087;
@@ -358,4 +360,77 @@ code {
 
 .price-container p {
   margin-left: 120px;
+}
+
+.signup-map {
+  width: 100px;
+  height: 75px;
+}
+
+.signup-map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  width: 100%;
+}
+
+.create-profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+
+}
+
+.signup-card {
+  background-color: #fffafa;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 500px;
+  text-align: left;
+}
+
+.card-body {
+  margin-bottom: 20px;
+}
+
+.primary-button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.profile-picture-label {
+  font-size: 20px;
+}
+
+.choose-file-button {
+  background-color: #2B0087;
+  border: none;
+  height: 30px;
+  width: 100px;
+  margin-top: 5px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.choose-file-button:hover {
+  background-color: #a271eb;
+  cursor: pointer;
+}
+
+.create-profile-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 300px;
 }
