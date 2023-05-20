@@ -72,14 +72,24 @@ const RentItemCard = () => {
         )
     } else {
         return (
-            <div>
-                <h2>{item.name}</h2>
-                <h3>{item.item_type}</h3>
-                <h3>{item.condition}</h3>
-                <img src={item.image} className='item-image'></img>
-                <p>{item.description}</p>
-                <p>${item.price} Per Day</p>
-                <div>EDIT</div>
+            <div className='rent-item-card-container'>
+                <div className='rent-item-card'>
+                    <div >
+                        <div>
+                            <h1 className="item-card-name">{item.name}</h1>
+                            <img src={item.image} className='item-image' alt={item.name}></img>
+                        </div>
+                        <div className='rent-item-card-info-box'>
+                            <div className='price-container'>
+                                <h2>${item.price} Per Day</h2>
+                                <p>{item.condition}</p>
+                            </div>
+                            <p>{item.description}</p>
+                            <button onClick={handleSubmit} className='rent-button'>edit</button>
+                            <button onClick={handleSubmit} className='rent-button'>delete</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }

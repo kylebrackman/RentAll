@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 
-const AllItemCard = ({ itemName, itemId, condition, image, description, itemPrice }) => {
+const AllItemCard = ({ itemName, itemId, image, itemPrice }) => {
     // how can i remove the underline from my link?
     //aL 
     return (

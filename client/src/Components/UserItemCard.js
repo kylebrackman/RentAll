@@ -5,22 +5,19 @@ import { Link } from 'react-router-dom'
 const UserItemCard = ({ id, itemName, itemType, condition, image, description, itemPrice }) => {
 
     return (
-        <Link to={`/item/${id}`}>
-            <div >
-                <div className='card' >
+        <div className='item-card'>
+
+            <Link to={`/item/${id}`}>
+                <div >
                     <div>
-                        <h1>{itemName}</h1>
-                        <h2>{condition}</h2>
-                        <h2></h2>
-                        <img src={image} className='item-image'></img>
-                        <h2></h2>
+                        <h1 className="item-card-name">{itemName}</h1>
+                        <img src={image} className='item-image' alt={itemName}></img>
                         <p>${itemPrice} Per Day</p>
                     </div>
-                    <p>{description}</p>
                     <hr />
                 </div>
-            </div>
-        </Link>
+            </Link>
+        </div>
     )
 }
 

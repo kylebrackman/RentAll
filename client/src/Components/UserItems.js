@@ -14,6 +14,7 @@ const UserItems = () => {
             condition={i.condition}
             image={i.image}
             description={i.description}
+            itemPrice={i.price}
         />
     })
 
