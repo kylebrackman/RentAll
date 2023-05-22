@@ -343,16 +343,6 @@ code {
   text-decoration: none;
 }
 
-.rent-button {
-  background-color: #2B0087;
-  border: none;
-  height: 30px;
-  width: 100px;
-  margin-top: 5px;
-  border-radius: 10px;
-  color: #fff;
-}
-
 .price-container {
   display: flex;
   justify-content: space-between;

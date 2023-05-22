@@ -3,8 +3,8 @@ import { UserContext } from '../Context/user';
 import UserItemCard from './UserItemCard';
 
 const UserItems = () => {
+    
     const { userItems } = useContext(UserContext)
-
     const userItemsList = userItems.map(i => {
         return <UserItemCard
             key={i.id}
@@ -15,6 +15,7 @@ const UserItems = () => {
             image={i.image}
             description={i.description}
             itemPrice={i.price}
+            itemId={i.id}
         />
     })
 

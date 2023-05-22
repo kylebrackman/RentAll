@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 
-const UserItemCard = ({ id, itemName, itemType, condition, image, description, itemPrice }) => {
+const UserItemCard = ({ id, itemName, itemType, condition, image, description, itemPrice, itemId }) => {
 
     return (
         <div className='item-card'>
 
-            <Link to={`/item/${id}`}>
+            <Link to={`/item/${itemId}`}>
                 <div >
                     <div>
                         <h1 className="item-card-name">{itemName}</h1>

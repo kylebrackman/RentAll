@@ -3,18 +3,16 @@ import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import { UserContext } from '../Context/user';
 
-const RentItemCard = () => {
+const RentItemCard =  () => {
 
     const { id } = useParams()
-    const { allItems, user, createRental, errors } = useContext(UserContext)
-    const [startDate, setStartDate] = useState(new Date().toISOString().substring(0, 10)); // set initial value to today's date
-    const [endDate, setEndDate] = useState(new Date().toISOString().substring(0, 10)); // set initial value to today's date
+    const { allItems, user, createRental, errors, deleteItem } = useContext(UserContext)
+    const [startDate, setStartDate] = useState(new Date().toISOString().substring(0, 10));
+    const [endDate, setEndDate] = useState(new Date().toISOString().substring(0, 10));
 
     const navigate = useNavigate()
 
     const item = allItems.find(i => i.id === parseInt(id))
-
-    console.log(item)
 
     const handleStartDateChange = (event) => {
         setStartDate(event.target.value);
@@ -64,7 +62,7 @@ const RentItemCard = () => {
                             <p>End Date</p>
                             <input type="date" value={endDate} onChange={handleEndDateChange} />
                             <hr />
-                            <button onClick={handleSubmit} className='rent-button'>RENT</button>
+                            <button onClick={handleSubmit} className='login-button'>RENT</button>
                         </div>
                     </div>
                 </div>
@@ -85,8 +83,8 @@ const RentItemCard = () => {
                                 <p>{item.condition}</p>
                             </div>
                             <p>{item.description}</p>
-                            <button onClick={handleSubmit} className='rent-button'>edit</button>
-                            <button onClick={handleSubmit} className='rent-button'>delete</button>
+                            <button onClick={handleSubmit} className='login-button'>edit</button>
+                            <button onClick={(item) => deleteItem(id)} className='login-button'>delete</button>
                         </div>
                     </div>
                 </div>

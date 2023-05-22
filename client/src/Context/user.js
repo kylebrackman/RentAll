@@ -125,8 +125,21 @@ function UserProvider({ children }) {
             })
     }
 
+    const handleDeleteItem = (id) => {
+        const allItemsUpdate = allItems.filter(all => all.id !== id)
+        const userItemsUpdate = userItems.filter(user => user.id !== id)
+        setAllItems(allItemsUpdate)
+        setUserItems(userItemsUpdate)
+    }
 
-
+    const deleteItem = (id) => {
+        fetch(`/items/${id}`, {
+            method: "DELETE",
+        })
+            .then(() => handleDeleteItem(id))
+            .then(navigate('/myItems'))
+            .catch(error => console.log(error))
+    }
 
     return (
         <UserContext.Provider
@@ -142,7 +155,8 @@ function UserProvider({ children }) {
                 createRental,
                 currentRentals,
                 errors,
-                newProfile
+                newProfile,
+                deleteItem,
             }}>
             {children}
         </UserContext.Provider>
