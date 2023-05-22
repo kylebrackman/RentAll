@@ -2,8 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import { useJsApiLoader } from "@react-google-maps/api";
 import { UserContext } from "../Context/user";
 
-const SignupGeo = ( { onUpdateLocation } ) => {
-    const { user, errors, updateMyProfile } = useContext(UserContext);
+const Geo = ( { onSetLocation } ) => {
+    const { errors } = useContext(UserContext);
 
     const [position, setPosition] = useState({ lat: 0, lng: 0 });
 
@@ -40,8 +40,8 @@ const SignupGeo = ( { onUpdateLocation } ) => {
                                 lat: position.coords.latitude,
                                 lng: position.coords.longitude,
                             };
-                            onUpdateLocation(pos);
                             setPosition(pos);
+                            onSetLocation(pos);
                             infoWindow.open(map);
                             map.setZoom(13)
                             map.setCenter(pos);
@@ -69,17 +69,9 @@ const SignupGeo = ( { onUpdateLocation } ) => {
         }
     }, [isLoaded]);
 
-    // const handleUpdateLocation = () => {
-    //     updateMyProfile(position);
-    // };
-
-    // create new function to update location later on
-
     return (
         <div className="signup-map-container">
             <div>
-                <h2>Location</h2>
-
                 <small>Only you can see your location. </small>
                 <div id="map" style={{ height: "400px", width: "500px" }}></div>
                 <br />
@@ -97,4 +89,4 @@ const SignupGeo = ( { onUpdateLocation } ) => {
     );
 };
 
-export default SignupGeo;
+export default Geo;

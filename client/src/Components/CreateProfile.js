@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { UserContext } from '../Context/user';
 import { useNavigate } from 'react-router-dom';
 
-import SignupGeo from './SignupGeo';
+import Geo from './Geo';
 
 const CreateProfile = () => {
     const [profileName, setProfileName] = useState('');
@@ -14,7 +14,7 @@ const CreateProfile = () => {
     const navigate = useNavigate();
     const { newProfile } = useContext(UserContext);
 
-    const handleUpdateLocation = (newPosition) => {
+    const handleSetLocation = (newPosition) => {
         setPosition(newPosition);
     };
 
@@ -77,7 +77,8 @@ const CreateProfile = () => {
                     <br />
                     <br />
                     <br />
-                    <SignupGeo onUpdateLocation={handleUpdateLocation}/>
+                    <h2>Location</h2>
+                    <Geo onSetLocation={handleSetLocation}/>
 
                     <input type="submit" value="Submit" className="primary-button" />
                 </form>

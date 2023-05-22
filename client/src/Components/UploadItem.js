@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from '../Context/user';
 import { useNavigate } from 'react-router-dom'
-
+import GeoItem from './GeoItem';
 
 
 const UploadItem = () => {
@@ -11,8 +11,16 @@ const UploadItem = () => {
     const [condition, setCondition] = useState("")
     const [image, setImage] = useState("")
     const [itemPrice, setItemPrice] = useState("")
+    const [itemPosition, setItemPosition] = useState({ lat: 0, lng: 0 })
+
     const { addNewItem, errors, user } = useContext(UserContext)
     const navigate = useNavigate()
+
+    const handleSetItemLocation = (itemPosition) => {
+        setItemPosition(itemPosition);
+        console.log(itemPosition)
+    };
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -26,6 +34,8 @@ const UploadItem = () => {
         newItemData.append("condition", condition)
         newItemData.append("image", image)
         newItemData.append("price", itemPrice)
+        newItemData.append("lat", itemPosition.lat)
+        newItemData.append("lng", itemPosition.lng)
 
         addNewItem(newItemData)
         if (!errors) {
@@ -98,6 +108,9 @@ const UploadItem = () => {
                 <label style={{ marginRight: "64px" }}> Image: </label>
                 <input type="file" name="image" id="image" accept='image/*' onChange={(e) => setImage(e.target.files[0])} />
                 <br />
+                <br />
+                <h2>Item Location</h2>
+                <GeoItem onSetItemLocation={handleSetItemLocation}/>
                 <button onClick={handleSubmit} className='sign-up-button'>Upload Item</button>
                 <>
                     {errors && errors.length > 0 && (
