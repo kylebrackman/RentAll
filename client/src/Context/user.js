@@ -10,6 +10,7 @@ function UserProvider({ children }) {
     const [allItems, setAllItems] = useState([])
     const [userItems, setUserItems] = useState([])
     const [errors, setErrors] = useState([])
+    // eslint-disable-next-line
     const [profile, setProfile] = useState([])
     const [currentRentals, setCurrentRentals] = useState([])
     const navigate = useNavigate()
@@ -125,11 +126,37 @@ function UserProvider({ children }) {
             })
     }
 
+    const editItem = (item) => {
+        fetch(`/items/${item.id}`, {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(item),
+        })
+            .then(res => res.json())
+            .then(data => handleEditItem(data))
+            .catch(error => console.log(error))
+    }
+
+    const handleEditItem = (editedItem) => {
+        const updatedItemList = allItems.map(item => {
+            if (item.id === editedItem.id) {    
+                return editedItem
+            } else {
+                return item
+            }
+        })
+        setAllItems(updatedItemList)
+        fetchUserItems()
+    }
+
+
+
     const handleDeleteItem = (id) => {
         const allItemsUpdate = allItems.filter(all => all.id !== id)
         const userItemsUpdate = userItems.filter(user => user.id !== id)
         setAllItems(allItemsUpdate)
         setUserItems(userItemsUpdate)
+        fetchUserItems()
     }
 
     const deleteItem = (id) => {
@@ -157,6 +184,7 @@ function UserProvider({ children }) {
                 errors,
                 newProfile,
                 deleteItem,
+                editItem,
             }}>
             {children}
         </UserContext.Provider>

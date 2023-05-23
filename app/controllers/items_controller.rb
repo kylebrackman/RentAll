@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
     skip_before_action :authorize, only: :index
-
+    before_action :set_item, only: [:show, :update, :destroy]
 
     def index
         if params[:all_items]
@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
     end
 
     def show 
-        set_item
+        render json: @item
     end
 
     def create
@@ -23,6 +23,15 @@ class ItemsController < ApplicationController
         item = @current_user.owned_items.create!(owned_item_params)
         item.image.attach(params[:image])
         render json: item, status: :created
+    end
+
+    def update
+       if @item
+            @item.update(owned_item_params)
+            render json: @item
+       else
+            render json: { error: "Item not found" }, status: :not_found
+       end   
     end
 
     def destroy
