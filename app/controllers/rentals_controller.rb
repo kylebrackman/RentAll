@@ -4,7 +4,7 @@ class RentalsController < ApplicationController
         rental = @current_user.rentals.create!(rental_params)
         render json: rental, status: :created
     end
-
+    
     def index
         rentals = Rental.current_rentals(@current_user)
         render json: rentals

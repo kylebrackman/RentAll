@@ -426,3 +426,8 @@ code {
   max-width: 500px;
   text-align: left;
 }
+
+/* write me a css class called .edit-item-form that aligns my tags to the left */
+.edit-item-form {
+  text-align: left;
+}

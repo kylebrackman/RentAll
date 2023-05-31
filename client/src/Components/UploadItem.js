@@ -18,7 +18,6 @@ const UploadItem = () => {
 
     const handleSetItemLocation = (itemPosition) => {
         setItemPosition(itemPosition);
-        console.log(itemPosition)
     };
 
 

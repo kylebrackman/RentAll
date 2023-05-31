@@ -25,7 +25,7 @@ const Login = () => {
             .then((user) => {
                 if (!user.error) {
                     login(user);
-                    navigate('/');
+                    navigate('/allItems');
                 } else {
                     setUsername('');
                     setPassword('');

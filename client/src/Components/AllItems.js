@@ -19,6 +19,7 @@ const AllItems = () => {
             ownerId={i.owner_id}
         />
     })
+
     if (loggedIn) {
         return (
             <div>

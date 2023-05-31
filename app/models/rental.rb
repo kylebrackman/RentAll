@@ -9,9 +9,14 @@ class Rental < ApplicationRecord
     
     def self.current_rentals(user)
         query = where(renter_id: user.id).where("start_date <= ? AND end_date >= ?", Date.today, Date.today)
-        puts query.to_sql
-        query
     end
+
+    # why isn't my current_rentals method returning anything?
+    # def self.current_rentals(user)
+    #     where(renter_id: user.id).where("start_date <= ? AND end_date >= ?", Date.today, Date.today)
+    # end
+
+    private
 
     def no_overlapping_rentals
         existing_rentals = Rental.where(item_id: item_id).where("start_date <= ? AND end_date >= ?", start_date, end_date)
