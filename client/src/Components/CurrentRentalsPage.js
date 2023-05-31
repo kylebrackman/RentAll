@@ -3,7 +3,7 @@ import { UserContext } from '../Context/user';
 import UserItemCard from './UserItemCard';
 
 const CurrentRentalsPage = () => {
-    const { currentRentals } = useContext(UserContext)
+    const { currentRentals, user, loggedIn } = useContext(UserContext)
     console.log(currentRentals)
 
     const currentRentalsList = currentRentals.map(r => {
@@ -18,18 +18,29 @@ const CurrentRentalsPage = () => {
         />
     })
 
-    return (
-        <div>
-            <br />
+    if (loggedIn && user && user.profile) {
+        return (
             <div>
-                <h1>Current Rentals</h1>
+                <br />
+                <div>
+                    <h1>Current Rentals</h1>
+                </div>
+                <div className="item-card-container">
+                    {currentRentalsList}
+                </div>
+    
             </div>
-            <div className="item-card-container">
-                {currentRentalsList}
+        )
+    } else {
+        return (
+            <div>
+                <h1>
+                    Please Log In  
+                </h1>            
             </div>
+        )
+    }
 
-        </div>
-    )
 
 }
 

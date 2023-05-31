@@ -3,7 +3,7 @@ import { UserContext } from '../Context/user';
 import AllItemCard from './AllItemCard';
 
 const AllItems = () => {
-    const { allItems, loggedIn } = useContext(UserContext)
+    const { allItems, loggedIn, user } = useContext(UserContext)
 
     const allItemsList = allItems.map(i => {
         return <AllItemCard
@@ -20,7 +20,7 @@ const AllItems = () => {
         />
     })
 
-    if (loggedIn) {
+    if (loggedIn && user && user.profile) {
         return (
             <div>
                 <br />

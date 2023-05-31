@@ -25,7 +25,7 @@ const GeoItem = ( { onSetItemLocation } ) => {
 
             const locationButton = document.createElement("button");
 
-            locationButton.textContent = "Find Me";
+            locationButton.textContent = "Find Item";
             locationButton.classList.add("custom-map-control-button");
             map.controls[window.google.maps.ControlPosition.TOP_CENTER].push(
                 locationButton
@@ -69,25 +69,12 @@ const GeoItem = ( { onSetItemLocation } ) => {
         }
     }, [isLoaded]);
 
-    // const handleUpdateLocation = () => {
-    //     updateMyProfile(position);
-    // };
-
-    // create new function to update location later on
-
     return (
         <div className="signup-map-container">
             <div>
                 <small>Only you can see your location. </small>
                 <div id="map" style={{ height: "400px", width: "500px" }}></div>
                 <br />
-
-                <br />
-                {errors.map((error, index) => (
-                    <small key={index} className="errors">
-                        {error}
-                    </small>
-                ))}
                 <br />
                 <br />
             </div>

@@ -71,9 +71,6 @@ const CreateProfile = () => {
                     <label className='profile-picture-label'>Profile Picture:</label>
                     <br />
                     <input type="file" name="image" id="image" accept='image/*' onChange={(e) => setImage(e.target.files[0])} />
-
-
-
                     <br />
                     <br />
                     <br />

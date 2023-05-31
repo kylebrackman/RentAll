@@ -84,7 +84,8 @@ function UserProvider({ children }) {
             .then(res => res.json())
             .then(data => {
                 if (!data.errors) {
-                    setAllItems([...allItems, data]
+                    setAllItems([...allItems, data],
+                    navigate('/allItems')
                     )
                 } else {
                     const errorLis = data.errors.map(e => <li>{e}</li>)

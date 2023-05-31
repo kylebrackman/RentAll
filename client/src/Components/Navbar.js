@@ -23,7 +23,7 @@ const NavBar = () => {
         setDropdownOpen(!dropdownOpen);
     }
 
-    if (loggedIn && user) {
+    if (loggedIn && user && user.profile) {
         return (
             <nav className="navbar">
                 <div className="navbar_left">
@@ -57,8 +57,39 @@ const NavBar = () => {
                     </div>
                 </div>
             </nav>
-        );
-    } else {
+        )
+    } else if (loggedIn && user && !user.profile) {
+        return (
+            <nav className="navbar">
+                <div className="navbar_left">
+                    <NavLink to="/" className="navbar_logo">
+                        RentAll
+                    </NavLink>
+                </div>
+                <div className="navbar_center">
+                    <div className={`navbar_dropdown ${dropdownOpen ? "open" : ""}`}>
+                        <button
+                            className="navbar_button"
+                            onClick={toggleDropdown}
+                        >
+                            Hello {user.username} ▼
+                        </button>
+                        <div className="navbar_dropdown-content">
+                            <NavLink to="/createProfile">Create Profile</NavLink>
+                            <hr />
+                            <button
+                                onClick={logoutUser}
+                                className="navbar_button"
+                            >
+                                Logout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        )
+    }
+    else {
         return (
             <nav className="navbar">
                 <div className="navbar_left">
