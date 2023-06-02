@@ -23,7 +23,7 @@ const UserItems = () => {
         return (
             <div>
                 <br />
-                <div>
+                <div style={{ textAlign: 'left', paddingLeft: 25 }} > 
                     <h1>Your Items</h1>
                 </div>
                 <div className="item-card-container">

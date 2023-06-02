@@ -13,6 +13,8 @@ function UserProvider({ children }) {
     // eslint-disable-next-line
     const [profile, setProfile] = useState([])
     const [currentRentals, setCurrentRentals] = useState([])
+    const [upcomingRentals, setUpcomingRentals] = useState([])
+    const [pastRentals, setPastRentals] = useState([])
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -27,7 +29,9 @@ function UserProvider({ children }) {
                     fetchAllItems()
                     fetchUserItems()
                     fetchCurrentRentals()
-                }
+                    fetchUpcomingRentals()
+                    fetchPastRentals()
+                }  
             })
 
     }, [])
@@ -67,6 +71,21 @@ function UserProvider({ children }) {
             ))
     }
 
+    const fetchUpcomingRentals = () => {
+        fetch('/upcomingrentals')
+            .then(res => res.json())
+            .then(data => (
+                setUpcomingRentals(data)
+            ))
+    }
+
+    const fetchPastRentals = () => {
+        fetch('/pastrentals')
+            .then(res => res.json())
+            .then(data => (
+                setPastRentals(data)
+            ))
+    }
 
     const fetchUserItems = () => {
         fetch('/items')
@@ -186,6 +205,8 @@ function UserProvider({ children }) {
                 newProfile,
                 deleteItem,
                 editItem,
+                upcomingRentals,
+                pastRentals
             }}>
             {children}
         </UserContext.Provider>

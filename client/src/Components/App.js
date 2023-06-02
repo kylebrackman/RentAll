@@ -2,7 +2,6 @@ import '../App.css';
 import { Route, Routes } from 'react-router-dom'
 import { UserProvider } from '../Context/user';
 import Navbar from './Navbar'
-import Home from './Home';
 import Login from './Login';
 import Signup from './Signup';
 import UploadItem from './UploadItem';
@@ -12,6 +11,8 @@ import RentEditItemCard from './Rent-Edit-ItemCard';
 import CurrentRentalsPage from './CurrentRentalsPage';
 import Profile from './Profile';
 import CreateProfile from './CreateProfile';
+import PastRentalsPage from './PastRentals';
+import UpcomingRentalsPage from './UpcomingRentals';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
       <UserProvider>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path='/' element={<AllItems />} />
           <Route exact path="/signup" element={<Signup />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/uploaditem" element={<UploadItem />} />
@@ -27,6 +28,8 @@ function App() {
           <Route exact path="/myItems" element={<UserItems />} />
           <Route exact path = "/item/:id" element={<RentEditItemCard />} />
           <Route exact path = "/myRentals" element={<CurrentRentalsPage />} />
+          <Route exact path = "/pastRentals" element={<PastRentalsPage />} />
+          <Route exact path = "/upcomingRentals" element={<UpcomingRentalsPage />} />
           <Route exact path = "/profile" element={<Profile />} />
           <Route exact path = "/createProfile" element={<CreateProfile />} />
         </Routes>

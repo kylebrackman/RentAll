@@ -24,8 +24,8 @@ const AllItems = () => {
         return (
             <div>
                 <br />
-                <div>
-                    <h1>All Items!</h1>
+                <div style={{ textAlign: 'left', paddingLeft: 25 }}>
+                    <h1>Items For Rent</h1>
                 </div>
                 <div className="item-card-container">
                     {allItemsList}
@@ -36,7 +36,7 @@ const AllItems = () => {
         return (
             <div>
                 <h1>
-                    Please Log In  
+                    Please Log In or Sign Up
                 </h1>            
             </div>
         )

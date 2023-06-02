@@ -2,11 +2,10 @@ import React, { useContext } from 'react';
 import { UserContext } from '../Context/user';
 import UserItemCard from './UserItemCard';
 
-const CurrentRentalsPage = () => {
-    const { currentRentals, user, loggedIn } = useContext(UserContext)
-    console.log(currentRentals)
-
-    const currentRentalsList = currentRentals.map(r => {
+const PastRentalsPage = () => {
+    const { pastRentals, user, loggedIn } = useContext(UserContext)
+    console.log("comp", pastRentals)
+    const pastRentalsList = pastRentals.map(r => {
         return <UserItemCard
             key={r.id}
             itemName={r.item.name}
@@ -23,10 +22,10 @@ const CurrentRentalsPage = () => {
             <div>
                 <br />
                 <div style={{ textAlign: 'left', paddingLeft: 25 }}>
-                    <h1>Current Rentals</h1>
+                    <h1>Past Rentals</h1>
                 </div>
                 <div className="item-card-container">
-                    { currentRentals ? "You have no current rentals" : {currentRentalsList}}
+                    { pastRentals ? "You have no past rentals" : {pastRentalsList}}
                 </div>
             </div>
         )
@@ -43,4 +42,4 @@ const CurrentRentalsPage = () => {
 
 }
 
-export default CurrentRentalsPage
+export default PastRentalsPage

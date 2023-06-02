@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   get '/me', to: 'users#show'
   
+  get '/upcomingrentals', to: 'rentals#upcoming_rentals'
+  get '/pastrentals', to: 'rentals#past_rentals'
+
   post '/createprofile', to: 'profiles#create'
   
   resources :rentals
