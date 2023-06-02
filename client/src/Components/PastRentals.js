@@ -25,7 +25,7 @@ const PastRentalsPage = () => {
                     <h1>Past Rentals</h1>
                 </div>
                 <div className="item-card-container">
-                    { pastRentals ? "You have no past rentals" : {pastRentalsList}}
+                    { pastRentals ? pastRentalsList : "You have no past rentals"}
                 </div>
             </div>
         )

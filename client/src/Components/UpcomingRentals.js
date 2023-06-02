@@ -25,7 +25,7 @@ const UpcomingRentalsPage = () => {
                     <h1>Upcoming Rentals</h1>
                 </div>
                 <div className="item-card-container">
-                    { upcomingRentals ? "You have no upcoming rentals" : {upcomingRentalsList}}
+                    { upcomingRentals ? upcomingRentalsList : "You have no upcoming rentals" }
                 </div>
             </div>
         )

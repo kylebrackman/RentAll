@@ -26,8 +26,9 @@ const CurrentRentalsPage = () => {
                     <h1>Current Rentals</h1>
                 </div>
                 <div className="item-card-container">
-                    { currentRentals ? "You have no current rentals" : {currentRentalsList}}
+                { currentRentals ? currentRentalsList : "You have no current rentals" }
                 </div>
+    
             </div>
         )
     } else {

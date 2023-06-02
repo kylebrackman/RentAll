@@ -12,12 +12,20 @@ class RentalsController < ApplicationController
 
     def upcoming_rentals
         rentals = Rental.upcoming_rentals(@current_user)
-        render json: rentals
+        if rentals.empty?
+            render json: { errors: "No upcoming rentals found" }, status: :not_found
+        else
+            render json: rentals
+        end
     end
 
     def past_rentals
         rentals = Rental.past_rentals(@current_user)
-        render json: rentals
+        if rentals.empty?
+            render json: { errors: "No past rentals found" }, status: :not_found
+        else
+            render json: rentals
+        end
     end
 
     private
