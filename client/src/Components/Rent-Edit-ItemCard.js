@@ -86,6 +86,9 @@ const RentEditItemCard = () => {
                 </div>
               )}
             </div>
+            {errors && errors.length > 0 && (
+              <ul className="error-list" style={{color: "red"}}>{errors}</ul>
+            )}
           </div>
         </div>
       </div>
