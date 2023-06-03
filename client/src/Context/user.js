@@ -32,7 +32,7 @@ function UserProvider({ children }) {
                     fetchAllItems()
 
                     fetchUserItems()
-
+                    
                     fetchCurrentRentals()
                     fetchUpcomingRentals()
                     fetchPastRentals()
@@ -46,6 +46,7 @@ function UserProvider({ children }) {
         setLoggedIn(true)
         fetchUserItems()
         fetchCurrentRentals()
+        fetchAllItems()
     }
 
     const logout = () => {
