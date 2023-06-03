@@ -3,6 +3,8 @@ class Item < ApplicationRecord
     has_one_attached :image, dependent: :destroy
 
     validates :image, attached: true, content_type: ['image/png', 'image/jpg', 'image/jpeg'], size: { less_than: 5.megabytes , message: 'is not given between size' }
+    # add in validation for type, condition, price, image
+
 
     has_many :rentals
     has_many :renters, through: :rentals, source: :renter_id

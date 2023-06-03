@@ -5,6 +5,7 @@ import UserItemCard from './UserItemCard';
 const UpcomingRentalsPage = () => {
     const { upcomingRentals, user, loggedIn } = useContext(UserContext)
 
+
     const upcomingRentalsList = upcomingRentals.map(r => {
         return <UserItemCard
             key={r.id}
@@ -25,7 +26,7 @@ const UpcomingRentalsPage = () => {
                     <h1>Upcoming Rentals</h1>
                 </div>
                 <div className="item-card-container">
-                    { upcomingRentals ? upcomingRentalsList : "You have no upcoming rentals" }
+                    { upcomingRentals.length > 0 ? upcomingRentalsList : "You have no upcoming rentals" }
                 </div>
             </div>
         )

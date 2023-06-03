@@ -5,7 +5,9 @@ const UserContext = React.createContext();
 function UserProvider({ children }) {
 
 
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState({
+
+    })
     const [loggedIn, setLoggedIn] = useState(false)
     const [allItems, setAllItems] = useState([])
     const [userItems, setUserItems] = useState([])
@@ -15,6 +17,7 @@ function UserProvider({ children }) {
     const [currentRentals, setCurrentRentals] = useState([])
     const [upcomingRentals, setUpcomingRentals] = useState([])
     const [pastRentals, setPastRentals] = useState([])
+
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -27,7 +30,9 @@ function UserProvider({ children }) {
                 } else {
                     setLoggedIn(true)
                     fetchAllItems()
+
                     fetchUserItems()
+
                     fetchCurrentRentals()
                     fetchUpcomingRentals()
                     fetchPastRentals()
@@ -139,6 +144,7 @@ function UserProvider({ children }) {
             .then(data => {
                 if (!data.errors) {
                     setProfile(data)
+                    setUser(user => ({ ...user, profile: data }))
                 } else {
                     const errorLis = data.errors.map(e => <li>{e}</li>)
                     setErrors(errorLis)
@@ -206,8 +212,8 @@ function UserProvider({ children }) {
                 deleteItem,
                 editItem,
                 upcomingRentals,
-                pastRentals
-            }}>
+                pastRentals,
+}}>
             {children}
         </UserContext.Provider>
     );

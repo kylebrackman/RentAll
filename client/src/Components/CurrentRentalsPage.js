@@ -26,7 +26,7 @@ const CurrentRentalsPage = () => {
                     <h1>Current Rentals</h1>
                 </div>
                 <div className="item-card-container">
-                { currentRentals ? currentRentalsList : "You have no current rentals" }
+                { currentRentals.length > 0 ? currentRentalsList : "You have no current rentals" }
                 </div>
     
             </div>

@@ -33,7 +33,7 @@ const CreateProfile = () => {
         newProfile(newProfileData);
 
         if (!error) {
-            navigate('/home');
+            navigate('/');
             setBio('');
             setProfileName('');
         } else {
