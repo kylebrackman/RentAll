@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from '../Context/user';
-import { useNavigate } from 'react-router-dom'
 import GeoItem from './GeoItem';
 
 
@@ -14,7 +13,6 @@ const UploadItem = () => {
     const [itemPosition, setItemPosition] = useState({ lat: 0, lng: 0 })
 
     const { addNewItem, errors, user, loggedIn } = useContext(UserContext)
-    const navigate = useNavigate()
 
     const handleSetItemLocation = (itemPosition) => {
         setItemPosition(itemPosition);

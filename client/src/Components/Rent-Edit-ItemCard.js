@@ -62,6 +62,7 @@ const RentEditItemCard = () => {
                 <h2>${item.price} Per Day</h2>
                 <p>{item.condition}</p>
               </div>
+              <p>{item.item_type}</p>
               <p>{item.description}</p>
               {item.owner_id !== user.id ? (
                 <>

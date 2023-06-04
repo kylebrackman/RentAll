@@ -12,8 +12,6 @@ function UserProvider({ children }) {
     const [allItems, setAllItems] = useState([])
     const [userItems, setUserItems] = useState([])
     const [errors, setErrors] = useState([])
-    // eslint-disable-next-line
-    const [profile, setProfile] = useState([])
     const [currentRentals, setCurrentRentals] = useState([])
     const [upcomingRentals, setUpcomingRentals] = useState([])
     const [pastRentals, setPastRentals] = useState([])
@@ -32,7 +30,7 @@ function UserProvider({ children }) {
                     fetchAllItems()
 
                     fetchUserItems()
-                    
+
                     fetchCurrentRentals()
                     fetchUpcomingRentals()
                     fetchPastRentals()
@@ -144,7 +142,6 @@ function UserProvider({ children }) {
             .then(res => res.json())
             .then(data => {
                 if (!data.errors) {
-                    setProfile(data)
                     setUser(user => ({ ...user, profile: data }))
                 } else {
                     const errorLis = data.errors.map(e => <li>{e}</li>)
