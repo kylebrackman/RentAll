@@ -15,7 +15,6 @@ const NavBar = () => {
             headers: { "Content-Type": "application/json" },
         }).then(() => {
             logout();
-            navigate("/home");
         });
     }
 

@@ -7,7 +7,7 @@ const UserItemCard = ({ id, itemName, itemType, condition, image, description, i
     return (
         <div className='item-card'>
 
-            <Link to={`/item/${itemId}`}>
+            <Link to={`/item/${id}`}>
                 <div >
                     <div>
                         <h1 className="item-card-name">{itemName}</h1>

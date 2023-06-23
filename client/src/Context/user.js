@@ -1,154 +1,138 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
 const UserContext = React.createContext();
 
 function UserProvider({ children }) {
+    const [user, setUser] = useState({});
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [allItems, setAllItems] = useState([]);
+    const [userItems, setUserItems] = useState([]);
+    const [errors, setErrors] = useState([]);
+    const [currentRentals, setCurrentRentals] = useState([]);
+    const [upcomingRentals, setUpcomingRentals] = useState([]);
+    const [pastRentals, setPastRentals] = useState([]);
 
-
-    const [user, setUser] = useState({
-
-    })
-    const [loggedIn, setLoggedIn] = useState(false)
-    const [allItems, setAllItems] = useState([])
-    const [userItems, setUserItems] = useState([])
-    const [errors, setErrors] = useState([])
-    const [currentRentals, setCurrentRentals] = useState([])
-    const [upcomingRentals, setUpcomingRentals] = useState([])
-    const [pastRentals, setPastRentals] = useState([])
-
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('/me')
-            .then(res => res.json())
-            .then(data => {
-                setUser(data)
+        fetch("/me")
+            .then((res) => res.json())
+            .then((data) => {
+                setUser(data);
                 if (data.errors) {
-                    setLoggedIn(false)
+                    setLoggedIn(false);
                 } else {
-                    setLoggedIn(true)
-                    fetchAllItems()
-
-                    fetchUserItems()
-
-                    fetchCurrentRentals()
-                    fetchUpcomingRentals()
-                    fetchPastRentals()
-                }  
-            })
-
-    }, [])
+                    setLoggedIn(true);
+                    fetchAllItems();
+                    fetchUserItems();
+                    fetchCurrentRentals();
+                    fetchUpcomingRentals();
+                    fetchPastRentals();
+                }
+            });
+    }, []);
 
     const login = (user) => {
-        setUser(user)
-        setLoggedIn(true)
-        fetchUserItems()
-        fetchCurrentRentals()
-        fetchAllItems()
-    }
+        setUser(user);
+        setLoggedIn(true);
+        fetchUserItems();
+        fetchCurrentRentals();
+        fetchAllItems();
+    };
 
     const logout = () => {
-        setLoggedIn(false)
-        setUserItems([])
-        setCurrentRentals([])
-        navigate('/login')
-    }
+        setLoggedIn(false);
+        setUserItems([]);
+        setCurrentRentals([]);
+        navigate("/login");
+    };
 
     const signup = (user) => {
-        setUser(user)
-        setLoggedIn(true)
-    }
+        setUser(user);
+        setLoggedIn(true);
+    };
 
     const fetchAllItems = () => {
-        fetch('/items?all_items=true')
-            .then(res => res.json())
-            .then(data => (
-                setAllItems(data)
-            ))
-    }
+        fetch("/items?all_items=true")
+            .then((res) => res.json())
+            .then((data) => setAllItems(data));
+    };
 
     const fetchCurrentRentals = () => {
-        fetch('/rentals')
-            .then(res => res.json())
-            .then(data => (
-                setCurrentRentals(data)
-            ))
-    }
+        fetch("/rentals")
+            .then((res) => res.json())
+            .then((data) => setCurrentRentals(data));
+    };
 
     const fetchUpcomingRentals = () => {
-        fetch('/upcomingrentals')
-            .then(res => res.json())
-            .then(data => (
-                setUpcomingRentals(data)
-            ))
-    }
+        fetch("/upcomingrentals")
+            .then((res) => res.json())
+            .then((data) => setUpcomingRentals(data));
+    };
 
     const fetchPastRentals = () => {
-        fetch('/pastrentals')
-            .then(res => res.json())
-            .then(data => (
-                setPastRentals(data)
-            ))
-    }
+        fetch("/pastrentals")
+            .then((res) => res.json())
+            .then((data) => setPastRentals(data));
+    };
 
     const fetchUserItems = () => {
-        fetch('/items')
-            .then(res => res.json())
-            .then(data => (
-                setUserItems(data)
-            ))
-    }
+        fetch("/items")
+            .then((res) => res.json())
+            .then((data) => setUserItems(data));
+    };
 
     const addNewItem = (newItemData) => {
-        fetch('/items', {
-            method: 'POST',
-            body: newItemData
+        fetch("/items", {
+            method: "POST",
+            body: newItemData,
         })
-            .then(res => res.json())
-            .then(data => {
+            .then((res) => res.json())
+            .then((data) => {
                 if (!data.errors) {
-                    setAllItems([...allItems, data],
-                    navigate('/allItems')
-                    )
+                    setAllItems([...allItems, data]);
+                    navigate("/allItems");
                 } else {
-                    const errorLis = data.errors.map(e => <li>{e}</li>)
-                    setErrors(errorLis)
+                    const errorLis = data.errors.map((e) => <li>{e}</li>);
+                    setErrors(errorLis);
                 }
-            })
-    }
+            });
+    };
 
     const createRental = (rentalData) => {
-        fetch('/rentals', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(rentalData)
+        fetch("/rentals", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(rentalData),
         })
-            .then(res => res.json())
-            .then(data => {
+            .then((res) => res.json())
+            .then((data) => {
                 if (!data.errors) {
-                    setCurrentRentals([...currentRentals, data])
+                    setUpcomingRentals([...upcomingRentals, data]);
+                    navigate("/");
                 } else {
-                    const errorLis = data.errors.map(e => <li>{e}</li>)
-                    setErrors(errorLis)
+                    const errorLis = data.errors.map((e) => <li>{e}</li>);
+                    setErrors(errorLis);
                 }
-            })
-    }
+            });
+    };
 
     const newProfile = (newProfileData) => {
-        fetch('/createprofile', {
-            method: 'POST',
-            body: newProfileData
+        fetch("/createprofile", {
+            method: "POST",
+            body: newProfileData,
         })
-            .then(res => res.json())
-            .then(data => {
+            .then((res) => res.json())
+            .then((data) => {
                 if (!data.errors) {
-                    setUser(user => ({ ...user, profile: data }))
+                    setUser((user) => ({ ...user, profile: data }));
                 } else {
-                    const errorLis = data.errors.map(e => <li>{e}</li>)
-                    setErrors(errorLis)
+                    const errorLis = data.errors.map((e) => <li>{e}</li>);
+                    setErrors(errorLis);
                 }
-            })
-    }
+            });
+    };
 
     const editItem = (item) => {
         fetch(`/items/${item.id}`, {
@@ -156,41 +140,44 @@ function UserProvider({ children }) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(item),
         })
-            .then(res => res.json())
-            .then(data => handleEditItem(data))
-            .catch(error => console.log(error))
-    }
+            .then((res) => res.json())
+            .then((data) => handleEditItem(data))
+            .catch((error) => console.log(error));
+    };
 
     const handleEditItem = (editedItem) => {
-        const updatedItemList = allItems.map(item => {
-            if (item.id === editedItem.id) {    
-                return editedItem
+        const updatedItemList = allItems.map((item) => {
+            if (item.id === editedItem.id) {
+                return editedItem;
             } else {
-                return item
+                return item;
             }
-        })
-        setAllItems(updatedItemList)
-        fetchUserItems()
-    }
-
-
+        });
+        setAllItems(updatedItemList);
+        fetchUserItems();
+    };
 
     const handleDeleteItem = (id) => {
-        const allItemsUpdate = allItems.filter(all => all.id !== id)
-        const userItemsUpdate = userItems.filter(user => user.id !== id)
-        setAllItems(allItemsUpdate)
-        setUserItems(userItemsUpdate)
-        fetchUserItems()
-    }
+        const allItemsUpdate = allItems.filter((all) => all.id !== id);
+        const userItemsUpdate = userItems.filter((user) => user.id !== id);
+        setAllItems(allItemsUpdate);
+        setUserItems(userItemsUpdate);
+        fetchUserItems();
+    };
 
     const deleteItem = (id) => {
         fetch(`/items/${id}`, {
             method: "DELETE",
         })
             .then(() => handleDeleteItem(id))
-            .then(navigate('/myItems'))
-            .catch(error => console.log(error))
-    }
+            .then(navigate("/myItems"))
+            .catch((error) => console.log(error));
+    };
+
+    const resetErrors = () => {
+        setErrors([]);
+    };
+
 
     return (
         <UserContext.Provider
@@ -211,10 +198,13 @@ function UserProvider({ children }) {
                 editItem,
                 upcomingRentals,
                 pastRentals,
-}}>
+                fetchAllItems,
+                resetErrors
+            }}
+        >
             {children}
         </UserContext.Provider>
     );
 }
 
-export { UserContext, UserProvider } 
+export { UserContext, UserProvider };

@@ -1,12 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { UserContext } from '../Context/user';
 import AllItemCard from './AllItemCard';
 
 const AllItems = () => {
-    const { allItems, loggedIn, user } = useContext(UserContext)
+    const { allItems, loggedIn, user, fetchAllItems } = useContext(UserContext);
 
-    const allItemsList = allItems.map(i => {
-        return <AllItemCard
+    useEffect(() => {
+        fetchAllItems();
+    }, [fetchAllItems]);
+
+    const allItemsList = allItems.map((i) => (
+        <AllItemCard
             key={i.id}
             id={i.owner_id}
             itemId={i.id}
@@ -18,7 +22,7 @@ const AllItems = () => {
             itemPrice={i.price}
             ownerId={i.owner_id}
         />
-    })
+    ));
 
     if (loggedIn && user && user.profile) {
         return (
@@ -27,22 +31,16 @@ const AllItems = () => {
                 <div style={{ textAlign: 'left', paddingLeft: 25 }}>
                     <h1>Items For Rent</h1>
                 </div>
-                <div className="item-card-container">
-                    {allItemsList}
-                </div>
+                <div className="item-card-container">{allItemsList}</div>
             </div>
-        )
+        );
     } else {
         return (
             <div>
-                <h1>
-                    Please Log In or Sign Up
-                </h1>            
+                <h1>Please Log In or Sign Up</h1>
             </div>
-        )
+        );
     }
+};
 
-
-}
-
-export default AllItems
+export default AllItems;

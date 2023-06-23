@@ -15,6 +15,7 @@ const CurrentRentalsPage = () => {
             image={r.item.image}
             description={r.item.description}
             id={r.item.id}
+            itemPrice={r.item.price}
         />
     })
 

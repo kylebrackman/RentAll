@@ -1,17 +1,14 @@
-import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '../Context/user';
 import EditItemForm from './EditItemForm';
 
 const RentEditItemCard = () => {
   const { id } = useParams();
-  const { allItems, user, createRental, errors, deleteItem, editItem } =
-    useContext(UserContext);
+  const { allItems, user, createRental, errors, deleteItem, editItem, resetErrors } = useContext(UserContext);
   const [startDate, setStartDate] = useState(new Date().toISOString().substring(0, 10));
   const [endDate, setEndDate] = useState(new Date().toISOString().substring(0, 10));
   const [isEditing, setIsEditing] = useState(false);
-  const navigate = useNavigate();
 
   const item = allItems.find((i) => i.id === parseInt(id));
 
@@ -32,9 +29,6 @@ const RentEditItemCard = () => {
       item_id: item.id,
       owner_id: item.owner_id,
     });
-    if (!errors) {
-      navigate('/myRentals');
-    }
   };
 
   const handleEditItem = (editedItem) => {
@@ -45,6 +39,11 @@ const RentEditItemCard = () => {
   const handleEditButtonClick = () => {
     setIsEditing(true);
   };
+
+  useEffect(() => {
+    resetErrors();
+  }, []);
+
 
   if (!item) {
     return <div>Item not found</div>;
@@ -88,7 +87,7 @@ const RentEditItemCard = () => {
               )}
             </div>
             {errors && errors.length > 0 && (
-              <ul className="error-list" style={{color: "red"}}>{errors}</ul>
+              <ul className="error-list" style={{ color: "red" }}>{errors}</ul>
             )}
           </div>
         </div>
