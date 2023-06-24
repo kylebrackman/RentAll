@@ -75,7 +75,7 @@ const CreateProfile = () => {
                     <br />
                     <br />
                     <h2>Location</h2>
-                    <Geo onSetLocation={handleSetLocation}/>
+                    <Geo onSetLocation={handleSetLocation} />
 
                     <input type="submit" value="Submit" className="primary-button" />
                 </form>

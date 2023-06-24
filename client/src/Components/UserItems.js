@@ -3,7 +3,7 @@ import { UserContext } from '../Context/user';
 import UserItemCard from './UserItemCard';
 
 const UserItems = () => {
-    
+
     const { userItems, user, loggedIn } = useContext(UserContext)
     const userItemsList = userItems.map(i => {
         return <UserItemCard
@@ -23,13 +23,13 @@ const UserItems = () => {
         return (
             <div>
                 <br />
-                <div style={{ textAlign: 'left', paddingLeft: 25 }} > 
+                <div style={{ textAlign: 'left', paddingLeft: 25 }} >
                     <h1>Your Items</h1>
                 </div>
                 <div className="item-card-container">
                     {userItemsList}
                 </div>
-    
+
             </div>
         )
     } else {
@@ -37,7 +37,7 @@ const UserItems = () => {
             <div>
                 <h1>
                     Please Log In or Sign Up
-                </h1>            
+                </h1>
             </div>
         )
     }

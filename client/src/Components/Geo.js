@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useJsApiLoader } from "@react-google-maps/api";
 import { UserContext } from "../Context/user";
 
-const Geo = ( { onSetLocation } ) => {
+const Geo = ({ onSetLocation }) => {
     const { errors } = useContext(UserContext);
 
     const [position, setPosition] = useState({ lat: 0, lng: 0 });

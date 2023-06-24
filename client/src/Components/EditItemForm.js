@@ -23,12 +23,10 @@ const EditItemForm = ({ item, handleEditItem }) => {
 
     const { user, loggedIn } = useContext(UserContext)
 
-    
-    if (loggedIn && user && user.profile)
-    {
+    if (loggedIn && user && user.profile) {
         return (
             <div >
-                <form onSubmit={handleSubmit} style={{textAlign:"left"}}>
+                <form onSubmit={handleSubmit} style={{ textAlign: "left" }}>
                     <label >
                         Item Name
                         <input

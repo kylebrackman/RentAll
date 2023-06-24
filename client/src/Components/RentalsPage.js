@@ -15,27 +15,23 @@ const RentalsPage = () => {
                 <br />
                 <div style={{ textAlign: 'left', paddingLeft: 25 }}>
                 </div>
-                <div className="item-card-container">
                 <CurrentRentals />
                 <br />
                 <UpcomingRentals />
                 <br />
                 <PastRentals />
-                </div>
-    
+
             </div>
         )
     } else {
         return (
             <div>
                 <h1>
-                    Please Log In  
-                </h1>            
+                    Please Log In
+                </h1>
             </div>
         )
     }
-
-
 }
 
 export default RentalsPage

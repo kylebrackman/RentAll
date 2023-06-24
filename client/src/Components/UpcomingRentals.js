@@ -24,7 +24,7 @@ const UpcomingRentals = () => {
                 <h1>Upcoming Rentals</h1>
             </div>
             <div className="item-card-container">
-                {upcomingRentals.length > 0 ? upcomingRentalsList : "You have no past rentals"}
+                {upcomingRentals.length > 0 ? upcomingRentalsList : "You have no upcoming rentals"}
             </div>
         </div>
     )

@@ -3,7 +3,7 @@ import { UserContext } from '../Context/user';
 import UserItemCard from './UserItemCard';
 
 const CurrentRentals = () => {
-    const { currentRentals} = useContext(UserContext)
+    const { currentRentals } = useContext(UserContext)
 
     const currentRentalsList = currentRentals.map(r => {
         return <UserItemCard
@@ -24,7 +24,7 @@ const CurrentRentals = () => {
                 <h1>Current Rentals</h1>
             </div>
             <div className="item-card-container">
-                {currentRentals.length > 0 ? currentRentalsList : "You have no past rentals"}
+                {currentRentals.length > 0 ? currentRentalsList : "You have no current rentals"}
             </div>
         </div>
     )
