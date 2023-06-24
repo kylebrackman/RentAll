@@ -8,7 +8,7 @@ import UploadItem from './UploadItem';
 import AllItems from './AllItems';
 import UserItems from './UserItems';  
 import RentEditItemCard from './Rent-Edit-ItemCard';
-import CurrentRentalsPage from './CurrentRentalsPage';
+import RentalsPage from './RentalsPage';
 import Profile from './Profile';
 import CreateProfile from './CreateProfile';
 import PastRentalsPage from './PastRentals';
@@ -27,7 +27,7 @@ function App() {
           <Route exact path="/allItems" element={<AllItems />} />
           <Route exact path="/myItems" element={<UserItems />} />
           <Route exact path = "/item/:id" element={<RentEditItemCard />} />
-          <Route exact path = "/myRentals" element={<CurrentRentalsPage />} />
+          <Route exact path = "/myRentals" element={<RentalsPage />} />
           <Route exact path = "/pastRentals" element={<PastRentalsPage />} />
           <Route exact path = "/upcomingRentals" element={<UpcomingRentalsPage />} />
           <Route exact path = "/profile" element={<Profile />} />

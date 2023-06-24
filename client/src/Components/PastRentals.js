@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import { UserContext } from '../Context/user';
 import UserItemCard from './UserItemCard';
 
-const PastRentalsPage = () => {
-    const { pastRentals, user, loggedIn } = useContext(UserContext)
-    console.log("comp", pastRentals)
+const PastRentals = () => {
+    const { pastRentals } = useContext(UserContext)
+
     const pastRentalsList = pastRentals.map(r => {
         return <UserItemCard
             key={r.id}
@@ -17,29 +17,17 @@ const PastRentalsPage = () => {
         />
     })
 
-    if (loggedIn && user && user.profile) {
-        return (
-            <div>
-                <br />
-                <div style={{ textAlign: 'left', paddingLeft: 25 }}>
-                    <h1>Past Rentals</h1>
-                </div>
-                <div className="item-card-container">
-                    { pastRentals.length > 0 ? pastRentalsList : "You have no past rentals"}
-                </div>
+    return (
+        <div>
+            <br />
+            <div style={{ textAlign: 'left', paddingLeft: 25 }}>
+                <h1>Past Rentals</h1>
             </div>
-        )
-    } else {
-        return (
-            <div>
-                <h1>
-                    Please Log In  
-                </h1>            
+            <div className="item-card-container">
+                {pastRentals.length > 0 ? pastRentalsList : "You have no past rentals"}
             </div>
-        )
-    }
-
-
+        </div>
+    )
 }
 
-export default PastRentalsPage
+export default PastRentals

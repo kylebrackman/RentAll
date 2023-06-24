@@ -3,11 +3,7 @@ import { UserContext } from '../Context/user';
 import AllItemCard from './AllItemCard';
 
 const AllItems = () => {
-    const { allItems, loggedIn, user, fetchAllItems } = useContext(UserContext);
-
-    useEffect(() => {
-        fetchAllItems();
-    }, [fetchAllItems]);
+    const { allItems, loggedIn, user } = useContext(UserContext);
 
     const allItemsList = allItems.map((i) => (
         <AllItemCard

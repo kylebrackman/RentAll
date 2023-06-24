@@ -43,9 +43,7 @@ const NavBar = () => {
                             <NavLink to="/uploaditem">Upload Item</NavLink>
                             <NavLink to="/allItems">All Items</NavLink>
                             <NavLink to="/myItems">Your Items</NavLink>
-                            <NavLink to="/myRentals">Current Rentals</NavLink>
-                            <NavLink to="/upcomingRentals">Upcoming Rentals</NavLink>
-                            <NavLink to="/pastRentals">Past Rentals</NavLink>
+                            <NavLink to="/myRentals">Rentals</NavLink>
                             <NavLink to="/profile">Profile</NavLink>
                             <hr />
                             <button
