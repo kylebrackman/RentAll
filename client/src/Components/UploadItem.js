@@ -17,7 +17,6 @@ const UploadItem = () => {
     const handleSetItemLocation = (itemPosition) => {
         setItemPosition(itemPosition);
     };
-    console.log(errors)
 
     const handleSubmit = (e) => {
         e.preventDefault()

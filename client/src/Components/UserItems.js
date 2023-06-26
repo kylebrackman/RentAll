@@ -5,6 +5,8 @@ import UserItemCard from './UserItemCard';
 const UserItems = () => {
 
     const { userItems, user, loggedIn } = useContext(UserContext)
+
+    console.log(userItems)
     const userItemsList = userItems.map(i => {
         return <UserItemCard
             key={i.id}
@@ -16,6 +18,7 @@ const UserItems = () => {
             description={i.description}
             itemPrice={i.price}
             itemId={i.id}
+            price={i.price}
         />
     })
 
@@ -29,7 +32,6 @@ const UserItems = () => {
                 <div className="item-card-container">
                     {userItemsList}
                 </div>
-
             </div>
         )
     } else {

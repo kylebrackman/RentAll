@@ -25,7 +25,7 @@ function UserProvider({ children }) {
                 } else {
                     setLoggedIn(true);
                     fetchAllItems();
-                    fetchUserItems();
+                    setUserItems(data.owned_items);
                     setCurrentRentals(data.current_rentals);
                     setUpcomingRentals(data.upcoming_rentals);
                     setPastRentals(data.past_rentals);
@@ -36,9 +36,8 @@ function UserProvider({ children }) {
     const login = (user) => {
         setUser(user);
         setLoggedIn(true);
-        fetchUserItems();
-        fetchCurrentRentals();
-        fetchAllItems();
+        setUserItems(user.owned_items);
+        console.log(user);
     };
 
     const logout = () => {
@@ -59,29 +58,29 @@ function UserProvider({ children }) {
             .then((data) => setAllItems(data));
     };
 
-    const fetchCurrentRentals = () => {
-        fetch("/rentals")
-            .then((res) => res.json())
-            .then((data) => setCurrentRentals(data));
-    };
+    // const fetchCurrentRentals = () => {
+    //     fetch("/rentals")
+    //         .then((res) => res.json())
+    //         .then((data) => setCurrentRentals(data));
+    // };
 
-    const fetchUpcomingRentals = () => {
-        fetch("/upcomingrentals")
-            .then((res) => res.json())
-            .then((data) => setUpcomingRentals(data));
-    };
+    // const fetchUpcomingRentals = () => {
+    //     fetch("/upcomingrentals")
+    //         .then((res) => res.json())
+    //         .then((data) => setUpcomingRentals(data));
+    // };
 
-    const fetchPastRentals = () => {
-        fetch("/pastrentals")
-            .then((res) => res.json())
-            .then((data) => setPastRentals(data));
-    };
+    // const fetchPastRentals = () => {
+    //     fetch("/pastrentals")
+    //         .then((res) => res.json())
+    //         .then((data) => setPastRentals(data));
+    // };
 
-    const fetchUserItems = () => {
-        fetch("/items")
-            .then((res) => res.json())
-            .then((data) => setUserItems(data));
-    };
+    // const fetchUserItems = () => {
+    //     fetch("/items")
+    //         .then((res) => res.json())
+    //         .then((data) => setUserItems(data));
+    // };
 
     const addNewItem = (newItemData) => {
         fetch("/items", {
@@ -92,6 +91,7 @@ function UserProvider({ children }) {
             .then((data) => {
                 if (!data.errors) {
                     setAllItems([...allItems, data]);
+                    setUserItems([...userItems, data]);
                     navigate("/allItems");
                 } else {
                     const errorLis = data.errors.map((e) => <li>{e}</li>);
@@ -154,7 +154,7 @@ function UserProvider({ children }) {
             }
         });
         setAllItems(updatedItemList);
-        fetchUserItems();
+        // possible setUserItems here?
     };
 
     const handleDeleteItem = (id) => {
@@ -162,7 +162,7 @@ function UserProvider({ children }) {
         const userItemsUpdate = userItems.filter((user) => user.id !== id);
         setAllItems(allItemsUpdate);
         setUserItems(userItemsUpdate);
-        fetchUserItems();
+        // possible set user items here?
     };
 
     const deleteItem = (id) => {

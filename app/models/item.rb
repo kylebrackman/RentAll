@@ -7,7 +7,7 @@ class Item < ApplicationRecord
     validate :validate_condition
     validates :price, numericality: { greater_than: 0 }
     
-    has_many :rentals
+    has_many :rentals, dependent: :destroy
     has_many :renters, through: :rentals, source: :renter_id
     belongs_to :owner, class_name: "User"
 
