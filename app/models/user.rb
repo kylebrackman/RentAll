@@ -5,8 +5,20 @@ class User < ApplicationRecord
     
     has_many :owned_items, foreign_key: :owner_id, class_name: "Item"
     has_many :rentals, foreign_key: :renter_id
-    has_many :items, through: :rentals
+    has_many :items, through: :rentals, source: :item
 
     has_one :profile
+
+    def current_rentals
+        Rental.current_rentals(self)
+    end
+    
+    def upcoming_rentals
+        Rental.upcoming_rentals(self)
+    end
+    
+    def past_rentals
+        Rental.past_rentals(self)
+    end
 
 end

@@ -5,21 +5,21 @@ class RentalsController < ApplicationController
         render json: rental, status: :created
     end
     
-    def index
-        rentals = Rental.current_rentals(@current_user)
-        render json: rentals
-    end
+    # def index
+    #     rentals = Rental.current_rentals(@current_user)
+    #     render json: rentals
+    # end
 
-    def upcoming_rentals
-        rentals = Rental.upcoming_rentals(@current_user)
+    # def upcoming_rentals
+    #     rentals = Rental.upcoming_rentals(@current_user)
 
-        render json: rentals
-    end
+    #     render json: rentals
+    # end
 
-    def past_rentals
-        rentals = Rental.past_rentals(@current_user)
-        render json: rentals
-    end
+    # def past_rentals
+    #     rentals = Rental.past_rentals(@current_user)
+    #     render json: rentals
+    # end
 
     private
 

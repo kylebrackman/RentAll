@@ -41,7 +41,6 @@ const NavBar = () => {
                         <div className="navbar_dropdown-content">
                             <NavLink to="/">Home Page</NavLink>
                             <NavLink to="/uploaditem">Upload Item</NavLink>
-                            <NavLink to="/allItems">All Items</NavLink>
                             <NavLink to="/myItems">Your Items</NavLink>
                             <NavLink to="/myRentals">Rentals</NavLink>
                             <NavLink to="/profile">Profile</NavLink>

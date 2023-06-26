@@ -10,15 +10,15 @@ class Rental < ApplicationRecord
     belongs_to :item, class_name: "Item"
     
     def self.current_rentals(user)
-        query = where(renter_id: user.id).where("start_date <= ? AND end_date >= ?", Date.today, Date.today)
+        where(renter_id: user.id).where("start_date <= ? AND end_date >= ?", Date.today, Date.today)
     end
-
+    
     def self.upcoming_rentals(user)
-        query = where(renter_id: user.id).where("start_date > ?", Date.today)
+        where(renter_id: user.id).where("start_date > ?", Date.today)
     end
-
+    
     def self.past_rentals(user)
-        query = where(renter_id: user.id).where("end_date < ?", Date.today)
+        where(renter_id: user.id).where("end_date < ?", Date.today)
     end
 
     private

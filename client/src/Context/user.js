@@ -26,9 +26,9 @@ function UserProvider({ children }) {
                     setLoggedIn(true);
                     fetchAllItems();
                     fetchUserItems();
-                    fetchCurrentRentals();
-                    fetchUpcomingRentals();
-                    fetchPastRentals();
+                    setCurrentRentals(data.current_rentals);
+                    setUpcomingRentals(data.upcoming_rentals);
+                    setPastRentals(data.past_rentals);
                 }
             });
     }, []);

@@ -4,6 +4,7 @@ import UserItemCard from './UserItemCard';
 
 const CurrentRentals = () => {
     const { currentRentals } = useContext(UserContext)
+    console.log(currentRentals)
 
     const currentRentalsList = currentRentals.map(r => {
         return <UserItemCard
@@ -14,6 +15,7 @@ const CurrentRentals = () => {
             image={r.item.image}
             description={r.item.description}
             id={r.item.id}
+            price={r.item.price}
         />
     })
 
