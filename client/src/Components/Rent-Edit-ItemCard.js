@@ -80,7 +80,7 @@ const RentEditItemCard = () => {
                     <>
                       <button onClick={handleEditButtonClick} className='login-button'>Edit</button>
                       <br />
-                      <button onClick={() => deleteItem(id)} className='login-button'>Delete</button>
+                      <button onClick={() => deleteItem(item.id)} className='login-button'>Delete</button>
                     </>
                   )}
                 </div>

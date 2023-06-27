@@ -58,30 +58,6 @@ function UserProvider({ children }) {
             .then((data) => setAllItems(data));
     };
 
-    // const fetchCurrentRentals = () => {
-    //     fetch("/rentals")
-    //         .then((res) => res.json())
-    //         .then((data) => setCurrentRentals(data));
-    // };
-
-    // const fetchUpcomingRentals = () => {
-    //     fetch("/upcomingrentals")
-    //         .then((res) => res.json())
-    //         .then((data) => setUpcomingRentals(data));
-    // };
-
-    // const fetchPastRentals = () => {
-    //     fetch("/pastrentals")
-    //         .then((res) => res.json())
-    //         .then((data) => setPastRentals(data));
-    // };
-
-    // const fetchUserItems = () => {
-    //     fetch("/items")
-    //         .then((res) => res.json())
-    //         .then((data) => setUserItems(data));
-    // };
-
     const addNewItem = (newItemData) => {
         fetch("/items", {
             method: "POST",
@@ -146,15 +122,22 @@ function UserProvider({ children }) {
     };
 
     const handleEditItem = (editedItem) => {
-        const updatedItemList = allItems.map((item) => {
+        const updatedAllItemList = allItems.map((item) => {
             if (item.id === editedItem.id) {
                 return editedItem;
             } else {
                 return item;
             }
         });
-        setAllItems(updatedItemList);
-        // possible setUserItems here?
+        const updatedUserItemList = userItems.map((item) => {
+            if (item.id === editedItem.id) {
+                return editedItem;
+            } else {
+                return item;
+            }
+        });
+        setAllItems(updatedAllItemList);
+        setUserItems(updatedUserItemList);
     };
 
     const handleDeleteItem = (id) => {
@@ -162,7 +145,6 @@ function UserProvider({ children }) {
         const userItemsUpdate = userItems.filter((user) => user.id !== id);
         setAllItems(allItemsUpdate);
         setUserItems(userItemsUpdate);
-        // possible set user items here?
     };
 
     const deleteItem = (id) => {

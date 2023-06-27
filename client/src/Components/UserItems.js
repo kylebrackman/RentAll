@@ -6,11 +6,10 @@ const UserItems = () => {
 
     const { userItems, user, loggedIn } = useContext(UserContext)
 
-    console.log(userItems)
     const userItemsList = userItems.map(i => {
         return <UserItemCard
             key={i.id}
-            id={i.owner_id}
+            id={i.id}
             itemName={i.name}
             type={i.type}
             condition={i.condition}
@@ -21,6 +20,7 @@ const UserItems = () => {
             price={i.price}
         />
     })
+
 
     if (loggedIn && user && user.profile) {
         return (
