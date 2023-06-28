@@ -37,13 +37,17 @@ function UserProvider({ children }) {
         setUser(user);
         setLoggedIn(true);
         setUserItems(user.owned_items);
-        console.log(user);
+        setUpcomingRentals(user.upcoming_rentals);
+        setCurrentRentals(user.current_rentals);
+        setPastRentals(user.past_rentals);
     };
 
     const logout = () => {
         setLoggedIn(false);
         setUserItems([]);
         setCurrentRentals([]);
+        setUpcomingRentals([]);
+        setPastRentals([]);
         navigate("/login");
     };
 

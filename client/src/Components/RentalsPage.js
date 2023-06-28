@@ -19,6 +19,7 @@ const RentalsPage = () => {
                 <UpcomingRentals />
                 <br />
                 <PastRentals />
+
             </div>
         )
     } else {
