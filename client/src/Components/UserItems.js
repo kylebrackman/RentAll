@@ -21,7 +21,6 @@ const UserItems = () => {
         />
     })
 
-
     if (loggedIn && user && user.profile) {
         return (
             <div>

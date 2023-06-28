@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { UserContext } from '../Context/user';
 import GeoItem from './GeoItem';
 
@@ -8,15 +8,20 @@ const UploadItem = () => {
     const [itemType, setItemType] = useState("")
     const [description, setDescription] = useState("")
     const [condition, setCondition] = useState("")
-    const [image, setImage] = useState("")
+    const [image, setImage] = useState(null)
     const [itemPrice, setItemPrice] = useState("")
     const [itemPosition, setItemPosition] = useState({ lat: 0, lng: 0 })
 
-    const { addNewItem, errors, user, loggedIn } = useContext(UserContext)
+    const { addNewItem, errors, user, loggedIn, resetErrors } = useContext(UserContext)
 
     const handleSetItemLocation = (itemPosition) => {
         setItemPosition(itemPosition);
     };
+
+    useEffect(() => {
+        resetErrors();
+      }, []);
+    
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -28,10 +33,13 @@ const UploadItem = () => {
         newItemData.append("item_type", itemType)
         newItemData.append("description", description)
         newItemData.append("condition", condition)
-        newItemData.append("image", image)
         newItemData.append("price", itemPrice)
         newItemData.append("lat", itemPosition.lat)
         newItemData.append("lng", itemPosition.lng)
+
+        if (image) {
+            newItemData.append("image", image);
+          }
 
         addNewItem(newItemData)
     }

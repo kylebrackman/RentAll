@@ -6,6 +6,7 @@ class Item < ApplicationRecord
     validate :validate_item_type
     validate :validate_condition
     validates :price, numericality: { greater_than: 0 }
+    validate :validate_image_presence
     
     has_many :rentals, dependent: :destroy
     has_many :renters, through: :rentals, source: :renter_id
@@ -19,6 +20,10 @@ class Item < ApplicationRecord
 
     def validate_condition
         errors.add(:condition, "cannot be 'Select'") if condition == "Select"
+    end
+
+    def validate_image_presence
+        errors.add(:image, "must be attached") unless image.attached?
     end
 
 end
