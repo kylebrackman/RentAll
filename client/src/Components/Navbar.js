@@ -1,10 +1,9 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../Context/user";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
     const { user, logout, loggedIn } = useContext(UserContext);
-    const navigate = useNavigate();
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const defaultImageUrl = 'https://raw.githubusercontent.com/kylebrackman/RentAll/main/client/public/User%20Default%20Pic.png';

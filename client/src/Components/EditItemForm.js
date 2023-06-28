@@ -17,7 +17,6 @@ const EditItemForm = ({ item, handleEditItem }) => {
             price,
             condition,
         };
-
         handleEditItem(editedItem);
     };
 

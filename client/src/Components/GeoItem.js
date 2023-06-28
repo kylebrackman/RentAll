@@ -3,7 +3,7 @@ import { useJsApiLoader } from "@react-google-maps/api";
 import { UserContext } from "../Context/user";
 
 const GeoItem = ({ onSetItemLocation }) => {
-    const { errors, updateMyProfile } = useContext(UserContext);
+    // const { errors, updateMyProfile } = useContext(UserContext);
 
     const [position, setPosition] = useState({ lat: 0, lng: 0 });
 

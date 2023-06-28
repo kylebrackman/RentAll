@@ -19,7 +19,6 @@ class ItemsController < ApplicationController
     end
 
     def create
-        # item = @current_user.items.create!(item_params)
         item = @current_user.owned_items.create!(owned_item_params)
         item.image.attach(params[:image])
         render json: item, status: :created

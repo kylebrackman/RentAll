@@ -18,7 +18,6 @@ const CreateProfile = () => {
         setPosition(newPosition);
     };
 
-
     const handleSubmit = (e) => {
         e.preventDefault();
 

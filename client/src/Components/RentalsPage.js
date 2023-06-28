@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../Context/user';
-import UserItemCard from './UserItemCard';
 import UpcomingRentals from './UpcomingRentals';
 import PastRentals from './PastRentals';
 import CurrentRentals from './CurrentRentals';
@@ -20,7 +19,6 @@ const RentalsPage = () => {
                 <UpcomingRentals />
                 <br />
                 <PastRentals />
-
             </div>
         )
     } else {

@@ -4,7 +4,6 @@ import UserItemCard from './UserItemCard';
 
 const CurrentRentals = () => {
     const { currentRentals } = useContext(UserContext)
-    console.log(currentRentals)
 
     const currentRentalsList = currentRentals.map(r => {
         return <UserItemCard

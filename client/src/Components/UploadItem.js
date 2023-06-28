@@ -20,8 +20,8 @@ const UploadItem = () => {
 
     useEffect(() => {
         resetErrors();
-      }, []);
-    
+    }, []);
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -39,7 +39,7 @@ const UploadItem = () => {
 
         if (image) {
             newItemData.append("image", image);
-          }
+        }
 
         addNewItem(newItemData)
     }
