@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Signup() {
     const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirmation, setPasswordConfirmation] = useState('');
     const [errorsList, setErrorsList] = useState([]);
@@ -16,6 +17,7 @@ function Signup() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
+                email: email,
                 username: username,
                 password: password,
                 password_confirmation: passwordConfirmation,
@@ -43,10 +45,17 @@ function Signup() {
                 <form onSubmit={handleSubmit}>
                     <input
                         type="text"
+                        id="email"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                        placeholder="e-mail"
+                    /> <br />
+                    <input
+                        type="text"
                         id="username"
                         value={username}
                         onChange={e => setUsername(e.target.value)}
-                        placeholder="Username"
+                        placeholder="username"
                     /> <br />
                     <input
                         type="password"

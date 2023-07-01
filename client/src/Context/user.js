@@ -107,6 +107,7 @@ function UserProvider({ children }) {
             .then((data) => {
                 if (!data.errors) {
                     setUser((user) => ({ ...user, profile: data }));
+                    navigate("/home");
                 } else {
                     const errorLis = data.errors.map((e) => <li>{e}</li>);
                     setErrors(errorLis);

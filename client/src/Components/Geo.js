@@ -74,16 +74,6 @@ const Geo = ({ onSetLocation }) => {
             <div>
                 <small>Only you can see your location. </small>
                 <div id="map" style={{ height: "400px", width: "500px" }}></div>
-                <br />
-
-                <br />
-                {errors.map((error, index) => (
-                    <small key={index} className="errors">
-                        {error}
-                    </small>
-                ))}
-                <br />
-                <br />
             </div>
         </ div>
     );

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     validates :username, presence: true
+    validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+\z/, message: "Invalid email format" }
 
     has_secure_password 
     

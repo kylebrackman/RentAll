@@ -8,11 +8,11 @@ const CreateProfile = () => {
     const [profileName, setProfileName] = useState('');
     const [bio, setBio] = useState('');
     const [error, setError] = useState('');
-    const [image, setImage] = useState('');
+    const [image, setImage] = useState(null);
     const [position, setPosition] = useState({ lat: 0, lng: 0 });
 
     const navigate = useNavigate();
-    const { newProfile } = useContext(UserContext);
+    const { newProfile, errors } = useContext(UserContext);
 
     const handleSetLocation = (newPosition) => {
         setPosition(newPosition);
@@ -25,20 +25,14 @@ const CreateProfile = () => {
 
         newProfileData.append('bio', bio);
         newProfileData.append('name', profileName);
-        newProfileData.append('image', image);
         newProfileData.append('lat', position.lat);
         newProfileData.append('lng', position.lng);
 
-        newProfile(newProfileData);
-
-        if (!error) {
-            navigate('/');
-            setBio('');
-            setProfileName('');
-        } else {
-            const errorLi = <li>{error}</li>;
-            setError(errorLi);
+        if (image) {
+            newProfileData.append('image', image);
         }
+
+        newProfile(newProfileData);
     };
 
 
@@ -78,7 +72,9 @@ const CreateProfile = () => {
 
                     <input type="submit" value="Submit" className="primary-button" />
                 </form>
-                {error && <p>{error}</p>}
+                {errors && errors.length > 0 && (
+                    <ul className="error-list">{errors}</ul>
+                )}
             </div>
         </div>
     );

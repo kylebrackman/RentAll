@@ -3,7 +3,7 @@ import { UserContext } from '../Context/user';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
@@ -17,7 +17,7 @@ const Login = () => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                username: username,
+                email: email,
                 password: password,
             }),
         })
@@ -27,7 +27,7 @@ const Login = () => {
                     login(user);
                     navigate('/allItems');
                 } else {
-                    setUsername('');
+                    setEmail('');
                     setPassword('');
                     const errorLi = <li>{user.error}</li>;
                     setError(errorLi);
@@ -43,10 +43,10 @@ const Login = () => {
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
-                    id="username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    placeholder="Username"
+                    id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="e-mail"
                 />
                 <br />
                 <input
