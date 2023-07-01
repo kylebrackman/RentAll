@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Geo from './Geo';
 
 const CreateProfile = () => {
-    const [profileName, setProfileName] = useState('');
+    const [nickname, setNickname] = useState('');
     const [bio, setBio] = useState('');
     const [error, setError] = useState('');
     const [image, setImage] = useState(null);
@@ -24,7 +24,7 @@ const CreateProfile = () => {
         const newProfileData = new FormData();
 
         newProfileData.append('bio', bio);
-        newProfileData.append('name', profileName);
+        newProfileData.append('name', nickname);
         newProfileData.append('lat', position.lat);
         newProfileData.append('lng', position.lng);
 
@@ -43,11 +43,11 @@ const CreateProfile = () => {
                 <form onSubmit={handleSubmit}>
                     <input
                         className='create-profile-input'
-                        placeholder='Profile Name'
+                        placeholder='Nickname'
                         type="text"
-                        id="profileName"
-                        value={profileName}
-                        onChange={(e) => setProfileName(e.target.value)}
+                        id="nickName"
+                        value={nickname}
+                        onChange={(e) => setNickname(e.target.value)}
                     />
                     <br />
                     <br />

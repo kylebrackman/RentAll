@@ -20,7 +20,7 @@ const NavBar = () => {
     function toggleDropdown() {
         setDropdownOpen(!dropdownOpen);
     }
-
+    console.log(user)
     if (loggedIn && user && user.profile) {
         return (
             <nav className="navbar">
@@ -35,7 +35,7 @@ const NavBar = () => {
                             className="navbar_button"
                             onClick={toggleDropdown}
                         >
-                            Hello {user.username} ▼
+                            Hello {user.email} ▼
                         </button>
                         <div className="navbar_dropdown-content">
                             <NavLink to="/">Home Page</NavLink>
@@ -69,7 +69,8 @@ const NavBar = () => {
                             className="navbar_button"
                             onClick={toggleDropdown}
                         >
-                            Hello {user.username} ▼
+                            Hello {user.email} ▼
+                            <img src={defaultImageUrl} alt="Default" className="placeholder-image" />
                         </button>
                         <div className="navbar_dropdown-content">
                             <NavLink to="/createProfile">Create Profile</NavLink>
@@ -77,12 +78,13 @@ const NavBar = () => {
                             <button
                                 onClick={logoutUser}
                                 className="navbar_button"
+                                
                             >
                                 Logout
                             </button>
                         </div>
                     </div>
-                </div>
+                </div> 
             </nav>
         )
     }

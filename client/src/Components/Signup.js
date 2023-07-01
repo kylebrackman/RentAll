@@ -3,7 +3,8 @@ import { UserContext } from '../Context/user';
 import { useNavigate } from 'react-router-dom';
 
 function Signup() {
-    const [username, setUsername] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirmation, setPasswordConfirmation] = useState('');
@@ -18,7 +19,8 @@ function Signup() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 email: email,
-                username: username,
+                first_name: firstName,
+                last_name: lastName,
                 password: password,
                 password_confirmation: passwordConfirmation,
             }),
@@ -29,7 +31,8 @@ function Signup() {
                     signup(user);
                     navigate('/createprofile');
                 } else {
-                    setUsername('');
+                    setFirstName('');
+                    setLastName('');
                     setPassword('');
                     setPasswordConfirmation('');
                     const errorLis = user.errors.map(e => <li>{e}</li>);
@@ -52,10 +55,17 @@ function Signup() {
                     /> <br />
                     <input
                         type="text"
-                        id="username"
-                        value={username}
-                        onChange={e => setUsername(e.target.value)}
-                        placeholder="username"
+                        id="firstName"
+                        value={firstName}
+                        onChange={e => setFirstName(e.target.value)}
+                        placeholder="First Name"
+                    /> <br />
+                    <input
+                        type="text"
+                        id="lastName"
+                        value={lastName}
+                        onChange={e => setLastName(e.target.value)}
+                        placeholder="Last Name"
                     /> <br />
                     <input
                         type="password"
