@@ -69,7 +69,7 @@ const NavBar = () => {
                             className="navbar_button"
                             onClick={toggleDropdown}
                         >
-                            Hello {user.email} ▼
+                            ▼
                             <img src={defaultImageUrl} alt="Default" className="placeholder-image" />
                         </button>
                         <div className="navbar_dropdown-content">
@@ -78,13 +78,13 @@ const NavBar = () => {
                             <button
                                 onClick={logoutUser}
                                 className="navbar_button"
-                                
+
                             >
                                 Logout
                             </button>
                         </div>
                     </div>
-                </div> 
+                </div>
             </nav>
         )
     }
