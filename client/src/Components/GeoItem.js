@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { useJsApiLoader } from "@react-google-maps/api";
-import { UserContext } from "../Context/user";
 
 const GeoItem = ({ onSetItemLocation }) => {
-    // const { errors, updateMyProfile } = useContext(UserContext);
 
+    //eslint-disable-next-line
     const [position, setPosition] = useState({ lat: 0, lng: 0 });
 
     const { isLoaded } = useJsApiLoader({

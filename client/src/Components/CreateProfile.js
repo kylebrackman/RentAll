@@ -1,17 +1,14 @@
 import React, { useState, useContext } from 'react';
 import { UserContext } from '../Context/user';
-import { useNavigate } from 'react-router-dom';
 
 import Geo from './Geo';
 
 const CreateProfile = () => {
     const [nickname, setNickname] = useState('');
     const [bio, setBio] = useState('');
-    const [error, setError] = useState('');
     const [image, setImage] = useState(null);
     const [position, setPosition] = useState({ lat: 0, lng: 0 });
 
-    const navigate = useNavigate();
     const { newProfile, errors } = useContext(UserContext);
 
     const handleSetLocation = (newPosition) => {
