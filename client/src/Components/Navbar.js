@@ -20,7 +20,7 @@ const NavBar = () => {
     function toggleDropdown() {
         setDropdownOpen(!dropdownOpen);
     }
-    console.log(user)
+
     if (loggedIn && user && user.profile) {
         return (
             <nav className="navbar">
@@ -35,7 +35,7 @@ const NavBar = () => {
                             className="navbar_button"
                             onClick={toggleDropdown}
                         >
-                            Hello {user.email} ▼
+                            Hello {user.profile.name} ▼
                         </button>
                         <div className="navbar_dropdown-content">
                             <NavLink to="/">Home Page</NavLink>

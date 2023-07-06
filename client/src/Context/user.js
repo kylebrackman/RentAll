@@ -24,14 +24,24 @@ function UserProvider({ children }) {
                     setLoggedIn(false);
                 } else {
                     setLoggedIn(true);
-                    fetchAllItems();
-                    setUserItems(data.owned_items);
-                    setCurrentRentals(data.current_rentals);
-                    setUpcomingRentals(data.upcoming_rentals);
-                    setPastRentals(data.past_rentals);
                 }
             });
     }, []);
+
+    useEffect(() => {
+        if (loggedIn) {
+            fetchAllItems();
+            setUserItems(user.owned_items);
+            setCurrentRentals(user.current_rentals);
+            setUpcomingRentals(user.upcoming_rentals);
+            setPastRentals(user.past_rentals);
+        } else {
+            setUserItems([]);
+            setCurrentRentals([]);
+            setUpcomingRentals([]);
+            setPastRentals([]);
+        }
+    }, [loggedIn, user]);
 
     const login = (user) => {
         setUser(user);
@@ -59,7 +69,8 @@ function UserProvider({ children }) {
     const fetchAllItems = () => {
         fetch("/items?all_items=true")
             .then((res) => res.json())
-            .then((data) => setAllItems(data));
+            .then((data) => setAllItems(data))
+            .catch((error) => console.log("Error fetching allItems:", error));
     };
 
     const addNewItem = (newItemData) => {

@@ -13,7 +13,6 @@ const Profile = () => {
     return (
       <div>
         <div>
-          <h1>{user.email}</h1>
           {user.profile.image ? (
             <img src={user.profile.image} alt="Profile" className='profile-image' />
           ) : (
