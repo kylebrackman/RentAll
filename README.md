@@ -5,5 +5,5 @@ RentAll is an application where users can rent out various types of gear, games,
 RentAll is written using a React front end and a Ruby on Rails back end.
 
 ## Future Additions
-Future additions of RentAll will include multiple photo uploads for each item, as well as password reset options.
+Future additions of RentAll will include multiple photo uploads for each item, as well as password requirements and reset options.
 

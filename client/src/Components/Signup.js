@@ -35,8 +35,8 @@ function Signup() {
                     setLastName('');
                     setPassword('');
                     setPasswordConfirmation('');
-                    const errorLis = user.errors.map(e => <li>{e}</li>);
-                    setErrorsList(errorLis);
+                    const errorDivs = user.errors.map(e => <div>{e}</div>);
+                    setErrorsList(<div style={{color:"red"}}>{errorDivs}</div>);
                 }
             });
     }
