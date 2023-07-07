@@ -7,6 +7,8 @@ const EditItemForm = ({ item, handleEditItem }) => {
     const [price, setPrice] = useState(item.price);
     const [condition, setCondition] = useState(item.condition);
 
+    const { user, loggedIn, errors } = useContext(UserContext)
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -19,8 +21,16 @@ const EditItemForm = ({ item, handleEditItem }) => {
         };
         handleEditItem(editedItem);
     };
-
-    const { user, loggedIn } = useContext(UserContext)
+    console.log(errors)
+    const errorLis = errors.map((e) => {
+        return (
+            <li>
+                {e}
+            </li>
+        )
+    })
+    
+    console.log(errorLis)
 
     if (loggedIn && user && user.profile) {
         return (
@@ -74,6 +84,7 @@ const EditItemForm = ({ item, handleEditItem }) => {
                     </label>
                     <br />
                     <button type="submit">Save</button>
+                    {errorLis}
                 </form>
             </div>
         );

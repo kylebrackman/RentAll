@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../Context/user';
+import ProfileGeo from './ProfileGeo';
 
 const Profile = () => {
   const { user, loggedIn } = useContext(UserContext);
@@ -21,6 +22,7 @@ const Profile = () => {
           <h2>{user.profile.name}</h2>
           <h3>{user.profile.bio}</h3>
         </div>
+        <ProfileGeo />
       </div>
     )
   } else {

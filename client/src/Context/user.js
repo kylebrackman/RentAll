@@ -133,8 +133,16 @@ function UserProvider({ children }) {
             body: JSON.stringify(item),
         })
             .then((res) => res.json())
-            .then((data) => handleEditItem(data))
-            .catch((error) => console.log(error));
+            .then((data) => {
+                if (!data.errors) {
+                    handleEditItem(data)
+                } else {
+                    setErrors(data.errors)
+                    console.log(errors)
+                    console.log("a")
+                }
+            })
+            console.log(errors)
     };
 
     const handleEditItem = (editedItem) => {

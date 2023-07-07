@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
 
     def update
        if @item
-            @item.update(owned_item_params)
+            @item.update!(owned_item_params)
             render json: @item
        else
             render json: { error: "Item not found" }, status: :not_found
