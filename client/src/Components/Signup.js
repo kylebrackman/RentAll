@@ -36,7 +36,7 @@ function Signup() {
                     setPassword('');
                     setPasswordConfirmation('');
                     const errorDivs = user.errors.map(e => <div>{e}</div>);
-                    setErrorsList(<div style={{color:"red"}}>{errorDivs}</div>);
+                    setErrorsList(<div style={{ color: "red" }}>{errorDivs}</div>);
                 }
             });
     }
@@ -90,8 +90,8 @@ function Signup() {
                 <button className="sign-up-button" onClick={() => navigate('/login')}>Login</button>
             </div>
             <div className="signup-cover">
+                <p className='signup-cover-header'>Convenience at your fingertips</p>
                 <p>
-                    <p className='signup-cover-header'>Convenience at your fingertips</p>
                     <br />
                     Our user-friendly platform makes it a breeze to find and rent the gear you need.
                     Simply search for your desired item, select your rental dates, and connect with local gear owners who are passionate about sharing their equipment and knowledge.
