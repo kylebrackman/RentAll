@@ -16,7 +16,7 @@ function UserProvider({ children }) {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch("/me")
+        fetch("/api/me")
             .then((res) => res.json())
             .then((data) => {
                 setUser(data);
@@ -67,14 +67,14 @@ function UserProvider({ children }) {
     };
 
     const fetchAllItems = () => {
-        fetch("/items?all_items=true")
+        fetch("/api/items?all_items=true")
             .then((res) => res.json())
             .then((data) => setAllItems(data))
             .catch((error) => console.log("Error fetching allItems:", error));
     };
 
     const addNewItem = (newItemData) => {
-        fetch("/items", {
+        fetch("/api/items", {
             method: "POST",
             body: newItemData,
         })
@@ -92,7 +92,7 @@ function UserProvider({ children }) {
     };
 
     const createRental = (rentalData) => {
-        fetch("/rentals", {
+        fetch("/api/rentals", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(rentalData),
@@ -110,7 +110,7 @@ function UserProvider({ children }) {
     };
 
     const newProfile = (newProfileData) => {
-        fetch("/createprofile", {
+        fetch("/api/createprofile", {
             method: "POST",
             body: newProfileData,
         })
@@ -127,7 +127,7 @@ function UserProvider({ children }) {
     };
 
     const editItem = (item) => {
-        fetch(`/items/${item.id}`, {
+        fetch(`/api/items/${item.id}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(item),
@@ -172,7 +172,7 @@ function UserProvider({ children }) {
     };
 
     const deleteItem = (id) => {
-        fetch(`/items/${id}`, {
+        fetch(`/api/items/${id}`, {
             method: "DELETE",
         })
             .then(() => handleDeleteItem(id))

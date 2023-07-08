@@ -1,4 +1,4 @@
-class RentalsController < ApplicationController
+class Api::RentalsController < ApplicationController
 
     def create
         rental = @current_user.rentals.create!(rental_params)

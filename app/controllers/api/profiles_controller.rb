@@ -1,4 +1,4 @@
-class ProfilesController < ApplicationController
+class Api::ProfilesController < ApplicationController
 
     def create
         profile = @current_user.create_profile!(profile_params)

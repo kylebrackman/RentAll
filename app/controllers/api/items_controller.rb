@@ -1,4 +1,4 @@
-class ItemsController < ApplicationController
+class Api::ItemsController < ApplicationController
 
     skip_before_action :authorize, only: :index
     before_action :set_item, only: [:show, :update, :destroy]
