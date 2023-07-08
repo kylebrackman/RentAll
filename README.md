@@ -12,5 +12,5 @@ Future additions of RentAll will include the following:
 - improved css for mobile
 - chat feature to work with users to coordinate drop offs / pickups
 - location specific rentals
-- 
+- .
 
