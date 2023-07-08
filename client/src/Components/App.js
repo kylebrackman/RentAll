@@ -20,7 +20,7 @@ function App() {
       <UserProvider>
         <Navbar />
         <Routes>
-          <Route path='/' element={<Signup />} />
+          <Route path='/' element={<AllItems />} />
           <Route exact path="/signup" element={<Signup />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/uploaditem" element={<UploadItem />} />
