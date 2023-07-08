@@ -1,6 +1,6 @@
 class RemoveNamesFromUsers < ActiveRecord::Migration[7.0]
   def change
-    remove_column :users, :firstname, :string
-    remove_column :users, :lastname, :string
+    remove_column :users, :first_name, :string
+    remove_column :users, :last_name, :string
   end
 end
