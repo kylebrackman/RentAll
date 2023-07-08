@@ -9,7 +9,7 @@ const NavBar = () => {
     const defaultImageUrl = 'https://raw.githubusercontent.com/kylebrackman/RentAll/main/client/public/User%20Default%20Pic.png';
 
     function logoutUser() {
-        fetch("/logout", {
+        fetch("/api/logout", {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
         }).then(() => {
