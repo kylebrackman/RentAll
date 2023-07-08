@@ -25,7 +25,7 @@ const NavBar = () => {
         return (
             <nav className="navbar">
                 <div className="navbar_left">
-                    <NavLink to="/" className="navbar_logo">
+                    <NavLink to="/allItems" className="navbar_logo">
                         RentAll
                     </NavLink>
                 </div>
