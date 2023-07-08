@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../Context/user';
 import AllItemCard from './AllItemCard';
+import { NavLink } from "react-router-dom";
 
 const AllItems = () => {
     const { allItems, loggedIn, user } = useContext(UserContext);
@@ -34,6 +35,15 @@ const AllItems = () => {
         return (
             <div>
                 <h1>Please Log In or Sign Up</h1>
+                <div>
+                    <NavLink to="/login" >
+                        <button className='sign-up-button' >Login</button>
+                    </NavLink>
+                </div>
+                <NavLink to="/signup" >
+                    <button className='sign-up-button' >Sign Up</button>
+                </NavLink>
+
             </div>
         );
     }
