@@ -51,3 +51,5 @@ end
 gem "active_model_serializers", "~> 0.10.13"
 
 gem 'active_storage_validations'
+
+gem 'aws-sdk'
