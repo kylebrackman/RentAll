@@ -6,6 +6,7 @@ class Item < ApplicationRecord
     validate :validate_item_type
     validate :validate_condition
     validates :price, numericality: { greater_than: 0 }
+    validate :validate_lat_lng
     
     has_many :rentals, dependent: :destroy
     has_many :renters, through: :rentals, source: :renter_id
@@ -19,6 +20,12 @@ class Item < ApplicationRecord
 
     def validate_condition
         errors.add(:condition, "cannot be 'Select'") if condition == "Select"
+    end
+
+    def validate_lat_lng
+        if lat == 0 || lng == 0
+          errors.add(:base, "Latitude and Longitude cannot be equal to 0")
+        end
     end
 
 end

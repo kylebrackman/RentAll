@@ -48,4 +48,5 @@ class Api::ItemsController < ApplicationController
         render json: { error: "Item not found" }, status: :not_found unless @item
     end
 
+
 end
