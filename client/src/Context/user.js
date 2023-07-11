@@ -136,13 +136,11 @@ function UserProvider({ children }) {
             .then((data) => {
                 if (!data.errors) {
                     handleEditItem(data)
+                    setErrors([])
                 } else {
                     setErrors(data.errors)
-                    console.log(errors)
-                    console.log("a")
                 }
             })
-            console.log(errors)
     };
 
     const handleEditItem = (editedItem) => {

@@ -21,7 +21,7 @@ const EditItemForm = ({ item, handleEditItem }) => {
         };
         handleEditItem(editedItem);
     };
-    console.log(errors)
+
     const errorLis = errors.map((e) => {
         return (
             <li>
@@ -30,8 +30,6 @@ const EditItemForm = ({ item, handleEditItem }) => {
         )
     })
     
-    console.log(errorLis)
-
     if (loggedIn && user && user.profile) {
         return (
             <div >

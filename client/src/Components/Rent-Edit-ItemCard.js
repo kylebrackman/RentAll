@@ -20,6 +20,11 @@ const RentEditItemCard = () => {
     setEndDate(event.target.value);
   };
 
+  const errorList = errors.map((error) => (
+    <li key={error.index}>{error}</li>
+  ));
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     createRental({
@@ -75,20 +80,20 @@ const RentEditItemCard = () => {
               ) : (
                 <div>
                   {isEditing ? (
-                    <EditItemForm item={item} handleEditItem={handleEditItem} />
+                    <>
+                      <EditItemForm item={item} handleEditItem={handleEditItem} />
+                    </>
                   ) : (
                     <>
                       <button onClick={handleEditButtonClick} className='login-button'>Edit</button>
                       <br />
                       <button onClick={() => deleteItem(item.id)} className='login-button'>Delete</button>
+                      {errorList.length > 0 && <>{errorList}</>}
                     </>
                   )}
                 </div>
               )}
             </div>
-            {errors && errors.length > 0 && (
-              <ul className="error-list" style={{ color: "red" }}>{errors}</ul>
-            )}
           </div>
         </div>
       </div>
