@@ -5,7 +5,7 @@ import EditItemForm from './EditItemForm';
 
 const RentEditItemCard = () => {
   const { id } = useParams();
-  const { allItems, user, createRental, errors, deleteItem, editItem, resetErrors, loggedin } = useContext(UserContext);
+  const { allItems, user, createRental, errors, deleteItem, editItem, resetErrors, loggedIn } = useContext(UserContext);
   const [startDate, setStartDate] = useState(new Date().toISOString().substring(0, 10));
   const [endDate, setEndDate] = useState(new Date().toISOString().substring(0, 10));
   const [isEditing, setIsEditing] = useState(false);
@@ -50,10 +50,10 @@ const RentEditItemCard = () => {
     // eslint-disable-next-line
   }, []);
 
-
+  console.log(loggedIn)
   if (!item) {
     return <div>Item not found</div>;
-  } else if (!loggedin) {
+  } else if (!loggedIn) {
     return (
       <div className='rent-item-card-container'>
       <div className='rent-item-card'>
