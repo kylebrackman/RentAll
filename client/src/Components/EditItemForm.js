@@ -10,6 +10,7 @@ const EditItemForm = ({ item, handleEditItem }) => {
     const { user, loggedIn, errors } = useContext(UserContext)
 
     const handleSubmit = (e) => {
+
         e.preventDefault();
 
         const editedItem = {
@@ -29,7 +30,7 @@ const EditItemForm = ({ item, handleEditItem }) => {
             </li>
         )
     })
-    
+
     if (loggedIn && user && user.profile) {
         return (
             <div >

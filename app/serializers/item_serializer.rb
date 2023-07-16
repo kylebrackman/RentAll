@@ -3,10 +3,18 @@ class ItemSerializer < ActiveModel::Serializer
 
   has_many :rentals
 
-  attributes :id, :name, :item_type, :condition, :created_at, :description, :image, :price, :owner_id
+  attributes :id, :name, :item_type, :condition, :created_at, :description, :image, :price, :owner_id, :owner_first_name, :owner_last_name
 
   def image
     rails_blob_path(object.image, only_path: true) if object.image.attached?
+  end
+
+  def owner_first_name
+    object.owner.first_name 
+  end
+
+  def owner_last_name
+    object.owner.last_name
   end
 
 end

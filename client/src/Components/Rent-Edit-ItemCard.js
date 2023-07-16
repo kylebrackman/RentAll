@@ -47,6 +47,7 @@ const RentEditItemCard = () => {
 
   useEffect(() => {
     resetErrors();
+    // eslint-disable-next-line
   }, []);
 
 
@@ -68,6 +69,7 @@ const RentEditItemCard = () => {
               </div>
               <p>{item.item_type}</p>
               <p>{item.description}</p>
+              {errors}
               {item.owner_id !== user.id ? (
                 <>
                   <p>Start Date</p>

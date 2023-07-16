@@ -9,7 +9,7 @@ class Item < ApplicationRecord
     validate :validate_lat_lng
     
     has_many :rentals, dependent: :destroy
-    has_many :renters, through: :rentals, source: :renter_id
+    has_many :renters, through: :rentals, source: :renter
     belongs_to :owner, class_name: "User"
 
     private

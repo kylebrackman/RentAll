@@ -16,16 +16,20 @@ function UserProvider({ children }) {
     const navigate = useNavigate();
 
     useEffect(() => {
+        
         fetch("/api/me")
             .then((res) => res.json())
             .then((data) => {
+                console.log("a")
                 setUser(data);
+
                 if (data.errors) {
                     setLoggedIn(false);
                 } else {
                     setLoggedIn(true);
                 }
             });
+            console.log("b")
     }, []);
 
     useEffect(() => {
