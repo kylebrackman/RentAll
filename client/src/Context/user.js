@@ -33,6 +33,10 @@ function UserProvider({ children }) {
     }, []);
 
     useEffect(() => {
+        fetchAllItems()
+    }, [])
+
+    useEffect(() => {
         if (loggedIn) {
             fetchAllItems();
             setUserItems(user.owned_items);

@@ -90,28 +90,40 @@ const NavBar = () => {
     }
     else {
         return (
-            <nav className="navbar">
-                <div className="navbar_left">
-                    <NavLink to="/" className="navbar_logo">
-                        RentAll
-                    </NavLink>
-                </div>
-                <div className="navbar_center">
-                    <div className={`navbar_dropdown ${dropdownOpen ? "open" : ""}`}>
-                        <button
-                            className="navbar_button"
-                            onClick={toggleDropdown}>
-                            <img src={defaultImageUrl} alt="Default" className="placeholder-image" />
-                        </button>
+            // <nav className="navbar">
+            //     <div className="navbar_left">
+            //         <NavLink to="/" className="navbar_logo">
+            //             RentAll
+            //         </NavLink>
+            //     </div>
+            //     <div className="navbar_center">
+            //         <div className={`navbar_dropdown ${dropdownOpen ? "open" : ""}`}>
+            //             <button
+            //                 className="navbar_button"
+            //                 onClick={toggleDropdown}>
+            //                 <img src={defaultImageUrl} alt="Default" className="placeholder-image" />
+            //             </button>
 
-                        <div className="navbar_dropdown-content">
-                            <NavLink to="/login">Login</NavLink>
-                            <NavLink to="/signup">Signup</NavLink>
-                            <hr />
-                        </div>
-                    </div>
+            //             <div className="navbar_dropdown-content">
+            //                 <NavLink to="/login">Login</NavLink>
+            //                 <NavLink to="/signup">Signup</NavLink>
+            //                 <hr />
+            //             </div>
+            //         </div>
+            //     </div>
+            // </nav >
+            <nav className="navbar">
+                <NavLink to="/" className="navbar_logo">
+                    RentAll
+                </NavLink>
+                <div className="navbar_center">
+                    <NavLink to="/signup">
+                        <button className="sign-up-button">Sign Up!</button>
+                    </NavLink>
+
                 </div>
-            </nav >
+            </nav>
+
         );
     }
 };

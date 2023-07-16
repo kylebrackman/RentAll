@@ -5,7 +5,7 @@ import EditItemForm from './EditItemForm';
 
 const RentEditItemCard = () => {
   const { id } = useParams();
-  const { allItems, user, createRental, errors, deleteItem, editItem, resetErrors } = useContext(UserContext);
+  const { allItems, user, createRental, errors, deleteItem, editItem, resetErrors, loggedin } = useContext(UserContext);
   const [startDate, setStartDate] = useState(new Date().toISOString().substring(0, 10));
   const [endDate, setEndDate] = useState(new Date().toISOString().substring(0, 10));
   const [isEditing, setIsEditing] = useState(false);
@@ -53,7 +53,32 @@ const RentEditItemCard = () => {
 
   if (!item) {
     return <div>Item not found</div>;
-  } else {
+  } else if (!loggedin) {
+    return (
+      <div className='rent-item-card-container'>
+      <div className='rent-item-card'>
+        <div>
+          <div>
+            <h1 className="item-card-name">{item.name}</h1>
+            <img src={item.image} className='item-image' alt={item.name}></img>
+          </div>
+          <div className='rent-item-card-info-box'>
+            <div className='price-container'>
+              <h2>${item.price} Per Day</h2>
+              <p>{item.condition}</p>
+            </div>
+            <p>{item.item_type}</p>
+            <p>{item.description}</p>
+            <h2>Signup to rent this item!</h2>
+            <button className='sign-up-button'>Sign up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    )
+  }
+  
+  else {
     return (
       <div className='rent-item-card-container'>
         <div className='rent-item-card'>

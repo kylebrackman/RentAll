@@ -21,32 +21,33 @@ const AllItems = () => {
         />
     ));
 
-    if (loggedIn && user && user.profile) {
-        return (
-            <div>
-                <br />
-                <div style={{ textAlign: 'left', paddingLeft: 25 }}>
-                    <h1>Items For Rent</h1>
-                </div>
-                <div className="item-card-container">{allItemsList}</div>
-            </div>
-        );
-    } else {
-        return (
-            <div>
-                <h1>Please Log In or Sign Up</h1>
-                <div>
-                    <NavLink to="/login" >
-                        <button className='sign-up-button' >Login</button>
-                    </NavLink>
-                </div>
-                <NavLink to="/signup" >
-                    <button className='sign-up-button' >Sign Up</button>
-                </NavLink>
+    // if (loggedIn && user && user.profile) {
 
+    return (
+        <div>
+            <br />
+            <div style={{ textAlign: 'left', paddingLeft: 25 }}>
+                <h1>Items For Rent</h1>
             </div>
-        );
-    }
+            <div className="item-card-container">{allItemsList}</div>
+        </div>
+    );
+    // } else {
+    //     return (
+    //         <div>
+    //             <h1>Please Log In or Sign Up</h1>
+    //             <div>
+    //                 <NavLink to="/login" >
+    //                     <button className='sign-up-button' >Login</button>
+    //                 </NavLink>
+    //             </div>
+    //             <NavLink to="/signup" >
+    //                 <button className='sign-up-button' >Sign Up</button>
+    //             </NavLink>
+
+    //         </div>
+    //     );
+    // }
 };
 
 export default AllItems;
