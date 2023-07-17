@@ -7,7 +7,11 @@ const Profile = () => {
   const defaultImageUrl = 'https://raw.githubusercontent.com/kylebrackman/RentAll/main/client/public/User%20Default%20Pic.png';
 
   if (!user || !user.profile) {
-    return <div>Loading...</div>;
+    return <div>
+      <h1 className="text-3xl font-bold underline">
+        Loading...
+      </h1>
+    </div>;
   }
 
   if (loggedIn && user && user.profile) {

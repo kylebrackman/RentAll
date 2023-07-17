@@ -20,7 +20,6 @@ function UserProvider({ children }) {
         fetch("/api/me")
             .then((res) => res.json())
             .then((data) => {
-                console.log("a")
                 setUser(data);
 
                 if (data.errors) {
@@ -29,7 +28,6 @@ function UserProvider({ children }) {
                     setLoggedIn(true);
                 }
             });
-            console.log("b")
     }, []);
 
     useEffect(() => {
