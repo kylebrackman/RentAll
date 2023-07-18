@@ -24,12 +24,13 @@ const AllItems = () => {
     // if (loggedIn && user && user.profile) {
 
     return (
-        <div>
+        <div className='bg-slate-950'>
             <br />
-            <div style={{ textAlign: 'left', paddingLeft: 25 }}>
-                <h1>Items For Rent</h1>
+            <div>
+                <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-white">Items For Rent</h1>
             </div>
-            <div className="item-card-container">{allItemsList}</div>
+            {/* grid here */}
+            <div class="grid grid-cols-4 gap-4">{allItemsList}</div>
         </div>
     );
     // } else {

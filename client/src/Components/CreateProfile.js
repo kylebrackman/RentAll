@@ -34,96 +34,43 @@ const CreateProfile = () => {
 
 
     return (
-        // <div className="signup-card">
-        //     <div className="signup-card-body">
-        //         <h2>Create Profile</h2>
-        //         <form onSubmit={handleSubmit}>
-        //             <input
-        //                 className='create-profile-input'
-        //                 placeholder='Nickname'
-        //                 type="text"
-        //                 id="nickName"
-        //                 value={nickname}
-        //                 onChange={(e) => setNickname(e.target.value)}
-        //             />
-        //             <br />
-        //             <br />
-        //             <input
-        //                 className='create-profile-input'
-        //                 placeholder='Bio'
-        //                 type="text"
-        //                 id="bio"
-        //                 value={bio}
-        //                 onChange={(e) => setBio(e.target.value)}
-        //             />
-        //             <br />
-        //             <br />
-        //             <label className='profile-picture-label'>Profile Picture:</label>
-        //             <br />
-        //             <input type="file" name="image" id="image" accept='image/*' onChange={(e) => setImage(e.target.files[0])} />
-        //             <br />
-        //             <br />
-        //             <br />
-        //             <h2>Location</h2>
-        //             <Geo onSetLocation={handleSetLocation} />
-
-        //             <input type="submit" value="Submit" className="primary-button" />
-        //         </form>
-        //         {errors && errors.length > 0 && (
-        //             <ul className="error-list">{errors}</ul>
-        //         )}
-        //     </div>
-        // </div>
-        <div class="container mx-auto">
-            <div class="w-full max-w-xs">
-                <form class="w-full max-w-lg" style={{ marginTop: 30 }} onSubmit={handleSubmit}>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="nickname" >
-                            Nickname
-                        </label>
-                        <input
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            type="text"
-                            id="nickname"
-                            value={nickname}
-                            onChange={e => setNickname(e.target.value)}
-                            placeholder="Nickname" />
+        <section class="bg-gray-50 dark:bg-gray-900 ">
+            <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0 ">
+                <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+                    <img class="w-20 h-15 mr-2" src={process.env.PUBLIC_URL + "/favicon.ico"} alt="logo" style={{ borderRadius: 10, marginTop: 20 }} />
+                    RentAll
+                </a>
+                <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 max-w-sm rounded overflow-hidden">
+                    <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                            Create your profile
+                        </h1>
+                        <form class="space-y-4 md:space-y-6" >
+                            <div>
+                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                >Nickname (displayed on your profile)</label>
+                                <input id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nickname" required=""
+                                    value={nickname}
+                                    onChange={(e) => setNickname(e.target.value)}
+                                />
+                            </div>
+                            <div>
+                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Bio</label>
+                                <textarea type="password" name="password" id="password" placeholder="Bio" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required=""
+                                    value={bio}
+                                    onChange={(e) => setBio(e.target.value)} />
+                            </div>
+                            <input id="file_input" type="file" name="image" accept='image/*' onChange={(e) => setImage(e.target.files[0])} />
+                            <Geo onSetLocation={handleSetLocation} />
+                            <button type="submit" class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" onClick={handleSubmit}>Enter</button>
+                            <ul style={{ color: "white" }}>
+                                {errors}
+                            </ul>
+                        </form>
                     </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="firstname" >
-                            Bio
-                        </label>
-                        <textarea
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            type="text"
-                            id="bio"
-                            value={bio}
-                            onChange={e => setBio(e.target.value)}
-                            placeholder="Bio" />
-                    </div>
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="firstname" >
-                        Upload Profile Picture
-                    </label>
-                    <input
-                        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400"
-                        id="file_input"
-                        type="file"
-                        onChange={(e) => setImage(e.target.files[0])}
-                    />
-
-                    <Geo onSetLocation={handleSetLocation} />
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onClick={handleSubmit}>
-                        Create Profile!
-                    </button>
-                </form>
-                {errors && errors.length > 0 && (
-                    <ul className="error-list">{errors}</ul>
-                )}
-                <p class="text-center text-gray-500 text-xs">
-                    &copy;2023 RentAll. All rights reserved.
-                </p>
+                </div>
             </div>
-        </div>
+        </section>
     );
 };
 

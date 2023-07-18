@@ -70,8 +70,8 @@ const Geo = ({ onSetLocation }) => {
     return (
         <div className="signup-map-container">
             <div>
-                <small>Only you can see your location. </small>
-                <div id="map" style={{ height: "400px", width: "500px" }}></div>
+                <small style={{color: "white", borderRadius: 100}}>Only you can see your location. </small>
+                <div id="map" className="h-56 w-full"></div>
             </div>
         </ div>
     );
