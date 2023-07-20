@@ -24,13 +24,13 @@ const AllItems = () => {
     // if (loggedIn && user && user.profile) {
 
     return (
-        <div className='bg-slate-950'>
+        <div className='bg-slate-950' >
             <br />
-            <div>
+            <div style={{paddingLeft: "12%"}}>
                 <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-white">Items For Rent</h1>
             </div>
             {/* grid here */}
-            <div class="grid grid-cols-4 gap-4">{allItemsList}</div>
+            <div class="grid grid-cols-4 gap-4 w-3/4 mx-auto">{allItemsList}</div>
         </div>
     );
     // } else {

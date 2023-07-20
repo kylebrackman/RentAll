@@ -2,27 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 
-const AllItemCard = ({ itemName, itemId, image, itemPrice }) => {
+const AllItemCard = ({ itemName, itemId, image, itemPrice, description }) => {
 
     return (
-        // <div >
-
-        //     <Link to={`/item/${itemId}`}>
-        //         <div >
-        //             <div>
-        //                 <h1 className="item-card-name">{itemName}</h1>
-        //                 <img src={image} className='item-image' alt={itemName}></img>
-        //                 <p>${itemPrice} Per Day</p>
-        //             </div>
-        //             <hr />
-        //         </div>
-        //     </Link>
-        // </div>
         <div class="max-w-sm rounded overflow-hidden shadow-lg">
             <Link to={`/item/${itemId}`}>
-                <img class="w-full" src={image} alt="Sunset in the mountains" />
+                <img class="w-full h-80" src={image}style={{color: "white"}} alt={description}/>
             </Link>
-            <div class="px-6 py-4 bg-gray-800">
+            <div class="px-6 py-4 bg-gray-800" >
                 <div class="font-bold text-xl mb-2 text-white">{itemName}</div>
                 <p class="text-gray-700 text-base">
                 </p>
