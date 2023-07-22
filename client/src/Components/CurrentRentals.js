@@ -21,10 +21,10 @@ const CurrentRentals = () => {
     return (
         <div>
             <br />
-            <div style={{ textAlign: 'left', paddingLeft: 25 }}>
-                <h1>Current Rentals</h1>
+            <div >
+                <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-black">Current Rentals</h1>
             </div>
-            <div className="item-card-container">
+            <div class="grid grid-cols-4 gap-4 mx-auto">
                 {currentRentals.length > 0 ? currentRentalsList : "You have no current rentals"}
             </div>
         </div>

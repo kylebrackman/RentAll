@@ -21,10 +21,10 @@ const PastRentals = () => {
     return (
         <div>
             <br />
-            <div style={{ textAlign: 'left', paddingLeft: 25 }}>
-                <h1>Past Rentals</h1>
+            <div>
+                <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-black">Past Rentals</h1>
             </div>
-            <div className="item-card-container">
+            <div class="grid grid-cols-4 gap-4 mx-auto">
                 {pastRentals.length > 0 ? pastRentalsList : "You have no past rentals"}
             </div>
         </div>

@@ -23,14 +23,12 @@ const UserItems = () => {
 
     if (loggedIn && user && user.profile) {
         return (
-            <div>
+            <div className='bg-slate-950' >
                 <br />
-                <div style={{ textAlign: 'left', paddingLeft: 25 }} >
-                    <h1>Your Items</h1>
+                <div >
+                    <h1 style={{paddingLeft: "12%"}} class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-white">Your Items</h1>
                 </div>
-                <div className="item-card-container">
-                    {userItemsList}
-                </div>
+                <div class="grid grid-cols-4 gap-4 w-3/4 mx-auto">{userItemsList}</div>
             </div>
         )
     } else {

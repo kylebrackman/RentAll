@@ -145,9 +145,9 @@ const NavBar = () => {
                                     >
                                         Profile
                                     </a>
-                                    <a href="/login" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabIndex="-1" id="user-menu-item-2" onClick={logoutUser}>
+                                    <button href="/login" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabIndex="-1" id="user-menu-item-2" onClick={logoutUser}>
                                         Sign out
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -161,15 +161,12 @@ const NavBar = () => {
                         <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page" >
                             Dashboard
                         </a>
-                        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">
-                            Team
+                        <a href="/profile" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">
+                            Profile
                         </a>
-                        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">
-                            Projects
-                        </a>
-                        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">
-                            Calendar
-                        </a>
+                        <button href="/login" class="block px-4 py-2 text-sm text-white" role="menuitem" tabIndex="-1" id="user-menu-item-2" onClick={logoutUser}>
+                            Sign out
+                        </button>
                     </div>
                 </div>
             </nav>
@@ -303,18 +300,18 @@ const NavBar = () => {
                 <div class="sm:hidden" id="mobile-menu">
                     <div class="space-y-1 px-2 pb-3 pt-2">
                         {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-                        <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page" >
-                            Dashboard
+                        <a href="/signup" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page" >
+                            Sign Up
                         </a>
-                        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">
-                            Team
+                        <a href="/allItems" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">
+                            All Items
                         </a>
-                        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">
+                        {/* <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">
                             Projects
                         </a>
                         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">
                             Calendar
-                        </a>
+                        </a> */}
                     </div>
                 </div>
             </nav>
@@ -455,17 +452,11 @@ const NavBar = () => {
                 <div class="sm:hidden" id="mobile-menu">
                     <div class="space-y-1 px-2 pb-3 pt-2">
                         {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-                        <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page" >
-                            Dashboard
+                        <a href="/signup" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page" >
+                            Sign Up
                         </a>
-                        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">
-                            Team
-                        </a>
-                        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">
-                            Projects
-                        </a>
-                        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">
-                            Calendar
+                        <a href="/allItems" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">
+                            All Items
                         </a>
                     </div>
                 </div>

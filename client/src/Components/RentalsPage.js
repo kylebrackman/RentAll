@@ -10,15 +10,20 @@ const RentalsPage = () => {
 
     if (loggedIn && user && user.profile) {
         return (
-            <div>
+            <div style={{padding: "3.5%"}}>
                 <br />
-                <div style={{ textAlign: 'left', paddingLeft: 25 }}>
+                <div >
+                    <CurrentRentals />
                 </div>
-                <CurrentRentals />
+
                 <br />
-                <UpcomingRentals />
+                <div >
+                    <UpcomingRentals />
+                </div>
                 <br />
-                <PastRentals />
+                <div >
+                    <PastRentals />
+                </div>
 
             </div>
         )

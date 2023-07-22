@@ -75,8 +75,8 @@ const ProfileGeo = () => {
     return (
         <div className="signup-map-container">
             <div>
-                <small> Your location </small>
-                <div id="map" style={{ height: "400px", width: "500px" }}></div>
+                <small style={{color: "white"}}> Your location (Only you can see.) </small>
+                <div id="map" className="h-80 w-full"></div>
             </div>
         </ div>
     );

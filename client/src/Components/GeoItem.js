@@ -70,12 +70,9 @@ const GeoItem = ({ onSetItemLocation }) => {
 
     return (
         <div className="signup-map-container">
-            <div>
-                <small>Only you can see your location. </small>
-                <div id="map" style={{ height: "400px", width: "500px" }}></div>
-                <br />
-                <br />
-                <br />
+            <div >
+                <small style={{color: "white"}}>Item Location</small>
+                <div id="map" className="h-56 w-full"></div>
             </div>
         </ div>
     );
