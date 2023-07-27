@@ -7,7 +7,9 @@
   </a>
 
   <h3 align="center">RentAll</h3>
-
+  <a href="https://rentall-6528b54d3efd.herokuapp.com/allItems">
+    <h2> Demo Link </h2>
+  </a>
 </div>
 
 
