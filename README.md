@@ -86,6 +86,11 @@ RentAll is an application where users can rent out various types of gear, games,
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTACT -->
+
+## Acknowledgements
+* [othneildrew Best README Template](https://github.com/othneildrew/Best-README-Template/tree/master)
+
+
 ## Contact
 
 Kyle Brackman - kyle.a.brackman@gmail.com
