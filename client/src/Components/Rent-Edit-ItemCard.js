@@ -88,10 +88,10 @@ const RentEditItemCard = () => {
 
   else {
     return (
-      <section class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 bg-slate-950 overflow-auto">
-        <div class="w-1/4 rounded shadow-lg">
+      <section class="flex flex-col items-center px-6 py-8 mx-auto bg-slate-950">
+        <div class="rounded shadow-lg md:w-3/6 sm:w-3/6">
           <img class="w-full" src={item.image} alt="Sunset in the mountains" />
-          <div class="px-6 py-4 bg-gray-800">
+          <div class="px-6 py-4 bg-gray-800 h-auto w-auto">
             <div class="font-bold text-xl mb-2 text-white">{item.name}</div>
             <p class="text-gray-700 text-base">
             </p>
