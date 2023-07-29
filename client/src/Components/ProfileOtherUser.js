@@ -7,18 +7,21 @@ import { useParams } from 'react-router-dom';
 const ProfileOtherUser = () => {
     const { user, loggedIn } = useContext(UserContext);
     const { otherUserId } = useParams();
+
     const [otherUser, setOtherUser] = useState(null);
     // const defaultImageUrl = 'https://raw.githubusercontent.com/kylebrackman/RentAll/main/client/public/User%20Default%20Pic.png';
 
+    console.log(otherUserId)
     useEffect(() => {
-        fetch(`/api/users/${otherUserId}/profiles/${otherUserId}`)
+        fetch(`/api/profiles/${otherUserId}`)
             .then((res) => res.json())
             .then((data) => {
                 console.log('API response:', data);
                 setOtherUser(data);
             });
-    }, [otherUserId]);
+    }, []);
 
+    console.log(otherUser)
 
     if (!otherUser) {
         return <div>
@@ -35,9 +38,9 @@ const ProfileOtherUser = () => {
                     <h2 class="text-3xl font-extrabold dark:text-white">{otherUser.user.first_name}</h2>
                     <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                         <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                            <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+                            {/* <a  class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"> */}
                                 <img class="w-20 h-15 mr-2" src={otherUser.image} style={{ borderRadius: 10 }} />
-                            </a>
+                            {/* </a> */}
                             <p class="text-2xl dark:text-white">
                                 {otherUser.bio}
                             </p>
