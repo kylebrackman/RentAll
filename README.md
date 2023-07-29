@@ -28,6 +28,7 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#requirements">Requirements</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
@@ -82,6 +83,12 @@ RentAll is an application where users can rent out various types of gear, games,
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Requirements
+
+- Ruby 2.7.4 - 3.2.2
+- NodeJS (v16), and npm
+- Postgresql (Postgresql@14, specifically)
 
 <!-- CONTACT -->
 
