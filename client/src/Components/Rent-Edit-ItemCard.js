@@ -58,7 +58,7 @@ const RentEditItemCard = () => {
   } else if (!loggedIn) {
     return (
       <section class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 bg-slate-950 overflow-auto">
-        <div class="rounded shadow-lg md:w-3/6 sm:w-3/6">
+        <div class="w-1/4 rounded shadow-lg">
           <img class="w-full" src={item.image} alt="Sunset in the mountains" />
           <div class="px-6 py-4 bg-gray-800">
             <div class="font-bold text-xl mb-2 text-white">{item.name}</div>
