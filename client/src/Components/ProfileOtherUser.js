@@ -11,7 +11,7 @@ const ProfileOtherUser = () => {
     // const defaultImageUrl = 'https://raw.githubusercontent.com/kylebrackman/RentAll/main/client/public/User%20Default%20Pic.png';
 
     useEffect(() => {
-        fetch(`/api/users/${otherUserId}/profiles/1`)
+        fetch(`/api/users/${otherUserId}/profiles/${otherUserId}`)
             .then((res) => res.json())
             .then((data) => {
                 console.log('API response:', data);
