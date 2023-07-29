@@ -50,7 +50,7 @@ const RentEditItemCard = () => {
   const handleEditButtonClick = () => {
     setIsEditing(true);
   };
-
+  console.log(item.owner_id)
   useEffect(() => {
     resetErrors();
     // eslint-disable-next-line
@@ -97,7 +97,7 @@ const RentEditItemCard = () => {
           <img class="w-full" src={item.image} alt="Sunset in the mountains" />
           <div class="px-6 py-4 bg-gray-800 h-auto w-aut flex items-center justify-between">
             <div class="font-bold text-xl mb-2 text-white">{item.name}</div>
-            <Link >
+            <Link to={`/users/${item.owner_id}/profiles/1`}>
               <p class="text-white text-base">
                 Owner: {item.owner_first_name} {item.owner_last_name}
               </p>

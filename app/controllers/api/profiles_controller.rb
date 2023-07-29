@@ -11,6 +11,11 @@ class Api::ProfilesController < ApplicationController
         render json: users, include: [:profile]
     end
 
+    def show
+        profile = Profile.find(params[:id])
+        render json: profile
+    end
+
     private 
 
     def profile_params

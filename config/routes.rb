@@ -16,9 +16,11 @@ Rails.application.routes.draw do
 
     post '/createprofile', to: 'profiles#create'
   
+    resources :users do
+      resources :profiles, only: [:show]
+    end
     resources :rentals
     resources :items
-    resources :users
     resources :profiles
   end
 

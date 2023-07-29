@@ -13,6 +13,7 @@ import Profile from './Profile';
 import CreateProfile from './CreateProfile';
 import PastRentalsPage from './PastRentals';
 import UpcomingRentalsPage from './UpcomingRentals';
+import ProfileOtherUser from './ProfileOtherUser';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route exact path="/pastRentals" element={<PastRentalsPage />} />
           <Route exact path="/upcomingRentals" element={<UpcomingRentalsPage />} />
           <Route exact path="/profile" element={<Profile />} />
+          <Route exact path="/users/:otherUserId/profiles/:id" element={<ProfileOtherUser />} />
           <Route exact path="/createProfile" element={<CreateProfile />} />
         </Routes>
       </UserProvider>
