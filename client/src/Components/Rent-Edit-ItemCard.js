@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { UserContext } from '../Context/user';
 import EditItemForm from './EditItemForm';
 
@@ -10,9 +10,13 @@ const RentEditItemCard = () => {
   const [endDate, setEndDate] = useState(new Date().toISOString().substring(0, 10));
   const [isEditing, setIsEditing] = useState(false);
 
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
   const item = allItems.find((i) => i.id === parseInt(id));
+
+
+  console.log(item)
+
 
   const handleStartDateChange = (event) => {
     setStartDate(event.target.value);
@@ -57,8 +61,8 @@ const RentEditItemCard = () => {
     return <div>Item not found</div>;
   } else if (!loggedIn) {
     return (
-      <section class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 bg-slate-950 overflow-auto">
-        <div class="w-1/4 rounded shadow-lg">
+      <section class="flex flex-col items-center px-6 py-8 mx-auto bg-slate-950">
+        <div class="rounded shadow-lg md:w-3/6 sm:w-3/6">
           <img class="w-full" src={item.image} alt="Sunset in the mountains" />
           <div class="px-6 py-4 bg-gray-800">
             <div class="font-bold text-xl mb-2 text-white">{item.name}</div>
@@ -91,10 +95,13 @@ const RentEditItemCard = () => {
       <section class="flex flex-col items-center px-6 py-8 mx-auto bg-slate-950">
         <div class="rounded shadow-lg md:w-3/6 sm:w-3/6">
           <img class="w-full" src={item.image} alt="Sunset in the mountains" />
-          <div class="px-6 py-4 bg-gray-800 h-auto w-auto">
+          <div class="px-6 py-4 bg-gray-800 h-auto w-aut flex items-center justify-between">
             <div class="font-bold text-xl mb-2 text-white">{item.name}</div>
-            <p class="text-gray-700 text-base">
-            </p>
+            <Link >
+              <p class="text-white text-base">
+                Owner: {item.owner_first_name} {item.owner_last_name}
+              </p>
+            </Link>
           </div>
           <div class="px-6 pt-4 pb-2 bg-gray-800" style={{ color: "white" }}>
             <p style={{ color: "white" }}>

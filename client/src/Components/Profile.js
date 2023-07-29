@@ -4,7 +4,7 @@ import ProfileGeo from './ProfileGeo';
 
 const Profile = () => {
   const { user, loggedIn } = useContext(UserContext);
-  const defaultImageUrl = 'https://raw.githubusercontent.com/kylebrackman/RentAll/main/client/public/User%20Default%20Pic.png';
+  // const defaultImageUrl = 'https://raw.githubusercontent.com/kylebrackman/RentAll/main/client/public/User%20Default%20Pic.png';
 
   if (!user || !user.profile) {
     return <div>
@@ -16,18 +16,6 @@ const Profile = () => {
 
   if (loggedIn && user && user.profile) {
     return (
-      // <div>
-      //   <div>
-      //     {user.profile.image ? (
-      //       <img src={user.profile.image} alt="Profile" className='profile-image' />
-      //     ) : (
-      //       <img src={defaultImageUrl} alt="Default Profile" className='profile-image' />
-      //     )}
-      //     <h2>{user.profile.name}</h2>
-      //     <h3>{user.profile.bio}</h3>
-      //   </div>
-      //   <ProfileGeo />
-      // </div>
       <section class="bg-gray-50 dark:bg-gray-900">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <h2 class="text-3xl font-extrabold dark:text-white">{user.profile.name}</h2>
