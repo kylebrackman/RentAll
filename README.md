@@ -84,7 +84,7 @@ RentAll is an application where users can rent out various types of gear, games,
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Requirements
+## Requirements
 
 - Ruby 2.7.4 - 3.2.2
 - NodeJS (v16), and npm
