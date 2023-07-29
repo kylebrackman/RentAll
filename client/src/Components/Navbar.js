@@ -469,6 +469,9 @@ const NavBar = () => {
                         <a href="/allItems" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">
                             All Items
                         </a>
+                        <a href="/login" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">
+                            Login
+                        </a>
                     </div>
                 </div>
             </nav>
