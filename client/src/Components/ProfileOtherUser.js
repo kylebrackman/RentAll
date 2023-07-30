@@ -11,7 +11,8 @@ const ProfileOtherUser = () => {
     const [otherUser, setOtherUser] = useState(null);
     // const defaultImageUrl = 'https://raw.githubusercontent.com/kylebrackman/RentAll/main/client/public/User%20Default%20Pic.png';
 
-    console.log(otherUserId)
+
+    // try fetching for the user, then compete the front end below using otherUser.profile ...?
     useEffect(() => {
         fetch(`/api/profiles/${otherUserId}`)
             .then((res) => res.json())
@@ -19,6 +20,7 @@ const ProfileOtherUser = () => {
                 console.log('API response:', data);
                 setOtherUser(data);
             });
+            
     }, []);
 
     console.log(otherUser)
