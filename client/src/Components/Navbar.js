@@ -44,7 +44,7 @@ const NavBar = () => {
                   Menu open: "hidden", Menu closed: "block"
         --> */}
                                 <svg class={`${isDropdownOpen ? "hidden" : "block"} h-6 w-6`} fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" onClick={toggleDropdown}>
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                                 </svg>
                                 {/* <!--
                   Icon when menu is open.
@@ -146,6 +146,15 @@ const NavBar = () => {
                                     >
                                         Profile
                                     </a>
+                                    <a
+                                        href="/requests"
+                                        class="block px-4 py-2 text-sm text-gray-700"
+                                        role="menuitem"
+                                        tabIndex="-1"
+                                        id="user-menu-item-0"
+                                    >
+                                        Requests
+                                    </a>
                                     <button href="/login" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabIndex="-1" id="user-menu-item-2" onClick={logoutUser}>
                                         Sign out
                                     </button>
@@ -160,7 +169,7 @@ const NavBar = () => {
 
 
 
-                
+
                 <div class="sm:hidden" id="mobile-menu">
                     <div class="space-y-1 px-2 pb-3 pt-2">
                         {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
@@ -339,7 +348,7 @@ const NavBar = () => {
                                 type="button" class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                                 aria-controls="mobile-menu"
                                 aria-expanded={isDropdownOpen}
-                                // onClick={toggleDropdown}
+                            // onClick={toggleDropdown}
                             >
                                 {/* <!--
                       Icon when menu is closed.

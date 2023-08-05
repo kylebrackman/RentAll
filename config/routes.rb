@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     resources :rentals
     resources :items
     resources :profiles
+    resources :rental_requests
+
   end
 
   get '*path',
