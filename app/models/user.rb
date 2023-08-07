@@ -18,6 +18,10 @@ class User < ApplicationRecord
 
     has_one :profile
 
+    # def rental_requests_made_with_items
+    #     ActiveModel::Serializer::CollectionSerializer.new(self.rental_requests_made, serializer: RentalRequestSerializer, scope: self)
+    # end
+
     def current_rentals
         Rental.current_rentals(self)
     end
