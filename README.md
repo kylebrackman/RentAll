@@ -76,6 +76,7 @@ RentAll is an application where users can rent out various types of gear, games,
 <!-- ROADMAP -->
 ## Roadmap & Bugs
 - [ ] Add request and approve flow to rental requests (in progress...)
+- [ ] Add in transaction method.
 - [ ] Add user chat for coordinating item dropoffs/pickups
 - [ ] Fix Google Maps API issue
 - [ ] Fix Tailwind CSS on mobile
