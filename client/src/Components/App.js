@@ -14,6 +14,7 @@ import CreateProfile from './CreateProfile';
 import PastRentalsPage from './PastRentals';
 import UpcomingRentalsPage from './UpcomingRentals';
 import ProfileOtherUser from './ProfileOtherUser';
+import MyRequests from './MyRequests';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route exact path="/profile" element={<Profile />} />
           <Route exact path="/profiles/:otherUserId" element={<ProfileOtherUser />} />
           <Route exact path="/createProfile" element={<CreateProfile />} />
+          <Route exact path="/myRequests" element={<MyRequests />} />
         </Routes>
       </UserProvider>
     </div>

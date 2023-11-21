@@ -12,9 +12,9 @@ function UserProvider({ children }) {
     const [currentRentals, setCurrentRentals] = useState([]);
     const [upcomingRentals, setUpcomingRentals] = useState([]);
     const [pastRentals, setPastRentals] = useState([]);
+    const [userRentalRequests, setUserRentalRequests] = useState([]);
 
     const navigate = useNavigate();
-
     useEffect(() => {
         
         fetch("/api/me")
@@ -41,6 +41,7 @@ function UserProvider({ children }) {
             setCurrentRentals(user.current_rentals);
             setUpcomingRentals(user.upcoming_rentals);
             setPastRentals(user.past_rentals);
+            setUserRentalRequests(user.rental_requests_made_with_items);
         } else {
             setUserItems([]);
             setCurrentRentals([]);
@@ -209,7 +210,8 @@ function UserProvider({ children }) {
                 upcomingRentals,
                 pastRentals,
                 fetchAllItems,
-                resetErrors
+                resetErrors,
+                userRentalRequests
             }}
         >
             {children}
