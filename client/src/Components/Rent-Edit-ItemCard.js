@@ -62,7 +62,7 @@ const RentEditItemCard = () => {
   } else if (!loggedIn) {
     return (
       <section class="flex flex-col items-center px-6 py-8 mx-auto bg-slate-950">
-        <div class="rounded shadow-lg md:w-3/6 sm:w-3/6">
+        <div class="rounded shadow-lg md:w-2/6 sm:w-3/6">
           <img class="w-full" src={item.image} alt="Sunset in the mountains" />
           <div class="px-6 py-4 bg-gray-800">
             <div class="font-bold text-xl mb-2 text-white">{item.name}</div>
@@ -93,9 +93,9 @@ const RentEditItemCard = () => {
   else {
     return (
       <section class="flex flex-col items-center px-6 py-8 mx-auto bg-slate-950">
-        <div class="rounded shadow-lg md:w-3/6 sm:w-3/6">
-          <img class="w-full" src={item.image} alt="Sunset in the mountains" />
-          <div class="px-6 py-4 bg-gray-800 h-auto w-aut flex items-center justify-between">
+        <div class="rounded-lg shadow-lg md:w-2/6 sm:w-3/6">
+          <img class="w-full rounded-lg" src={item.image} alt="Sunset in the mountains" />
+          <div class=" rounded-lg px-6 py-4 bg-gray-800 h-auto w-aut flex items-center justify-between">
             <div class="font-bold text-xl mb-2 text-white">{item.name}</div>
             <Link to={`/profiles/${item?.owner_id}`}>
               <p class="text-white text-base">
@@ -103,11 +103,10 @@ const RentEditItemCard = () => {
               </p>
             </Link>
           </div>
-          <div class="px-6 pt-4 pb-2 bg-gray-800" style={{ color: "white" }}>
+          <div class="rounded-lg px-6 pt-4 pb-2 bg-gray-800" style={{ color: "white" }}>
             <p style={{ color: "white" }}>
               {item.description}
             </p>
-            <br />
             <span class="inline-block bg-lime-600 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">${item.price} Per Day</span>
             <br />
             <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{item.condition}</span>
