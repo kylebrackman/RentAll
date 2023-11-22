@@ -41,7 +41,7 @@ function UserProvider({ children }) {
             setCurrentRentals(user.current_rentals);
             setUpcomingRentals(user.upcoming_rentals);
             setPastRentals(user.past_rentals);
-            setUserRentalRequests(user.rental_requests_made_with_items);
+            // setUserRentalRequests(user.rental_requests_made_with_items);
         } else {
             setUserItems([]);
             setCurrentRentals([]);
