@@ -11,17 +11,17 @@ class User < ApplicationRecord
     has_many :rentals, foreign_key: :renter_id
     has_many :items, through: :rentals, source: :item
 
-    # has_many :rental_requests_made, foreign_key: :renter_id, class_name: "RentalRequest"
-    # has_many :rental_requests_received, through: :owned_items, source: :rental_requests
+    has_many :rental_requests_made, foreign_key: :renter_id, class_name: "RentalRequest"
+    has_many :rental_requests_received, through: :owned_items, source: :rental_requests
 
-    # has_many :rental_requests, foreign_key: :renter_id
-    # has_many :items_requested, through: :rental_requests, source: :item
+    has_many :rental_requests, foreign_key: :renter_id
+    has_many :items_requested, through: :rental_requests, source: :item
 
     has_one :profile
 
-    # def rental_requests_made_with_items
-    #     ActiveModel::Serializer::CollectionSerializer.new(self.rental_requests_made, serializer: RentalRequestSerializer, scope: self)
-    # end
+    def rental_requests_made_with_items
+        ActiveModel::Serializer::CollectionSerializer.new(self.rental_requests_made, serializer: RentalRequestSerializer, scope: self)
+    end
 
     def current_rentals
         Rental.current_rentals(self)
