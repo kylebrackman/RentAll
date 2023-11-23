@@ -40,6 +40,9 @@ const RentEditItemCard = () => {
       item_id: item.id,
       owner_id: item.owner_id,
     });
+    if (errors.length === 0) {
+      navigate(`/confirmRentalRequest/${item.id}`);
+    }
   };
 
   const handleEditItem = (editedItem) => {

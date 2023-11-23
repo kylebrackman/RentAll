@@ -23,7 +23,7 @@ const UserItems = () => {
 
     if (loggedIn && user && user.profile) {
         return (
-            <div className='bg-slate-950' >
+            <div className='bg-slate-950 h-screen' >
                 <br />
                 <div >
                     <h1 style={{ paddingLeft: "12%" }} class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-white">Your Items</h1>

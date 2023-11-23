@@ -10,7 +10,7 @@ const RentalsPage = () => {
 
     if (loggedIn && user && user.profile) {
         return (
-            <div style={{padding: "3.5%"}}>
+            <div className='bg-slate-950 h-screen' style={{padding: "3.5%"}}>
                 <br />
                 <div >
                     <CurrentRentals />

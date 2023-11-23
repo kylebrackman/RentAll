@@ -20,12 +20,12 @@ const UpcomingRentals = () => {
     })
 
     return (
-        <div>
+        <div >
             <br />
             <div >
-                <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-black">Upcoming Rentals</h1>
+                <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-white">Upcoming Rentals</h1>
             </div>
-            <div class="grid grid-cols-4 gap-4 mx-auto" >
+            <div class="grid grid-cols-4 gap-4 mx-auto text-white" >
                 {upcomingRentals.length > 0 ? upcomingRentalsList : "You have no upcoming rentals"}
             </div>
         </div>

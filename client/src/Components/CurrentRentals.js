@@ -22,9 +22,9 @@ const CurrentRentals = () => {
         <div>
             <br />
             <div >
-                <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-black">Current Rentals</h1>
+                <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-white">Current Rentals</h1>
             </div>
-            <div class="grid grid-cols-4 gap-4 mx-auto">
+            <div class="grid grid-cols-4 gap-4 mx-auto text-white">
                 {currentRentals.length > 0 ? currentRentalsList : "You have no current rentals"}
             </div>
         </div>

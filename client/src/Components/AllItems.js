@@ -22,7 +22,7 @@ const AllItems = () => {
     ));
 
     return (
-        <div className='bg-slate-950' >
+        <div className='bg-slate-950 h-screen' >
             <br />
             <div style={{paddingLeft: "12%"}}>
                 <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl gap-8 text-white">Items For Rent</h1>

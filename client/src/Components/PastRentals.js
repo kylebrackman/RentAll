@@ -22,9 +22,9 @@ const PastRentals = () => {
         <div>
             <br />
             <div>
-                <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-black">Past Rentals</h1>
+                <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-white">Past Rentals</h1>
             </div>
-            <div class="grid grid-cols-4 gap-4 mx-auto">
+            <div class="grid grid-cols-4 gap-4 mx-auto text-white">
                 {pastRentals.length > 0 ? pastRentalsList : "You have no past rentals"}
             </div>
         </div>
