@@ -10,22 +10,24 @@ const RentalsPage = () => {
 
     if (loggedIn && user && user.profile) {
         return (
-            <div className='bg-slate-950 h-screen' style={{padding: "3.5%"}}>
-                <br />
-                <div >
-                    <CurrentRentals />
-                </div>
+            <div class="bg-slate-950 h-screen">
 
-                <br />
-                <div >
-                    <UpcomingRentals />
-                </div>
-                <br />
-                <div >
-                    <PastRentals />
-                </div>
+                <div className='container mx-auto'>
+                    <div >
+                        <CurrentRentals />
+                    </div>
+                    <br />
+                    <div >
+                        <UpcomingRentals />
+                    </div>
+                    <br />
+                    <div >
+                        <PastRentals />
+                    </div>
 
+                </div>
             </div>
+
         )
     } else {
         return (

@@ -4,7 +4,7 @@ import AllItemCard from './AllItemCard';
 import { NavLink } from "react-router-dom";
 
 const AllItems = () => {
-    const { allItems, loggedIn, user } = useContext(UserContext);
+    const { allItems } = useContext(UserContext);
 
     const allItemsList = allItems.map((i) => (
         <AllItemCard
