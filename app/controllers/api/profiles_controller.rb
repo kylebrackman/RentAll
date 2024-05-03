@@ -1,5 +1,7 @@
 class Api::ProfilesController < ApplicationController
 
+    before_action :authorize, only: [:create]
+
     def create
         profile = @current_user.create_profile!(profile_params)
         profile.image.attach(params[:image])
