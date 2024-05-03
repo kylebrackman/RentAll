@@ -12,7 +12,7 @@ function Signup() {
     const { signup } = useContext(UserContext);
     const navigate = useNavigate();
     function handleSubmit(e) {
-            
+
         e.preventDefault();
         console.log('password:', password);
         console.log('passwordConfirmation:', passwordConfirmation);
@@ -40,7 +40,7 @@ function Signup() {
                     setPassword('');
                     setPasswordConfirmation('');
                     const errorDivs = user.errors.map(e => <div>{e}</div>);
-                    setErrorsList(<div style={{ color: "red" }}>{errorDivs}</div>);
+                    setErrorsList(user.errors.map(e => <div key={e}>{e}</div>));
                 }
             });
     }
@@ -93,8 +93,12 @@ function Signup() {
                                 <div class="flex items-start">
                                     <button type="submit" class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign up</button>
                                 </div>
-
                             </div>
+                            {errorsList.length > 0 && (
+                                <div className="error-messages" style={{color:'red'}}>
+                                    {errorsList}
+                                </div>
+                            )}
                             {/* <a href="#" class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a> */}
 
                         </form>
