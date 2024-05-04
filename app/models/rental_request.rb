@@ -15,40 +15,53 @@ class RentalRequest < ApplicationRecord
         rejected: 2
       }
 
-    #   def self.current_rentals(user)
-    #     where(renter_id: user.id).where("start_date <= ? AND end_date >= ?", Date.today, Date.today)
-    # end
+    def show
+      @rental_request = RentalRequest.find(params[:id])
+      @renter = @rental_request.renter
+    end
+
+    def self.current_rentals(user)
+        where(renter_id: user.id).where("start_date <= ? AND end_date >= ?", Date.today, Date.today)
+    end
     
-    # def self.upcoming_rentals(user)
-    #     where(renter_id: user.id).where("start_date > ?", Date.today)
-    # end
+    def self.upcoming_rentals(user)
+        where(renter_id: user.id).where("start_date > ?", Date.today)
+    end
     
-    # def self.past_rentals(user)
-    #     where(renter_id: user.id).where("end_date < ?", Date.today)
-    # end
+    def self.past_rentals(user)
+        where(renter_id: user.id).where("end_date < ?", Date.today)
+    end
 
-    # private
-
-    # def no_overlapping_rentals
-    #     existing_rentals = Rental.where(item_id: item_id).where("start_date <= ? AND end_date >= ?", start_date, end_date)
-
-    #     if existing_rentals.exists?
-    #         errors.add(:start_date, "cannot overlap with an existing rental")
-    #     end
-    # end
-
-    # def start_date_minimum
-    #     if start_date < Date.today
-    #         errors.add(:start_date, "cannot be in the past")
-    #     end
-    # end
-
-    # def end_date_after_start_date
-    #     return if end_date.blank? || start_date.blank?
+    def approve
+      update(status: 'approved')
+    end
     
-    #     if end_date < start_date
-    #       errors.add(:end_date, "must be after the start date")
-    #     end
-    # end
+    def reject
+      update(status: 'rejected')
+    end
+
+    private
+
+    def no_overlapping_rentals
+        existing_rentals = Rental.where(item_id: item_id).where("start_date <= ? AND end_date >= ?", start_date, end_date)
+
+        if existing_rentals.exists?
+            errors.add(:start_date, "cannot overlap with an existing rental")
+        end
+    end
+
+    def start_date_minimum
+        if start_date < Date.today
+            errors.add(:start_date, "cannot be in the past")
+        end
+    end
+
+    def end_date_after_start_date
+        return if end_date.blank? || start_date.blank?
+    
+        if end_date < start_date
+          errors.add(:end_date, "must be after the start date")
+        end
+    end
 
 end
