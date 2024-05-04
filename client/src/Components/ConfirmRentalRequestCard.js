@@ -13,7 +13,7 @@ const ConfirmRentalRequestCard = () => {
         <div class="h-sreen">
             <section class="bg-gray-50 dark:bg-gray-900 h-screen">
                 <h1 style={{color: "white"}}>
-                    TEST
+                    Your request has been sent to the owner of this item. You will be notified when they accept or decline your request.
                 </h1>
             </section>
         </div>

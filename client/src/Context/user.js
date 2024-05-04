@@ -13,6 +13,7 @@ function UserProvider({ children }) {
     const [upcomingRentals, setUpcomingRentals] = useState([]);
     const [pastRentals, setPastRentals] = useState([]);
     const [userRentalRequests, setUserRentalRequests] = useState([]);
+    const [pendingRentals, setPendingRentals] = useState([]);
 
     const navigate = useNavigate();
     useEffect(() => {
@@ -41,6 +42,7 @@ function UserProvider({ children }) {
             setCurrentRentals(user.current_rentals);
             setUpcomingRentals(user.upcoming_rentals);
             setPastRentals(user.past_rentals);
+            setPendingRentals(user.pending_rental_requests);
             // setUserRentalRequests(user.rental_requests_made_with_items);
         } else {
             setUserItems([]);
@@ -189,7 +191,8 @@ function UserProvider({ children }) {
         setErrors([]);
     };
 
-
+    // const pendingRentals = user.pending_rental_requests;
+    // const pendingRentals = [];
     return (
         <UserContext.Provider
             value={{
@@ -211,7 +214,8 @@ function UserProvider({ children }) {
                 pastRentals,
                 fetchAllItems,
                 resetErrors,
-                userRentalRequests
+                userRentalRequests,
+                pendingRentals
             }}
         >
             {children}

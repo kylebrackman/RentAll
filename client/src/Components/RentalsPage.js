@@ -3,6 +3,7 @@ import { UserContext } from '../Context/user';
 import UpcomingRentals from './UpcomingRentals';
 import PastRentals from './PastRentals';
 import CurrentRentals from './CurrentRentals';
+import PendingRentals from './PendingRentals';
 
 const RentalsPage = () => {
     const { user, loggedIn } = useContext(UserContext)
@@ -24,6 +25,11 @@ const RentalsPage = () => {
                     <div >
                         <PastRentals />
                     </div>
+                    <div>
+                        <PendingRentals />
+                    </div>
+
+
 
                 </div>
             </div>

@@ -14,7 +14,6 @@ class User < ApplicationRecord
     has_many :rental_requests_made, foreign_key: :renter_id, class_name: "RentalRequest"
     has_many :rental_requests_received, through: :owned_items, source: :rental_requests
 
-    has_many :rental_requests, foreign_key: :renter_id
     has_many :items_requested, through: :rental_requests, source: :item
 
     has_one :profile
@@ -33,6 +32,10 @@ class User < ApplicationRecord
     
     def past_rentals
         Rental.past_rentals(self)
+    end
+
+    def pending_rental_requests
+        RentalRequest.where(renter_id: id, status: 0)
     end
 
 end
