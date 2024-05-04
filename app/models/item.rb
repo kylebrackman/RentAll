@@ -11,6 +11,8 @@ class Item < ApplicationRecord
     has_many :rentals, dependent: :destroy
     has_many :renters, through: :rentals, source: :renter
     belongs_to :owner, class_name: "User"
+    has_many :rental_requests, dependent: :destroy
+    has_many :requested_renters, through: :rental_requests, source: :renter
 
     private
 

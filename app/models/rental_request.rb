@@ -6,7 +6,7 @@ class RentalRequest < ApplicationRecord
     # validate :start_date_minimum
     # validate :end_date_after_start_date
 
-    belongs_to :item
+    belongs_to :item, class_name: "Item"
     belongs_to :renter, class_name: "User"
 
     enum status: {
