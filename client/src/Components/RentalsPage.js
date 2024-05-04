@@ -26,7 +26,7 @@ const RentalsPage = () => {
                         <PastRentals />
                     </div>
                     <div>
-                        <PendingRentals />
+                        {/* <PendingRentals /> */}
                     </div>
 
 

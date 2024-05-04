@@ -26,7 +26,7 @@ const PendingRentals = () => {
                 <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-white">Pending Rentals</h1>
             </div>
             <div class="grid grid-cols-4 gap-4 mx-auto text-white">
-                {pendingRentals.length > 0 ? currentRentalsList : "You have no current rentals"}
+                {/* {pendingRentals.length > 0 ? currentRentalsList : "You have no current rentals"} */}
             </div>
         </div>
     )

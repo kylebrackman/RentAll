@@ -95,7 +95,7 @@ function Signup() {
                                 </div>
                             </div>
                             {errorsList.length > 0 && (
-                                <div className="error-messages" style={{color:'red'}}>
+                                <div className="error-messages" style={{ color: 'red' }}>
                                     {errorsList}
                                 </div>
                             )}
@@ -107,11 +107,11 @@ function Signup() {
                         </p>
                     </div>
                 </div>
-                <div >
-
-                    <p class="mb-3 text-gray-500 text-white bg-slate-800" style={{ padding: 30, borderRadius: 30, marginLeft: "20%" }}>
-                        Our user-friendly platform makes it a breeze to find and rent the gear you need.
-                        Simply browse for your desired item, select your rental dates, and connect with local gear owners who are passionate about sharing their equipment and knowledge.</p>
+                <div class="flex flex-col items-center mt-8">
+                    <img src='/photos/kayak.png' class="mx-auto mb-4" alt="Kayak Image" style={{width: '50%', borderRadius: 10}}/>
+                    <p class="mb-3 text-gray-500 text-white bg-slate-800 px-6 py-4 rounded-lg text-center md:max-w-md">
+                        Our user-friendly platform makes it a breeze to find and rent the gear you need. Simply browse for your desired item, select your rental dates, and connect with local gear owners who are passionate about sharing their equipment and knowledge.
+                    </p>
                 </div>
             </div>
 
