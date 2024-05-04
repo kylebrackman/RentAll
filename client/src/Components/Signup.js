@@ -50,6 +50,11 @@ function Signup() {
             <div class="flex flex-row items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0" >
                 <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
                 </a>
+                <div class="w-full max-w-md" style={{justifyContent: 'center', alignContent: 'center'}}>
+                <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+                    <img class="w-20 h-15 mr-2" src={process.env.PUBLIC_URL + "/favicon.ico"} alt="logo" style={{ borderRadius: 10 }} />
+                    RentAll
+                </a>
                 <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                     <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                         <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
@@ -107,8 +112,9 @@ function Signup() {
                         </p>
                     </div>
                 </div>
+                </div>
                 <div class="flex flex-col items-center mt-8">
-                    <img src='/photos/kayak.png' class="mx-auto mb-4" alt="Kayak Image" style={{width: '50%', borderRadius: 10}}/>
+                    <img src='/photos/kayak.png' class="mx-auto mb-4" alt="Kayak Image" style={{width: '60%', borderRadius: 10}}/>
                     <p class="mb-3 text-gray-500 text-white bg-slate-800 px-6 py-4 rounded-lg text-center md:max-w-md">
                         Our user-friendly platform makes it a breeze to find and rent the gear you need. Simply browse for your desired item, select your rental dates, and connect with local gear owners who are passionate about sharing their equipment and knowledge.
                     </p>
