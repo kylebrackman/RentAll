@@ -42,7 +42,8 @@ function UserProvider({ children }) {
             setCurrentRentals(user.current_rentals);
             setUpcomingRentals(user.upcoming_rentals);
             setPastRentals(user.past_rentals);
-            setPendingRentals(user.rental_requests_received);
+            fetchRentalRequests();
+            // setPendingRentals(user.rental_requests_received);
         } else {
             setUserItems([]);
             setCurrentRentals([]);
@@ -116,6 +117,21 @@ function UserProvider({ children }) {
                 }
             });
     };
+
+    const fetchRentalRequests = () => {
+        fetch("/api/rental_requests/")
+           .then((res) => res.json())
+           .then((data) => {
+                console.log(data)
+                if (!data.errors) {
+                    setPendingRentals(data);
+                } else {
+                    console.error("Failed to fetch pending rentals:", data.errors);
+                }
+            })
+           .catch((error) => console.error("Error fetching pending rentals:", error));
+    };
+    
 
     const newProfile = (newProfileData) => {
         fetch("/api/createprofile", {

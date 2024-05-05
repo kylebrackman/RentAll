@@ -20,4 +20,11 @@ class Api::RentalRequestsController < ApplicationController
         redirect_to rental_request.item, alert: "Rental request rejected."
     end
 
+    def index
+      @rental_requests = RentalRequest.all
+      render json: @rental_requests
+    end
+
+    
+
 end

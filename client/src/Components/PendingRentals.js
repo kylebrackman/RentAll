@@ -1,36 +1,37 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../Context/user';
-import UserItemCard from './UserItemCard';
 import RentalRequestApproval from './RentalRequestApproval';
 
 const PendingRentals = () => {
-    const { pendingRentals, allItems } = useContext(UserContext)
+    const { pendingRentals, user } = useContext(UserContext);
 
-    const matchedItems = allItems.filter(item => pendingRentals.some(rental => rental.item_id === item.id));
-
-    const matchedItemsList = matchedItems.map(r => {
+    // Filter pendingRentals to only include items where the owner_id matches the user.id
+    const filteredPendingRentals = pendingRentals.filter(rental => rental.status === "pending" && rental.item.owner_id === user.id);
+    console.log(filteredPendingRentals)
+    const pendingRequestsList = filteredPendingRentals.map(request => {
         return <RentalRequestApproval
-            key={r.id}
-            itemName={r.name}
-            type={r.type}
-            condition={r.condition}
-            image={r.image}
-            description={r.description}
-            id={r.id}
-            price={r.price}
+            key={request.id}
+            itemName={request.item.name}
+            type={request.item.type}
+            condition={request.item.condition}
+            image={request.item.image}
+            description={request.item.description}
+            id={request.item.id}
+            price={request.item.price}
         />
-    })
+    });
+
     return (
         <div>
             <br />
-            <div >
-                <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-white">Pending Rentals</h1>
+            <div>
+                <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-white">Pending Rentals</h1>
             </div>
-            <div class="grid grid-cols-4 gap-4 mx-auto text-white">
-                {pendingRentals.length > 0 ? matchedItemsList : "You have no current rentals"}
+            <div className="grid grid-cols-4 gap-4 mx-auto text-white">
+                {filteredPendingRentals.length > 0? pendingRequestsList : "You have no current rentals"}
             </div>
         </div>
-    )
+    );
 }
 
-export default PendingRentals
+export default PendingRentals;

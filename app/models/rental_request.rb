@@ -46,6 +46,7 @@ class RentalRequest < ApplicationRecord
       redirect_to rental_request.item, alert: "Rental request rejected."
     end
 
+
     private
 
     def no_overlapping_rentals

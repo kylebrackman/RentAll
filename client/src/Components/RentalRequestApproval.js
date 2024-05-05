@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const RentalRequestApproval = ({ id, itemName, image, price, description }) => {
 
     return (
-        <div class="max-w-sm rounded overflow-hidden shadow-lg" style={{marginBottom: '1px'}}>
+        <div class="max-w-sm rounded overflow-hidden shadow-lg">
             <Link to={`/item/${id}`}>
                 <img class="w-full h-80" src={image} style={{ color: "white" }} alt={description} />
             </Link>
@@ -21,14 +21,14 @@ const RentalRequestApproval = ({ id, itemName, image, price, description }) => {
                     <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Rent</span>
                 </Link>
             </div>
-            <div>
+            {/* <div>
                 <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
                     Approve
                 </button>
                 <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                     Deny
                 </button>
-            </div>
+            </div> */}
         </div>
     )
 }
