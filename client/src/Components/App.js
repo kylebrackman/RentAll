@@ -15,11 +15,12 @@ import PastRentalsPage from './PastRentals';
 import UpcomingRentalsPage from './UpcomingRentals';
 import ProfileOtherUser from './ProfileOtherUser';
 import MyRequests from './MyRequests';
-import ConfirmRentalRequestCard from './ConfirmRentalRequestCard';
+import ConfirmRentalRequestMessage from './ConfirmRentalRequestMessage';
+import Footer from './footer';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App flex flex-col min-h-screen">
       <UserProvider>
         <Navbar />
         <Routes>
@@ -37,8 +38,9 @@ function App() {
           <Route exact path="/profiles/:otherUserId" element={<ProfileOtherUser />} />
           <Route exact path="/createProfile" element={<CreateProfile />} />
           <Route exact path="/myRequests" element={<MyRequests />} />
-          <Route exact path="/confirmRentalRequest/:id" element={<ConfirmRentalRequestCard />} />
+          <Route exact path="/confirmRentalRequest/:id" element={<ConfirmRentalRequestMessage />} />
         </Routes>
+        <Footer />
       </UserProvider>
     </div>
   );

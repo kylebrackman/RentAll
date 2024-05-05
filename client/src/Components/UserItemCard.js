@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const UserItemCard = ({ id, itemName, image, price, description }) => {
 
     return (
-        <div class="max-w-sm rounded overflow-hidden shadow-lg">
+        <div class="max-w-sm rounded overflow-hidden shadow-lg" style={{marginBottom: '1px'}}>
             <Link to={`/item/${id}`}>
                 <img class="w-full h-80" src={image} style={{ color: "white" }} alt={description} />
             </Link>

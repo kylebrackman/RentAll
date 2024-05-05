@@ -3,7 +3,7 @@ import { UserContext } from '../Context/user';
 import { useParams } from 'react-router-dom';
 
 
-const ConfirmRentalRequestCard = () => {
+const ConfirmRentalRequestMessage = () => {
 
     const { id } = useParams();
     const { allItems } = useContext(UserContext);
@@ -20,4 +20,4 @@ const ConfirmRentalRequestCard = () => {
     )
 }
 
-export default ConfirmRentalRequestCard;
+export default ConfirmRentalRequestMessage;

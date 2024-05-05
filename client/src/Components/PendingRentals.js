@@ -7,7 +7,6 @@ const PendingRentals = () => {
 
     const matchedItems = allItems.filter(item => pendingRentals.some(rental => rental.item_id === item.id));
 
-    console.log(matchedItems)
     const matchedItemsList = matchedItems.map(r => {
         return <UserItemCard
             key={r.id}

@@ -11,7 +11,7 @@ const RentalsPage = () => {
 
     if (loggedIn && user && user.profile) {
         return (
-            <div class="bg-slate-950 h-screen">
+            <div class="bg-slate-950 min-h-screen">
 
                 <div className='container mx-auto'>
                     <div >
@@ -28,9 +28,6 @@ const RentalsPage = () => {
                     <div>
                         <PendingRentals />
                     </div>
-
-
-
                 </div>
             </div>
 
