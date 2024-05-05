@@ -436,9 +436,7 @@ function About () {
               </div>
               <div className="max-w-[515px] flex flex-col gap-8">
                 <span className="text-[17px] Light font-normal font-hindVadodara leading-[146.3%] tracking-wide text-center md:text-left">
-                  Lorem Ipsum has been the industry&apos;s standard dummy text
-                  ever since the 1500s, when an unknown printer took a galley of
-                  type and scrambled it to make a type specimen book.
+                Say goodbye to the limitations of traditional department stores and embrace the freedom of peer-to-peer gear exchange. Whether you're an outdoor enthusiast, a fitness junkie, or a hobbyist looking to explore new passions, our platform empowers everyone to share their gear and expertise seamlessly. Join us in revolutionizing the way we access and enjoy recreational gear, because adventure knows no bounds when shared among friends.
                 </span>
 
                 <Button
@@ -712,7 +710,7 @@ function About () {
           <div className="w-full flex md:gap-4 gap-8 sm:justify-between flex-col md:flex-row max-w-screen-2xl mx-auto pb-[76px] sm:pl-12 sm:pr-12 px-5 lg:pr-[152px]">
             <div className="flex flex-col gap-4 justify-start">
               <h1 className="text-4xl text-white font-playFairDisplay tracking-[0.01] w-fit cursor-pointer">
-                Dream Agency
+                RentAll
               </h1>
               <p className="text-base max-w-[439px] w-full text-white font-hindVadodara leading-[159.3%] font-normal tracking-wide">
                 Lorem Ipsum has been the industry&apos;s standard dummy text
