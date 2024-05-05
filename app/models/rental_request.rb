@@ -33,11 +33,17 @@ class RentalRequest < ApplicationRecord
     # end
 
     def approve
-      update(status: 'approved')
+      rental_request = RentalRequest.find(params[:id])
+      rental_request.update(status: 1) # Update status to 1 (approved)
+      # create rental record and chat
+      redirect_to rental_request.item, notice: "Rental request approved."
     end
     
     def reject
-      update(status: 'rejected')
+      rental_request = RentalRequest.find(params[:id])
+      rental_request.update(status: 2) # Update status to 2 (rejected)
+      # Notify requester that their rental request has been rejected
+      redirect_to rental_request.item, alert: "Rental request rejected."
     end
 
     private

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../Context/user';
 import UserItemCard from './UserItemCard';
+import RentalRequestApproval from './RentalRequestApproval';
 
 const PendingRentals = () => {
     const { pendingRentals, allItems } = useContext(UserContext)
@@ -8,7 +9,7 @@ const PendingRentals = () => {
     const matchedItems = allItems.filter(item => pendingRentals.some(rental => rental.item_id === item.id));
 
     const matchedItemsList = matchedItems.map(r => {
-        return <UserItemCard
+        return <RentalRequestApproval
             key={r.id}
             itemName={r.name}
             type={r.type}

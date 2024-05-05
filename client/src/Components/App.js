@@ -17,6 +17,7 @@ import ProfileOtherUser from './ProfileOtherUser';
 import MyRequests from './MyRequests';
 import ConfirmRentalRequestMessage from './ConfirmRentalRequestMessage';
 import Footer from './footer';
+import About from './About';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route exact path="/createProfile" element={<CreateProfile />} />
           <Route exact path="/myRequests" element={<MyRequests />} />
           <Route exact path="/confirmRentalRequest/:id" element={<ConfirmRentalRequestMessage />} />
+          <Route exact path="/about" element={<About />} />
         </Routes>
         <Footer />
       </UserProvider>

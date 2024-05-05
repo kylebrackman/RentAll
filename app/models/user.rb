@@ -39,7 +39,7 @@ class User < ApplicationRecord
     end
 
     def rental_requests_received
-        RentalRequest.includes(item: :owner).where(items: { owner_id: self.id })
+        RentalRequest.includes(item: :owner).where(items: { owner_id: self.id }, status: 0)
     end
 
 end
