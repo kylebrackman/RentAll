@@ -122,7 +122,6 @@ function UserProvider({ children }) {
         fetch("/api/rental_requests/")
            .then((res) => res.json())
            .then((data) => {
-                console.log(data)
                 if (!data.errors) {
                     setPendingRentals(data);
                 } else {

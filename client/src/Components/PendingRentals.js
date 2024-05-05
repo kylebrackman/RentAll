@@ -16,8 +16,8 @@ const PendingRentals = () => {
             condition={request.item.condition}
             image={request.item.image}
             description={request.item.description}
-            id={request.item.id}
-            price={request.item.price}
+            id={request.id}
+            price={request.item.price}   
         />
     });
 

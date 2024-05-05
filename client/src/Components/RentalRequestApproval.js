@@ -6,7 +6,7 @@ const RentalRequestApproval = ({ id, itemName, image, price, description }) => {
 
     return (
         <div class="max-w-sm rounded overflow-hidden shadow-lg">
-            <Link to={`/item/${id}`}>
+            <Link to={`/rentalrequest/${id}`}>
                 <img class="w-full h-80" src={image} style={{ color: "white" }} alt={description} />
             </Link>
             <div class="px-6 py-4 bg-gray-800" >
