@@ -76,12 +76,11 @@ RentAll is an application where users can rent out various types of gear, games,
 <!-- ROADMAP -->
 ## Roadmap & Bugs
 - [ ] Add request and approve flow to rental requests (in progress...)
-- [ ] Add in transaction method.
+- [ ] Add in payment gate way.
 - [ ] Add user chat for coordinating item dropoffs/pickups
 - [ ] Fix Google Maps API issue
 - [ ] Fix Tailwind CSS on mobile
 - [ ] Add available and unavailable dates on each item calendar
-- [ ] Fix known user creation bug.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -125,5 +124,3 @@ Project Link: [https://github.com/kylebrackman/RentAll](https://github.com/kyleb
 [Tailwind]: https://img.shields.io/badge/Tailwind-Blue
 [Ruby-url]: https://www.ruby-lang.org/en/
 [Ruby.rb]:https://camo.githubusercontent.com/3e54bb93c9b07f26583176c6d06d716fb4979496f742fc9eed7c9c5ba8befb27/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f527562792d4343333432443f7374796c653d666c6174266c6f676f3d72756279266c6f676f436f6c6f723d626c61636b
-
-TEST COMMIT
