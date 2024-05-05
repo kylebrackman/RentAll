@@ -42,8 +42,7 @@ function UserProvider({ children }) {
             setCurrentRentals(user.current_rentals);
             setUpcomingRentals(user.upcoming_rentals);
             setPastRentals(user.past_rentals);
-            setPendingRentals(user.pending_rental_requests);
-            // setUserRentalRequests(user.rental_requests_made_with_items);
+            setPendingRentals(user.rental_requests_received);
         } else {
             setUserItems([]);
             setCurrentRentals([]);
@@ -191,8 +190,9 @@ function UserProvider({ children }) {
         setErrors([]);
     };
 
-    // const pendingRentals = user.pending_rental_requests;
-    // const pendingRentals = [];
+
+    // const pendingRentals = user.rental_requests_received;
+    
     return (
         <UserContext.Provider
             value={{

@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :owned_items, :current_rentals, :upcoming_rentals, :past_rentals, :first_name, :last_name, :email, :rental_requests
+  attributes :id, :owned_items, :current_rentals, :upcoming_rentals, :past_rentals, :first_name, :last_name, :email, :rental_requests, :rental_requests_received
   # removed :rental_requests_made from above
 
   has_many :owned_items, foreign_key: :owner_id, class_name: "Item"

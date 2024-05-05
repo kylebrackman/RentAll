@@ -12,7 +12,7 @@ class User < ApplicationRecord
     has_many :items, through: :rentals, source: :item
 
     has_many :rental_requests, foreign_key: :renter_id, class_name: "RentalRequest"
-    has_many :rental_requests_received, through: :owned_items, source: :item
+    # has_many :rental_requests_received, through: :owned_items, source: :item
 
     has_many :items_requested, through: :rental_requests_made, source: :item
 
@@ -36,6 +36,10 @@ class User < ApplicationRecord
 
     def pending_rental_requests
         RentalRequest.where(renter_id: id, status: 0)
+    end
+
+    def rental_requests_received
+        RentalRequest.includes(item: :owner).where(items: { owner_id: self.id })
     end
 
 end

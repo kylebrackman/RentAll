@@ -1,8 +1,10 @@
 class Api::RentalRequestsController < ApplicationController
 
-    def show
-        @rental_request = RentalRequest.find(params[:id])
-    end
+  def show
+    @rental_request = RentalRequest.includes(:item).find(params[:id])
+    puts @rental_request.inspect # Log the rental request object
+    render json: @rental_request, serializer: RentalRequestSerializer
+  end
     
     def approve
         rental_request = RentalRequest.find(params[:id])
