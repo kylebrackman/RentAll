@@ -16,7 +16,7 @@ import UpcomingRentalsPage from './UpcomingRentals';
 import ProfileOtherUser from './ProfileOtherUser';
 import MyRequests from './MyRequests';
 import ConfirmRentalRequestMessage from './ConfirmRentalRequestMessage';
-import Footer from './Footer';
+import Footer from './footer';
 import About from './About';
 
 function App() {
