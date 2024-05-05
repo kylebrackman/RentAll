@@ -23,23 +23,24 @@ const UserItems = () => {
 
     if (loggedIn && user && user.profile) {
         return (
-            <div className='bg-slate-950 h-screen' >
+            <section className="flex flex-col px-6 py-8 bg-white min-h-screen">
                 <br />
-                <div >
-                    <h1 style={{ paddingLeft: "12%" }} class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-white">Your Items</h1>
+                <div style={{ paddingLeft: "12%", display: "flex", flexDirection: "row", alignItems: "flex-start" }}>
+                    <h2 className="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl">Your Items</h2>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-3/4 mx-auto">{
-
-                    userItemsList.length > 0 ? userItemsList : 
-                    <div>
-                    <h1 style={{ paddingLeft: "12%", color: "white" }}>You have no items</h1>
-                    <br/>
-                    <h1 style={{ paddingLeft: "12%", color: "white" }}>
-                        Upload a new item to get started!
-                    </h1>
-                    </div>
-                }</div>
-            </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-3/4 mx-auto">
+                    {
+                        userItemsList.length > 0 ? userItemsList :
+                        <div>
+                            <h1 style={{ color: "white" }}>You have no items</h1>
+                            <br />
+                            <h1 style={{ color: "white" }}>
+                                Upload a new item to get started!
+                            </h1>
+                        </div>
+                    }
+                </div>
+            </section>
         )
     } else {
         return (
@@ -52,4 +53,4 @@ const UserItems = () => {
     }
 }
 
-export default UserItems
+export default UserItems;

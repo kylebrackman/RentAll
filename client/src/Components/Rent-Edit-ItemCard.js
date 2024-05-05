@@ -64,7 +64,7 @@ const RentEditItemCard = () => {
     return <div>Item not found</div>;
   } else if (!loggedIn) {
     return (
-<section class="flex flex-col items-center px-6 py-8 bg-slate-950 min-h-screen">
+      <section class="flex flex-col items-center px-6 py-8 bg-slate-950 min-h-screen">
         <div class="rounded shadow-lg md:w-2/6 sm:w-3/6 min-h-screen">
           <img class="w-full" src={item.image} alt="Sunset in the mountains" />
           <div class="px-6 py-4 bg-gray-800">
@@ -86,7 +86,7 @@ const RentEditItemCard = () => {
             <h2>
               <span onClick={() => navigate('/signup')} class="inline-block bg-gray-200 rounded-full px-3 py-1 text-md font-semibold text-gray-700 mr-2 mb-2">
                 Sign Up</span> to rent this item!
-            </h2>a
+            </h2>
           </div>
         </div>
       </section>
@@ -95,7 +95,7 @@ const RentEditItemCard = () => {
 
   else {
     return (
-<section class="flex flex-col items-center px-6 py-8 bg-slate-950 min-h-screen">
+      <section class="flex flex-col items-center px-6 py-8 bg-slate-950 min-h-screen">
         <div class="rounded-lg shadow-lg md:w-2/6 sm:w-3/6">
           <img class="w-full rounded-lg" src={item.image} alt="Sunset in the mountains" />
           <div class=" rounded-lg px-6 py-4 bg-gray-800 h-auto w-aut flex items-center justify-between">
