@@ -5,9 +5,7 @@ import { UserContext } from '../Context/user';
 const RentalRequestApprovalCard = () => {
     const navigate = useNavigate();
     const { id } = useParams();
-    const { errors, resetErrors, loggedIn, pendingRentals } = useContext(UserContext);
-    console.log(pendingRentals)
-
+    const { errors, resetErrors, loggedIn, pendingRentals, approveRequest } = useContext(UserContext);
     const request = pendingRentals.find((request) => request.id === parseInt(id));
 
     const errorList = errors.map((error) => (
@@ -78,23 +76,29 @@ const RentalRequestApprovalCard = () => {
                         </div>
                     </div>
                     <div className="rounded-lg shadow-lg md:w-2/6 sm:w-3/6">
-                        <img className="w-full rounded-lg" src={request.item.image} alt="Sunset in the mountains" />
-                        <div className="rounded-lg px-6 py-4 bg-gray-800 h-auto w-auto flex items-center justify-between">
+                    <img className="w-64 h-64 rounded-lg" src={request.owner_profile.image} alt="Owner Profile Image" />
+                        <div className="rounded-lg px-6 py-4 bg-gray-800 h-auto w-auto flex items-center justify-between w-64 h-64 rounded-lg">
                             <div className="font-bold text-xl mb-2 text-white">{request.item.name}</div>
-                            <Link to={`/profiles/${request.item?.owner_id}`}>
+                            <Link to={`/profiles/${request.renter_profile.id}`}>
                                 <p className="text-white text-base">
-                                    Owner: {request.item.owner_first_name} {request.item.owner_last_name}
+                                    Requestor:
+                                </p>
+                                <p className="text-white text-base">
+                                {request.renter.first_name} {request.renter.last_name}
                                 </p>
                             </Link>
                         </div>
-                        <div className="rounded-lg px-6 pt-4 pb-2 bg-gray-800" style={{ color: "white" }}>
+                        <div className="rounded-lg px-6 pt-4 pb-2 bg-gray-800 w-64 h-24 rounded-lg" style={{ color: "white" }}>
                             <p style={{ color: "white" }}>
-                                {request.item.description}
+                                RentAll Rating: COMING SOON
                             </p>
-                            <span className="inline-block bg-lime-600 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">${request.item.price} Per Day</span>
+                            <p style={{ color: "white" }}>
+                                Location
+                            </p>
+                            <button onClick={() => approveRequest(parseInt(id))}>
+                                Approve
+                            </button>
                             <br />
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{request.item.condition}</span>
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{request.item.item_type}</span>
                         </div>
                     </div>
                 </div>

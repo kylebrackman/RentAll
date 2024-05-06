@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 const AllItems = () => {
     const { allItems, pendingRentals } = useContext(UserContext);
-    console.log(pendingRentals)
+    // console.log(pendingRentals)
 
 
     const allItemsList = allItems.map((i) => (

@@ -2,9 +2,9 @@ class RentalRequest < ApplicationRecord
 
     validate :start_date
     validate :end_date
-    # validate :no_overlapping_rentals
-    # validate :start_date_minimum
-    # validate :end_date_after_start_date
+    validate :no_overlapping_rentals
+    validate :start_date_minimum
+    validate :end_date_after_start_date
 
     belongs_to :item, class_name: "Item"
     belongs_to :renter, class_name: "User"
@@ -33,10 +33,12 @@ class RentalRequest < ApplicationRecord
     # end
 
     def approve
-      rental_request = RentalRequest.find(params[:id])
-      rental_request.update(status: 1) # Update status to 1 (approved)
-      # create rental record and chat
-      redirect_to rental_request.item, notice: "Rental request approved."
+      @rental_request = RentalRequest.find(params[:id])
+      @rental_request.update(status: 'approved')
+      Rental.create(renter: @rental_request.renter, item: @rental_request.item, start_date: @rental_request.start_date, end_date: @rental_request.end_date)
+      render json: { message: 'Rental request finalized successfully' }, status: :ok
+    rescue ActiveRecord::RecordNotFound => e
+      render json: { error: 'Rental request not found' }, status: :not_found
     end
     
     def reject

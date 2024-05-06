@@ -5,7 +5,7 @@ import EditItemForm from './EditItemForm';
 
 const RentEditItemCard = () => {
   const { id } = useParams();
-  const { allItems, user, createRental, errors, deleteItem, editItem, resetErrors, loggedIn } = useContext(UserContext);
+  const { allItems, user, createRental, errors, deleteItem, editItem, resetErrors, loggedIn, createRentalRequest } = useContext(UserContext);
   const [startDate, setStartDate] = useState(new Date().toISOString().substring(0, 10));
   const [endDate, setEndDate] = useState(new Date().toISOString().substring(0, 10));
   const [isEditing, setIsEditing] = useState(false);
@@ -33,7 +33,7 @@ const RentEditItemCard = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createRental({
+    createRentalRequest({
       start_date: startDate,
       end_date: endDate,
       renter_id: user.id,

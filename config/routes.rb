@@ -22,6 +22,10 @@ Rails.application.routes.draw do
     resources :profiles
     resources :rental_requests
 
+    post '/rental_requests/finalize_approval', to: 'rental_requests#finalize_approval'
+
+
+
   end
 
   get '*path',
