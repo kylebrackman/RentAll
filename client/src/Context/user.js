@@ -17,7 +17,7 @@ function UserProvider({ children }) {
 
     const navigate = useNavigate();
     useEffect(() => {
-        
+
         fetch("/api/me")
             .then((res) => res.json())
             .then((data) => {
@@ -119,68 +119,69 @@ function UserProvider({ children }) {
     };
 
     const createRentalRequest = (rentalRequestData) => {
+        console.log("user context", rentalRequestData)
         fetch("/api/rental_requests", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(rentalRequestData),
         })
-       .then((res) => res.json())
-       .then((data) => {
-            if (!data.errors) {
-                // Handle successful creation of rental request
-                console.log("Rental request created successfully:", data);
-            } else {
-                const errorLis = data.errors.map((e) => <li>{e}</li>);
-                setErrors(errorLis);
-            }
-        })
-       .catch((error) => console.error("Error creating rental request:", error));
+            .then((res) => res.json())
+            .then((data) => {
+                if (!data.errors) {
+                    // Handle successful creation of rental request
+                    console.log("Rental request created successfully:", data);
+                } else {
+                    const errorLis = data.errors.map((e) => <li>{e}</li>);
+                    setErrors(errorLis);
+                }
+            })
+            .catch((error) => console.error("Error creating rental request:", error));
     };
 
     const approveRequest = (requestId) => {
         // Fetch the rental request details
         fetch(`/api/rental_requests/${requestId}`)
-         .then((res) => res.json())
-         .then((data) => {
-            if (!data.errors) {
-              // Make a POST request to the finalize_approval endpoint
-              fetch(`/api/rental_requests/finalize_approval`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ id: requestId }),
-              })
-               .then((res) => res.json())
-               .then((response) => {
-                  if (!response.error) {
-                    console.log("Rental request finalized successfully.");
-                    // Optionally, refresh the list of rentals or show a success message
-                  } else {
-                    console.error("Failed to finalize rental request:", response.error);
-                  }
-                })
-               .catch((error) => console.error("Error finalizing rental request:", error));
-            } else {
-              console.error("Failed to fetch rental request:", data.errors);
-            }
-          })
-         .catch((error) => console.error("Error fetching rental request:", error));
-      };
-      
-    
+            .then((res) => res.json())
+            .then((data) => {
+                if (!data.errors) {
+                    // Make a POST request to the finalize_approval endpoint
+                    fetch(`/api/rental_requests/finalize_approval`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ id: requestId }),
+                    })
+                        .then((res) => res.json())
+                        .then((response) => {
+                            if (!response.error) {
+                                console.log("Rental request finalized successfully.");
+                                // Optionally, refresh the list of rentals or show a success message
+                            } else {
+                                console.error("Failed to finalize rental request:", response.error);
+                            }
+                        })
+                        .catch((error) => console.error("Error finalizing rental request:", error));
+                } else {
+                    console.error("Failed to fetch rental request:", data.errors);
+                }
+            })
+            .catch((error) => console.error("Error fetching rental request:", error));
+    };
+
+
 
     const fetchRentalRequests = () => {
         fetch("/api/rental_requests/")
-           .then((res) => res.json())
-           .then((data) => {
+            .then((res) => res.json())
+            .then((data) => {
                 if (!data.errors) {
                     setPendingRentals(data);
                 } else {
                     console.error("Failed to fetch pending rentals:", data.errors);
                 }
             })
-           .catch((error) => console.error("Error fetching pending rentals:", error));
+            .catch((error) => console.error("Error fetching pending rentals:", error));
     };
-    
+
 
     const newProfile = (newProfileData) => {
         fetch("/api/createprofile", {
@@ -254,7 +255,7 @@ function UserProvider({ children }) {
     const resetErrors = () => {
         setErrors([]);
     };
-    
+
     return (
         <UserContext.Provider
             value={{

@@ -14,10 +14,6 @@ const RentEditItemCard = () => {
   const navigate = useNavigate();
   const item = allItems.find((i) => i.id === parseInt(id));
 
-
-  console.log(item?.owner_id)
-
-
   const handleStartDateChange = (event) => {
     setStartDate(event.target.value);
   };
@@ -33,13 +29,15 @@ const RentEditItemCard = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createRentalRequest({
+    const rentalRequestData = {
       start_date: startDate,
       end_date: endDate,
       renter_id: user.id,
       item_id: item.id,
       owner_id: item.owner_id,
-    });
+    };
+    console.log("card", rentalRequestData)
+    createRentalRequest(rentalRequestData);
     if (errors.length === 0) {
       navigate(`/confirmRentalRequest/${item.id}`);
     }
@@ -59,7 +57,6 @@ const RentEditItemCard = () => {
     // eslint-disable-next-line
   }, []);
 
-  console.log(loggedIn)
   if (!item) {
     return <div>Item not found</div>;
   } else if (!loggedIn) {

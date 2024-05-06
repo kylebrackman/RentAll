@@ -52,7 +52,7 @@ class RentalRequest < ApplicationRecord
     private
 
     def no_overlapping_rentals
-        existing_rentals = Rental.where(item_id: item_id).where("start_date <= ? AND end_date >= ?", start_date, end_date)
+        existing_rentals = RentalRequest.where(item_id: item_id).where("start_date <= ? AND end_date >= ?", start_date, end_date)
 
         if existing_rentals.exists?
             errors.add(:start_date, "cannot overlap with an existing rental")

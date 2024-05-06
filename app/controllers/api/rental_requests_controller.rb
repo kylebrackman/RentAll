@@ -1,13 +1,13 @@
 class Api::RentalRequestsController < ApplicationController
 
   def create
-    @rental_request = RentalRequest.new(rental_request_params)
+    rental_request = @current_user.rental_requests.create!(rental_request_params)
+    render json: rental_request, status: :created
+  end
 
-    if @rental_request.save
-      render json: @rental_request, status: :created
-    else
-      render json: @rental_request.errors, status: :unprocessable_entity
-    end
+  def create
+    rental_request = RentalRequest.new(rental_request_params)
+    render json: rental_request, status: :created if rental_request.save!
   end
 
     def show
@@ -58,7 +58,7 @@ class Api::RentalRequestsController < ApplicationController
     private
 
     def rental_request_params
-      params.permit(:renter_id, :item_id, :start_date, :end_date, :owner_id)
+      params.permit(:renter_id, :item_id, :start_date, :end_date, :owner_id, :rental_request)
     end
     
 
