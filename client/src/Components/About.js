@@ -3,12 +3,12 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import classNames from "classnames";
 import { useRef, useState } from "react";
-import '../App.css'; 
+import '../App.css';
 import { useNavigate } from 'react-router-dom';
 
 
-function About () {
-  const navigate = useNavigate(); 
+function About() {
+  const navigate = useNavigate();
   const bussinessSlider = useRef();
   const workSlider = useRef();
   const [showMenu, setShowMenu] = useState(false);
@@ -142,24 +142,24 @@ function About () {
     ],
   };
 
-  const testimonialsCard = [
-    {
-      title: "UI Soup",
-      discription:
-        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
-    },
-    {
-      title: "UI Soup",
-      discription:
-        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
-    },
-  ];
+  // const testimonialsCard = [
+  //   {
+  //     title: "UI Soup",
+  //     discription:
+  //       "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
+  //   },
+  //   {
+  //     title: "UI Soup",
+  //     discription:
+  //       "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
+  //   },
+  // ];
 
   const cardDetail = [
     {
       title: "Website Design",
       logoBg: "bg-[#FFDED4]",
-      logo: "/assets/dreamagency/websiteLogo.svg",
+      logo: "/photos/Headshot.png",
     },
     {
       title: "Web Development",
@@ -191,7 +191,7 @@ function About () {
   const templateCard = [
     {
       title: "3D NFT",
-      img: "/assets/dreamagency/bgnft.png",
+      img: "/photos/Headshot.png",
     },
     {
       title: "Crypto",
@@ -317,7 +317,7 @@ function About () {
               </div>
             </div>
             <div className="relative cursor-pointer z-20">
-              <svg
+              {/* <svg
                 width="46"
                 height="49"
                 viewBox="0 0 46 49"
@@ -330,7 +330,7 @@ function About () {
                   strokeOpacity="0.64"
                   strokeWidth="2"
                 />
-              </svg>
+              </svg> */}
               <div className="absolute top-3 left-3">
                 <svg
                   width="25"
@@ -438,23 +438,24 @@ function About () {
               </div>
               <div className="max-w-[515px] flex flex-col gap-8">
                 <span className="text-[17px] Light font-normal font-hindVadodara leading-[146.3%] tracking-wide text-center md:text-left">
-                Say goodbye to the limitations of traditional department stores and embrace the freedom of peer-to-peer gear exchange. Whether you're an outdoor enthusiast, a fitness junkie, or a hobbyist looking to explore new passions, our platform empowers everyone to share their gear and expertise seamlessly. Join us in revolutionizing the way we access and enjoy recreational gear, because adventure knows no bounds when shared among friends.
+                  Say goodbye to the limitations of traditional department stores and embrace the freedom of peer-to-peer gear exchange. Whether you're an outdoor enthusiast, a fitness junkie, or a hobbyist looking to explore new passions, our platform empowers everyone to share their gear and expertise seamlessly. Join us in revolutionizing the way we access and enjoy recreational gear, because adventure knows no bounds when shared among friends.
                 </span>
 
-    <button
-      className="self-center md:self-start max-w-[207px] py-[22px] w-full flex justify-center items-center font-bold leading-[137.3%] tracking-wide"
-      onClick={() => navigate('/signup')} // Updated to use navigate
-      style={{textDecoration: 'underline'}}
-    >
-      GET STARTED + SIGN UP
-    </button>
+                <button
+                  className="self-center md:self-start max-w-[207px] py-[22px] w-full flex justify-center items-center font-bold leading-[137.3%] tracking-wide"
+                  onClick={() => navigate('/signup')} // Updated to use navigate
+                  style={{ textDecoration: 'underline' }}
+                >
+                  GET STARTED + SIGN UP
+                </button>
               </div>
             </div>
             <div>
               <img
-                src={"/assets/dreamagency/home.png"}
+                src={"/photos/ChavezBike.png"}
                 alt="Home"
-                className="h-[362px] lg:h-full"
+                className="h-[800px]"
+                style={{ borderRadius: '50%' }}
               />
             </div>
           </div>
@@ -465,19 +466,19 @@ function About () {
               <div className=" flex flex-col sm:gap-16 md:gap-24 gap-12">
                 <div className="mx-auto md:text-5xl text-4xl text-gray-800 font-hindVadodara -tracking-[0.01] leading-[106.3%]">
                   <h1 className=" font-bold self-center text-center">
-                    Make the Most of Your Equipment
+                    About the Developer
                   </h1>
                   <span className="font-light self-center">
-                    Share Your
+                    Kyle
                     <span className="relative ml-1">
-                      Knowledge
+                      Brackman
                       <span className="bg-[#FDC221] md:h-2.5 h-2 bottom-1.5 md:bottom-2 -z-[1] right-0 absolute md:w-48 w-[145px]" />
                     </span>
                   </span>
                 </div>
                 <div className="lg:pl-32 sm:pl-8 px-5 flex gap-12">
                   <div className="md:flex gap-4 items-end hidden">
-                    <svg
+                    {/* <svg
                       width="35"
                       height="34"
                       viewBox="0 0 35 34"
@@ -497,7 +498,7 @@ function About () {
                         strokeWidth="2"
                         strokeLinecap="round"
                       />
-                    </svg>
+                    </svg> */}
                     <svg
                       width="35"
                       height="34"
@@ -521,7 +522,7 @@ function About () {
                     </svg>
                   </div>
                   <div className="dream-agency-bussiness flex justify-center">
-                    <Slider {...bussinessSliderSetting} ref={bussinessSlider}>
+                    {/* <Slider {...bussinessSliderSetting} ref={bussinessSlider}>
                       {cardDetail?.map((card, index) => (
                         <div
                           key={index}
@@ -545,13 +546,22 @@ function About () {
                           </div>
                         </div>
                       ))}
-                    </Slider>
+                    </Slider> */}
+<div className="flex items-center">
+  <div className="text-[17px] Light font-normal font-hindVadodara leading-[146.3%] tracking-wide md:text-right max-w-[400px]">
+    <span>
+      Kyle Brackman is a Software Engineer, Climber, and Outdoor Enthusiast. He has a passion for building and creating, and is excited to bring that passion to the GearUp platform. He is excited to build a community to encourage more people to stay active, get outdoors, and create more sustainability while fighting against wasteful consumerism, ultimately fostering a culture of outdoor appreciation.
+    </span>
+  </div>
+  <img src="/photos/Headshot.png" className="ml-4" style={{height:500, borderRadius: 40}}/>
+</div>
+
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="flex justify-between items-center w-full px-5 sm:px-[50px] flex-col-reverse md:flex-row mt-11 sm:mt-0 gap-16 md:gap-4">
+          {/* <div className="flex justify-between items-center w-full px-5 sm:px-[50px] flex-col-reverse md:flex-row mt-11 sm:mt-0 gap-16 md:gap-4">
             <div className="relative">
               <img
                 src="/assets/dreamagency/aboutus.png"
@@ -559,8 +569,8 @@ function About () {
                 alt="about us"
               />
             </div>
-          </div>
-          <div className="w-full relative h-[725px] md:h-[636px] py-24 overflow-hidden md:mt-20 mt-12">
+          </div> */}
+          {/* <div className="w-full relative h-[725px] md:h-[636px] py-24 overflow-hidden md:mt-20 mt-12">
             <div className="max-w-[1300px] ml-3 w-full h-full bg-[#FFDED4] rounded-tl-[137px] sm:rounded-tl-[400px] absolute top-0 right-0 z-10"></div>
             <div className="!z-30 absolute top-0 h-full w-full flex flex-col gap-24 py-24 md:py-40">
               <div className=" flex flex-col gap-8 sm:gap-10 md:gap-24 mx-auto">
@@ -659,56 +669,21 @@ function About () {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="flex flex-col items-center justify-center w-full gap-14 md:mt-[75px] mt-9 px-5">
             <div className=" text-center w-full text-3xl md:text-5xl text-[#331B3B] font-hindVadodara -tracking-[0.01em]">
               <h1 className="whitespace-nowrap font-bold leading-[99.8%] text-center">
-                Our Testimonials
+                Welcome to the Beta
               </h1>
               <span className="md:whitespace-nowrap !text-center font-light mt-1 max-w-sm md:max-w-xl mx-auto">
-                What Our Clients Are
+                You're
                 <span className="relative z-10 ml-2">
-                  Saying
+                  Early
                   <span className="bg-[#FDC221] h-2 md:bottom-2 bottom-1 -z-[1] absolute w-full right-[100px] sm:right-0 left-0" />
                 </span>
               </span>
             </div>
-            <div className="flex sm:gap-[69px] gap-7 flex-col md:flex-row">
-              {testimonialsCard.map((data, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col gap-7 justify-start drop-shadow-[0_7px_9px_rgba(0,0,0,0.15)] bg-white pl-[29px] pr-[35px] py-9"
-                >
-                  <div>
-                    {/* <svg
-                      width="46"
-                      height="40"
-                      viewBox="0 0 46 40"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M35.4128 39.5905L45.4 18.5185V0.409668H24.9856V19.6161H32.7776L24.9856 39.5905H35.4128ZM28.0336 16.5681V3.45927H42.3504V17.8321L33.4816 36.5409H29.4464L37.2352 16.5697H28.0336V16.5681Z"
-                        fill="#FDC221"
-                      />
-                      <path
-                        d="M11.0272 39.5905L21.0144 18.5185V0.409668H0.600006V19.6161H8.39361L0.600006 39.5905H11.0272ZM3.64801 16.5681V3.45927H17.9648V17.8321L9.09761 36.5409H5.06241L12.8512 16.5697H3.64801V16.5681Z"
-                        fill="#FDC221"
-                      />
-                    </svg> */}
-                  </div>
-                  <div className="flex flex-col justify-start gap-3">
-                    <span className=" max-w-[384px] w-full text-base font-normal font-hindVadodara leading-[159.8%] tracking-wide">
-                      {data.discription}
-                    </span>
-                    <span className="flex gap-2 items-center text-base font-semibold font-hindVadodara leading-[159.8%] tracking-wide">
-                      <span className=" border-[2px] border-[#FDC221] w-3 relative bottom-0.5" />
-                      {data.title}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
+
           </div>
         </div>
         <div className="bg-black rounded-tr-[158px] relative pt-[66px] mt-[92px] w-full">
@@ -718,12 +693,10 @@ function About () {
                 GearUp
               </h1>
               <p className="text-base max-w-[439px] w-full text-white font-hindVadodara leading-[159.3%] font-normal tracking-wide">
-                Lorem Ipsum has been the industry&apos;s standard dummy text
-                ever since the 1500s, when an unknown printer took a galley of
-                type and scrambled it to make a type specimen book. It has
-                survived not only five centuries.
+
+                GearUp, currently in beta and being developed by a solo developer, aims to revolutionize the gear rental industry. It strives to offer superior quality gear at more accessible prices while fostering a sense of community and shared passion among users.
               </p>
-              <p className="text-base text-white font-hindVadodara leading-[159.3%] font-semibold tracking-wide uppercase">
+              {/* <p className="text-base text-white font-hindVadodara leading-[159.3%] font-semibold tracking-wide uppercase">
                 GET IN TOUCH
               </p>
               <div className="flex">
@@ -739,9 +712,9 @@ function About () {
                   className="max-w-[143px] py-3.5 w-full flex justify-center items-center !bg-white text-base !text-black font-semibold font-hindVadodara leading-[159.3%] tracking-wide rounded-none"
                   label="Send"
                 />
-              </div>
+              </div> */}
             </div>
-            <div className="relative">
+            {/* <div className="relative">
               <div className="max-w-[197px] w-full flex flex-col justify-start px-2.5 py-[7px] bg-white shadow-4xl absolute top-[26px] left-8">
                 <p className="font-bold text-[#414141] text-base leading-[134.8%]">
                   Texas
@@ -754,7 +727,7 @@ function About () {
                 </p>
               </div>
               <img src={"/assets/dreamagency/mapImage.svg"} alt="map" />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
