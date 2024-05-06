@@ -17,7 +17,7 @@ const RentalRequestApproval = ({ id, itemName, image, price, description }) => {
             <div class="px-6 pt-4 pb-2 bg-gray-800">
                 <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">${price} Per Day</span>
                 <br />
-                <Link to={`/item/${id}`}>
+                <Link to={`/rentalrequest/${id}`}>
                     <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Rent</span>
                 </Link>
             </div>

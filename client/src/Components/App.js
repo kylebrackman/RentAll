@@ -18,6 +18,7 @@ import MyRequests from './MyRequests';
 import ConfirmRentalRequestMessage from './ConfirmRentalRequestMessage';
 import Footer from './footer';
 import About from './About';
+import RentalRequestApprovalCard from './RentalRequestApprovalCard';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
             <Route exact path="/myRequests" element={<MyRequests />} />
             <Route exact path="/confirmRentalRequest/:id" element={<ConfirmRentalRequestMessage />} />
             <Route exact path="/about" element={<About />} />
+            <Route exact path="/rentalRequest/:id" element={<RentalRequestApprovalCard />} />
           </Routes>
           </main>
         <Footer />

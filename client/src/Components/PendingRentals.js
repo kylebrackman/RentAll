@@ -7,7 +7,7 @@ const PendingRentals = () => {
 
     // Filter pendingRentals to only include items where the owner_id matches the user.id
     const filteredPendingRentals = pendingRentals.filter(rental => rental.status === "pending" && rental.item.owner_id === user.id);
-    console.log(filteredPendingRentals)
+    // console.log(filteredPendingRentals)
     const pendingRequestsList = filteredPendingRentals.map(request => {
         return <RentalRequestApproval
             key={request.id}
