@@ -22,13 +22,13 @@ const PendingRentals = () => {
     });
 
     return (
-        <div>
+        <div style={{paddingLeft: "12%"}}>
             <br />
             <div>
                 <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl">Your Requested Items</h1>
             </div>
             <div className="grid grid-cols-4 gap-4 mx-auto">
-                {filteredPendingRentals.length > 0? pendingRequestsList : "You have no current rentals"}
+                {filteredPendingRentals.length > 0? pendingRequestsList : "None of your items have been requested."}
             </div>
         </div>
     );

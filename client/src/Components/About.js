@@ -3,7 +3,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import classNames from "classnames";
 import { useRef, useState } from "react";
-import '../App.css'; // Adjust the path if necessary
+import '../App.css'; 
 import { useNavigate } from 'react-router-dom';
 
 

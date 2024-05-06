@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { UserContext } from '../Context/user';
 import GeoItem from './GeoItem';
+import '../App.css';
 
 
 const UploadItem = () => {
@@ -44,184 +45,94 @@ const UploadItem = () => {
         addNewItem(newItemData)
     }
 
+
     if (loggedIn && user && user.profile) {
-        // return (
-        //     <div className='upload-item-container'>
-        //         <form className='upload-item-card' >
-        //             <h1>Upload Item</h1>
-        //             <label style={{ marginRight: "30px" }}> Item Name </label>
-        //             <input
-        //                 type="text"
-        //                 id="name"
-        //                 name="name"
-        //                 value={itemName}
-        //                 onChange={(e) => setItemName(e.target.value)}
-        //             /> <br />
-
-
-        //             <label style={{ marginRight: "10px" }}> Description: </label>
-        //             <textarea
-
-        //                 type="text"
-        //                 id="description"
-        //                 value={description}
-        //                 onChange={(e) => setDescription(e.target.value)}
-        //             /> <br />
-
-
-
-        //             <label style={{ marginRight: "37px" }}> Item Type </label>
-        //             <select
-        //                 id="type"
-        //                 value={itemType}
-        //                 onChange={(e) => setItemType(e.target.value)}
-        //             >
-        //                 <option>Select</option>
-        //                 <option>Hardware</option>
-        //                 <option>Winter Sport</option>
-        //                 <option>Sport (General)</option>
-        //                 <option>Fishing</option>
-        //                 <option>Camping</option>
-        //                 <option>Musical</option>
-        //                 <option>Beach</option>
-        //                 <option>Climb</option>
-        //                 <option>Outdoor Game</option>
-        //             </ select >
-        //             <br />
-
-
-
-        //             <label style={{ marginRight: "26px" }}> Condition: </label>
-        //             <select
-        //                 id="itemCondition"
-        //                 value={condition}
-        //                 onChange={(e) => setCondition(e.target.value)}
-        //             >
-        //                 <option>Select</option>
-        //                 <option>New</option>
-        //                 <option>Like New</option>
-        //                 <option>Light Use</option>
-        //                 <option>Medium Use</option>
-        //                 <option>Heavy Use</option>
-        //             </ select >
-        //             <br />
-
-
-
-        //             <label> Price Per Day </label>
-        //             <input
-        //                 type="text"
-        //                 id="price"
-        //                 name="price"
-        //                 value={itemPrice}
-        //                 onChange={(e) => setItemPrice(e.target.value)}
-        //             /> <br />
-
-
-
-        //             <label style={{ marginRight: "64px" }}> Image: </label>
-        //             <input type="file" name="image" id="image" accept='image/*' onChange={(e) => setImage(e.target.files[0])} />
-        //             <br />
-        //             <br />
-        //             <h2>Item Location</h2>
-        //             <GeoItem onSetItemLocation={handleSetItemLocation} />
-        //             <button onClick={handleSubmit} className='sign-up-button'>Upload Item</button>
-        //             <>
-        //                 {errors && errors.length > 0 && (
-        //                     <ul className="error-list">{errors}</ul>
-        //                 )}
-        //             </>
-        //         </form>
-        //     </div>
 
         return (
-            <section class="bg-gray-50 dark:bg-gray-900">
-                <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0 " >
-                    <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-                        <img class="w-20 h-15 mr-2" src={process.env.PUBLIC_URL + "/favicon.ico"} alt="logo" style={{ borderRadius: 10, marginTop: 20 }} />
-                        GearUp
-                    </a>
-                    <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 max-w-sm rounded overflow-hidden" style={{marginBottom: 10}}>
-                        <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                            <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                                Upload a New Item
-                            </h1>
-                            <form class="space-y-4 md:space-y-6" >
-                                <div>
-                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                    >Item Name</label>
-                                    <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Item Name"       required=""
-                                        value={itemName}
-                                        onChange={(e) => setItemName(e.target.value)}
-                                    />
-                                </div>
-                                <div>
-                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                                    <textarea placeholder="Description" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required=""
-                                        value={description}
-                                        onChange={(e) => setDescription(e.target.value)}
-                                    />
-                                </div>
-                                <div>
-                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type</label>
-                                    <select
-                                        id="itemType"
-                                        value={itemType}
-                                        onChange={(e) => setItemType(e.target.value)}
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    >
-                                        <option>Select</option>
-                                        <option>Hardware</option>
-                                        <option>Winter Sport</option>
-                                        <option>Sport (General)</option>
-                                        <option>Fishing</option>
-                                        <option>Camping</option>
-                                        <option>Musical</option>
-                                        <option>Beach</option>
-                                        <option>Climb</option>
-                                        <option>Outdoor Game</option>
-                                    </ select >
-                                </div>
-                                <div>
-                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Condition</label>
-                                    <select
-                                        id="itemCondition"
-                                        value={condition}
-                                        onChange={(e) => setCondition(e.target.value)}
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    >
-                                        <option>Select</option>
-                                        <option>New</option>
-                                        <option>Like New</option>
-                                        <option>Light Use</option>
-                                        <option>Medium Use</option>
-                                        <option>Heavy Use</option>
-                                    </ select >
-                                </div>
-                                <div>
-                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                    >Price</label>
-                                    <input
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="$" required=""
-                                        type="text"
-                                        id="price"
-                                        name="price"
-                                        value={itemPrice}
-                                        onChange={(e) => setItemPrice(e.target.value)}
-                                    />
-                                </div>
+                <section class="max-w-4xl p-6 mx-auto bg-indigo-600 rounded-md shadow-md dark:bg-gray-800 mt-8 mb-8">
+                    <h1 class="text-xl font-bold text-white capitalize dark:text-white">Upload an Item</h1>
+                    <form>
+                        <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+                            <div>
+                                <label class="text-white dark:text-gray-200">Item Name</label>
+                                <input
+                                    value={itemName} onChange={(e) => setItemName(e.target.value)} id="itemName" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" />
+                            </div>
 
-                                <input style={{ color: "white" }} id="file_input" type="file" name="image" accept='image/*' onChange={(e) => setImage(e.target.files[0])} />
-                                <GeoItem onSetItemLocation={handleSetItemLocation} />
-                                <button type="submit" class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" onClick={handleSubmit}>Enter</button>
-                                <ul style={{ color: "white" }}>
-                                    {errors}
-                                </ul>
-                            </form>
+                            <div>
+                                <label class="text-white dark:text-gray-200" for="emailAddress">Price</label>
+                                <input value={itemPrice}
+                                    onChange={(e) => setItemPrice(e.target.value)} placeholder='$' id="emailAddress" type="email" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" />
+                            </div>
+
+                            <div>
+                                <label class="text-white dark:text-gray-200" for="password">Description</label>
+                                <textarea value={description}
+                                    onChange={(e) => setDescription(e.target.value)} id="password" type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" />
+                            </div>
+                            <div>
+                                <label class="text-white dark:text-gray-200">Type</label>
+                                <select value={itemType}
+                                    onChange={(e) => setItemType(e.target.value)} class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                                    <option>Select</option>
+                                    <option>Hardware</option>
+                                    <option>Winter Sport</option>
+                                    <option>Sport (General)</option>
+                                    <option>Water Sport</option>
+                                    <option>Fishing</option>
+                                    <option>Camping</option>
+                                    {/* <option>Musical</option> */}
+                                    <option>Beach</option>
+                                    <option>Climb</option>
+                                    <option>Outdoor Game</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-white dark:text-gray-200">Condition</label>
+                                <select value={condition}
+                                    onChange={(e) => setCondition(e.target.value)} class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                                    <option>Select</option>
+                                    <option>New</option>
+                                    <option>Like New</option>
+                                    <option>Light Use</option>
+                                    <option>Medium Use</option>
+                                    <option>Heavy Use</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-white">
+                                    Image
+                                </label>
+                                <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                                    <div class="space-y-1 text-center">
+                                        <svg class="mx-auto h-12 w-12 text-white" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        <div class="flex text-sm text-gray-600">
+                                            <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                                                <span id="file_input" type="file" name="image" accept='image/*' onChange={(e) => setImage(e.target.files[0])}>Upload a file</span>
+                                                <input id="file-upload" name="file-upload" type="file" class="sr-only" onChange={(e) => setImage(e.target.files[0])}/>
+                                            </label>
+                                            <p class="pl-1 text-white">or drag and drop</p>
+                                        </div>
+                                        <p class="text-xs text-white">
+                                            PNG, JPG, GIF up to 5MB
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </section>
+
+                        <div class="flex justify-end mt-6">
+                            <button onClick={handleSubmit} class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600">Upload</button>
+                        </div>
+                        <GeoItem onSetItemLocation={handleSetItemLocation} />
+                        <ul style={{ color: "white" }}>
+                            {errors}
+                        </ul>
+                    </form>
+                </section>
         )
     } else {
         return (
