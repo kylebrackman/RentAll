@@ -76,7 +76,7 @@ const RentalRequestApprovalCard = () => {
                         </div>
                     </div>
                     <div className="rounded-lg shadow-lg md:w-2/6 sm:w-3/6">
-                    <img className="w-64 h-64 rounded-lg" src={request.owner_profile.image} alt="Owner Profile Image" />
+                        <img className="w-64 h-64 rounded-lg" src={request.owner_profile.image} alt="Owner Profile Image" />
                         <div className="rounded-lg px-6 py-4 bg-gray-800 h-auto w-auto flex items-center justify-between w-64 h-64 rounded-lg">
                             <div className="font-bold text-xl mb-2 text-white">{request.item.name}</div>
                             <Link to={`/profiles/${request.renter_profile.id}`}>
@@ -84,7 +84,7 @@ const RentalRequestApprovalCard = () => {
                                     Requestor:
                                 </p>
                                 <p className="text-white text-base">
-                                {request.renter.first_name} {request.renter.last_name}
+                                    {request.renter.first_name} {request.renter.last_name}
                                 </p>
                                 <p>
                                     Dates: {request.start_date} - {request.end_date}
@@ -93,7 +93,7 @@ const RentalRequestApprovalCard = () => {
                         </div>
                         <div className="rounded-lg px-6 pt-4 pb-2 bg-gray-800 w-64 h-24 rounded-lg" style={{ color: "white" }}>
                             <p style={{ color: "white" }}>
-                                RentAll Rating: COMING SOON
+                                GearUp Rating: COMING SOON
                             </p>
                             <p style={{ color: "white" }}>
                                 Location
@@ -107,7 +107,7 @@ const RentalRequestApprovalCard = () => {
                 </div>
             </section>
         );
-        
+
     }
 };
 

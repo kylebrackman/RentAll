@@ -3,10 +3,10 @@
 <br />
 <div align="center">
   <a >
-    <img src="images/favicon.ico" alt="RentAll logo" width="80" height="80">
+    <img src="images/favicon.ico" alt="GearUp logo" width="80" height="80">
   </a>
 
-  <h1 align="center">RentAll</h1>
+  <h1 align="center">GearUp</h1>
 </div>
 
 

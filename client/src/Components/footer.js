@@ -7,7 +7,7 @@ const Footer = () => {
                 <div className="flex flex-wrap justify-between items-center py-4">
                     <div className="w-full md:w-1/2">
                         <p className="text-sm text-center md:text-left">
-                            © 2024 RentAll. All rights reserved.
+                            © 2024 GearUp. All rights reserved.
                         </p>
                     </div>
                     <div className="w-full md:w-1/2 flex justify-end md:justify-start">

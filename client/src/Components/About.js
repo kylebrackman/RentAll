@@ -222,7 +222,7 @@ function About () {
         <nav className="px-5 sm:px-[50px] py-[26.36px] flex justify-between items-center relative max-w-screen-2xl mx-auto">
           <div className="xl:mr-56 cursor-pointer">
             <p className="text-2xl  font-bold font-playFairDisplay leading-7 tracking-[0.01]">
-              RentAll
+              GearUp
             </p>
           </div>
           <ul className="hidden md:flex gap-4 items-center">
@@ -710,7 +710,7 @@ function About () {
           <div className="w-full flex md:gap-4 gap-8 sm:justify-between flex-col md:flex-row max-w-screen-2xl mx-auto pb-[76px] sm:pl-12 sm:pr-12 px-5 lg:pr-[152px]">
             <div className="flex flex-col gap-4 justify-start">
               <h1 className="text-4xl text-white font-playFairDisplay tracking-[0.01] w-fit cursor-pointer">
-                RentAll
+                GearUp
               </h1>
               <p className="text-base max-w-[439px] w-full text-white font-hindVadodara leading-[159.3%] font-normal tracking-wide">
                 Lorem Ipsum has been the industry&apos;s standard dummy text
