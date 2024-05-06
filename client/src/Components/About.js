@@ -4,9 +4,11 @@ import Slider from "react-slick";
 import classNames from "classnames";
 import { useRef, useState } from "react";
 import '../App.css'; // Adjust the path if necessary
+import { useNavigate } from 'react-router-dom';
 
 
 function About () {
+  const navigate = useNavigate(); 
   const bussinessSlider = useRef();
   const workSlider = useRef();
   const [showMenu, setShowMenu] = useState(false);
@@ -422,7 +424,7 @@ function About () {
         <div className="mx-auto max-w-screen-2xl">
           <div className="px-5 flex flex-col md:flex-row md:justify-between items-center relative sm:pl-[50px] mt-10 lg:mt-20 gap-7 md:gap-0 md:mb-4 mb-8">
             <div className="flex flex-col items-center md:items-start gap-7">
-              <div className="w-full text-center md:text-left max-w-xl overflow-hidden text-4xl sm:text-5xl lg:text-[87px] text-[#331B3B] font-bold font-hindVadodara leading-[99.8%] tracking-[0.01]">
+              <div className="w-full text-center md:text-left max-w-xl overflow-hidden text-4xl sm:text-5xl lg:text-[87px] text-gray-800 font-bold font-hindVadodara leading-[99.8%] tracking-[0.01]">
                 <h1 className="whitespace-nowrap">Your Gear</h1>
                 <p />
                 <span className="font-light">
@@ -439,10 +441,13 @@ function About () {
                 Say goodbye to the limitations of traditional department stores and embrace the freedom of peer-to-peer gear exchange. Whether you're an outdoor enthusiast, a fitness junkie, or a hobbyist looking to explore new passions, our platform empowers everyone to share their gear and expertise seamlessly. Join us in revolutionizing the way we access and enjoy recreational gear, because adventure knows no bounds when shared among friends.
                 </span>
 
-                <Button
-                  className="self-center md:self-start max-w-[207px] py-[22px] w-full flex justify-center items-center font-bold leading-[137.3%] tracking-wide"
-                  label="GET STARTED"
-                />
+    <button
+      className="self-center md:self-start max-w-[207px] py-[22px] w-full flex justify-center items-center font-bold leading-[137.3%] tracking-wide"
+      onClick={() => navigate('/signup')} // Updated to use navigate
+      style={{textDecoration: 'underline'}}
+    >
+      GET STARTED + SIGN UP
+    </button>
               </div>
             </div>
             <div>
@@ -458,14 +463,14 @@ function About () {
             <div className="max-w-[1293px] mr-3 w-full sm:h-[578px] h-[500px] bg-[#ECF7FF] rounded-tr-[137px] sm:rounded-tr-[400px] absolute top-0 z-10"></div>
             <div className="!z-30 absolute top-0 h-full w-full flex flex-col gap-24 py-24">
               <div className=" flex flex-col sm:gap-16 md:gap-24 gap-12">
-                <div className="mx-auto md:text-5xl text-4xl text-[#331B3B] font-hindVadodara -tracking-[0.01] leading-[106.3%]">
+                <div className="mx-auto md:text-5xl text-4xl text-gray-800 font-hindVadodara -tracking-[0.01] leading-[106.3%]">
                   <h1 className=" font-bold self-center text-center">
-                    What We Do
+                    Make the Most of Your Equipment
                   </h1>
                   <span className="font-light self-center">
-                    For Your
+                    Share Your
                     <span className="relative ml-1">
-                      Business
+                      Knowledge
                       <span className="bg-[#FDC221] md:h-2.5 h-2 bottom-1.5 md:bottom-2 -z-[1] right-0 absolute md:w-48 w-[145px]" />
                     </span>
                   </span>
@@ -561,7 +566,7 @@ function About () {
               <div className=" flex flex-col gap-8 sm:gap-10 md:gap-24 mx-auto">
                 <div className="flex flex-col gap-5 mx-5">
                   <div className="relative md:absolute lg:left-32 md:left-5 md:top-10">
-                    <h1 className="lg:text-5xl text-3xl text-[#331B3B] font-bold font-hindVadodara leading-[106.3%] -tracking-[0.01] self-center">
+                    <h1 className="lg:text-5xl text-3xl text-gray-800 font-bold font-hindVadodara leading-[106.3%] -tracking-[0.01] self-center">
                       Our Recent Work
                       <p />
                       <span className="font-light">
