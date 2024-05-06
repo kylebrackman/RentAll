@@ -141,31 +141,38 @@ function UserProvider({ children }) {
     const approveRequest = (requestId) => {
         // Fetch the rental request details
         fetch(`/api/rental_requests/${requestId}`)
-            .then((res) => res.json())
+            .then((res) => {
+                if (!res.ok) {
+                    throw new Error('Failed to fetch rental request');
+                }
+                return res.json();
+            })
             .then((data) => {
                 if (!data.errors) {
                     // Make a POST request to the finalize_approval endpoint
-                    fetch(`/api/rental_requests/finalize_approval`, {
+                    return fetch(`/api/rental_requests/finalize_approval`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ id: requestId }),
-                    })
-                        .then((res) => res.json())
-                        .then((response) => {
-                            if (!response.error) {
-                                console.log("Rental request finalized successfully.");
-                                // Optionally, refresh the list of rentals or show a success message
-                            } else {
-                                console.error("Failed to finalize rental request:", response.error);
-                            }
-                        })
-                        .catch((error) => console.error("Error finalizing rental request:", error));
+                    });
                 } else {
-                    console.error("Failed to fetch rental request:", data.errors);
+                    throw new Error('Failed to fetch rental request');
                 }
             })
-            .catch((error) => console.error("Error fetching rental request:", error));
+            .then((res) => {
+                if (!res.ok) {
+                    console.log(res)
+                    throw new Error('Failed to finalize rental request');
+                }
+                return res.json();
+            })
+            .then((response) => {
+                console.log("Rental request finalized successfully.");
+                // Optionally, refresh the list of rentals or show a success message
+            })
+            .catch((error) => console.error("Error:", error.message));
     };
+
 
 
 

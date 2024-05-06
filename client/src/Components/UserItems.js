@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../Context/user';
 import UserItemCard from './UserItemCard';
+import PendingRentals from './PendingRentals';
 
 const UserItems = () => {
 
@@ -39,7 +40,9 @@ const UserItems = () => {
                             </h1>
                         </div>
                     }
+                    
                 </div>
+                <PendingRentals />
             </section>
         )
     } else {

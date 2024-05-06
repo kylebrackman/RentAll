@@ -7,7 +7,7 @@ const RentalRequestApprovalCard = () => {
     const { id } = useParams();
     const { errors, resetErrors, loggedIn, pendingRentals, approveRequest } = useContext(UserContext);
     const request = pendingRentals.find((request) => request.id === parseInt(id));
-
+    console.log(request);
     const errorList = errors.map((error) => (
         <li key={error.index} style={{ color: "white" }}>{error}</li>
     ));
@@ -85,6 +85,9 @@ const RentalRequestApprovalCard = () => {
                                 </p>
                                 <p className="text-white text-base">
                                 {request.renter.first_name} {request.renter.last_name}
+                                </p>
+                                <p>
+                                    Dates: {request.start_date} - {request.end_date}
                                 </p>
                             </Link>
                         </div>

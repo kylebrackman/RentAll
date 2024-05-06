@@ -25,9 +25,9 @@ const PendingRentals = () => {
         <div>
             <br />
             <div>
-                <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-white">Pending Rentals</h1>
+                <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl">Your Requested Items</h1>
             </div>
-            <div className="grid grid-cols-4 gap-4 mx-auto text-white">
+            <div className="grid grid-cols-4 gap-4 mx-auto">
                 {filteredPendingRentals.length > 0? pendingRequestsList : "You have no current rentals"}
             </div>
         </div>
