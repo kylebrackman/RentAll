@@ -4,7 +4,7 @@ import AllItemCard from './AllItemCard';
 import { NavLink } from "react-router-dom";
 
 const AllItems = () => {
-    const { allItems, pendingRentals } = useContext(UserContext);
+    const { allItems } = useContext(UserContext);
     // console.log(pendingRentals)
 
 
@@ -24,10 +24,16 @@ const AllItems = () => {
     ));
 
     return (
-        <section class="flex flex-col items-center px-6 py-8 bg-white min-h-screen">
-            <br />
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-3/4 mx-auto">{allItemsList}</div>
-        </section>
+            <div class="bg-gray-900 py-16">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-3xl font-bold text-white mb-8">All Items</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {allItemsList}
+
+                    </div>
+
+                </div>
+            </div>
     );
 };
 

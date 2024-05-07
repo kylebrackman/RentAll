@@ -3,24 +3,24 @@ import { Link } from 'react-router-dom';
 
 const AllItemCard = ({ itemName, itemId, image, itemPrice, description }) => {
     return (
-        <div className="max-w-sm rounded-lg overflow-hidden shadow-lg">
-            <Link to={`/item/${itemId}`}>
-                <div className="relative overflow-hidden h-64"> {/* Set a fixed height for the container */}
-                    <img className="object-cover w-full h-full" src={image} alt={description} />
+        <Link to={`/item/${itemId}`}>
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <div class="relative overflow-hidden h-80 w-full"> {/* Set a fixed height and width for the container */}
+                    <img class="object-cover w-full h-full" src={image} alt="Product" />
+                    <div class="absolute inset-0 bg-black opacity-40"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                    </div>
                 </div>
-            </Link>
-            <div className="px-6 py-4 bg-gray-800">
-                <div className="font-bold text-xl mb-2 text-white">{itemName}</div>
-                <p className="text-gray-700 text-base"></p>
+                <h3 class="text-xl font-bold text-gray-900 mt-4">{itemName}</h3>
+                <p class="text-gray-500 text-sm mt-2">{description}</p>
+                <div class="flex items-center justify-between mt-4">
+                    <span class="text-gray-900 font-bold text-lg">${itemPrice} Per Day</span>
+                    <Link to={`/item/${itemId}`}>
+                        <button class="bg-gray-900 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800">View Item</button>
+                    </Link>
+                </div>
             </div>
-            <div className="px-6 pt-4 pb-2 bg-gray-800">
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">${itemPrice} Per Day</span>
-                <br />
-                <Link to={`/item/${itemId}`}>
-                    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Rent</span>
-                </Link>
-            </div>
-        </div>
+        </Link>
     );
 };
 
