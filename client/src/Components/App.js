@@ -19,6 +19,8 @@ import ConfirmRentalRequestMessage from './ConfirmRentalRequestMessage';
 import Footer from './footer';
 import About from './About';
 import RentalRequestApprovalCard from './RentalRequestApprovalCard';
+import {Elements} from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
 
 function App() {
   return (

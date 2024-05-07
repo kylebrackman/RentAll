@@ -11,6 +11,10 @@
     "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
   },
   "dependencies": {
+    "@stripe/connect-js": "^3.3.5",
+    "@stripe/react-connect-js": "^3.3.7",
+    "@stripe/react-stripe-js": "^2.7.1",
+    "@stripe/stripe-js": "^3.4.0",
     "classnames": "^2.5.1",
     "react-slick": "^0.30.2",
     "slick-carousel": "^1.8.1"
