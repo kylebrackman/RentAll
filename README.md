@@ -3,10 +3,10 @@
 <br />
 <div align="center">
   <a >
-    <img src="images/favicon.ico" alt="GearUp logo" width="80" height="80">
+    <img src="images/favicon.ico" alt="GearMate logo" width="80" height="80">
   </a>
 
-  <h1 align="center">GearUp</h1>
+  <h1 align="center">GearMate</h1>
 </div>
 
 
@@ -40,7 +40,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://rentall-6528b54d3efd.herokuapp.com/allItems)
 
-RentAll is an application where users can rent out various types of gear, games, or hardware, that others may just need for a few days, or just want to test out! Currently, to rent outdoor gear, one must go to a large, corporate, recreational store to rent out low quality equipment for too high of prices. Now, users can rent out their gear to whoever may need it!
+GearMate is an application where users can rent out various types of gear, games, or hardware, that others may just need for a few days, or just want to test out! Currently, to rent outdoor gear, one must go to a large, corporate, recreational store to rent out low quality equipment for too high of prices. Now, users can rent out their gear to whoever may need it!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

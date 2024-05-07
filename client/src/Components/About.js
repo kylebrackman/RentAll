@@ -224,7 +224,7 @@ function About() {
         <nav className="px-5 sm:px-[50px] py-[26.36px] flex justify-between items-center relative max-w-screen-2xl mx-auto">
           <div className="xl:mr-56 cursor-pointer">
             <p className="text-2xl  font-bold font-playFairDisplay leading-7 tracking-[0.01]">
-              GearUp
+              GearMate
             </p>
           </div>
           <ul className="hidden md:flex gap-4 items-center">
@@ -550,7 +550,11 @@ function About() {
 <div className="flex items-center">
   <div className="text-[17px] Light font-normal font-hindVadodara leading-[146.3%] tracking-wide md:text-right max-w-[400px]">
     <span>
-      Kyle Brackman is a Software Engineer, Climber, and Outdoor Enthusiast. He has a passion for building and creating, and is excited to bring that passion to the GearUp platform. He is excited to build a community to encourage more people to stay active, get outdoors, and create more sustainability while fighting against wasteful consumerism, ultimately fostering a culture of outdoor appreciation.
+      Kyle Brackman is a Software Engineer, Climber, Runner, and Outdoor Enthusiast. He has a passion for building and creating, and is excited to bring that passion to the GearMate platform. He is excited to build a community to encourage more people to stay active, get outdoors, and create more sustainability while fighting against wasteful consumerism, ultimately fostering a culture of outdoor appreciation.
+      <br />
+      Goals: Grow as a developer, build and grow GearMate, and climb 5.14a in under three years of climbing. 
+      <br />
+      Proudest Accomplishments: Transitioning to software while working full-time, breaking 14:00 for 5k, and overall climbing progress.
     </span>
   </div>
   <img src="/photos/Headshot.png" className="ml-4" style={{height:500, borderRadius: 40}}/>
@@ -690,11 +694,11 @@ function About() {
           <div className="w-full flex md:gap-4 gap-8 sm:justify-between flex-col md:flex-row max-w-screen-2xl mx-auto pb-[76px] sm:pl-12 sm:pr-12 px-5 lg:pr-[152px]">
             <div className="flex flex-col gap-4 justify-start">
               <h1 className="text-4xl text-white font-playFairDisplay tracking-[0.01] w-fit cursor-pointer">
-                GearUp
+                GearMate
               </h1>
               <p className="text-base max-w-[439px] w-full text-white font-hindVadodara leading-[159.3%] font-normal tracking-wide">
 
-                GearUp, currently in beta and being developed by a solo developer, aims to revolutionize the gear rental industry. It strives to offer superior quality gear at more accessible prices while fostering a sense of community and shared passion among users.
+                GearMate, currently in beta and being developed by a solo developer, aims to revolutionize the gear rental industry. It strives to offer superior quality gear at more accessible prices while fostering a sense of community and shared passion among users.
               </p>
               {/* <p className="text-base text-white font-hindVadodara leading-[159.3%] font-semibold tracking-wide uppercase">
                 GET IN TOUCH

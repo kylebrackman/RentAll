@@ -93,7 +93,7 @@ const RentalRequestApprovalCard = () => {
                         </div>
                         <div className="rounded-lg px-6 pt-4 pb-2 bg-gray-800 w-64 h-24 rounded-lg" style={{ color: "white" }}>
                             <p style={{ color: "white" }}>
-                                GearUp Rating: COMING SOON
+                                GearMate Rating: COMING SOON
                             </p>
                             <p style={{ color: "white" }}>
                                 Location
