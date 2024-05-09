@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { UserContext } from '../Context/user';
 import EditItemForm from './EditItemForm';
+import Checkout from './Checkout';
 
 const RentEditItemCard = () => {
   const { id } = useParams();
@@ -111,6 +112,7 @@ const RentEditItemCard = () => {
             <br />
             <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{item.condition}</span>
             <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{item.item_type}</span>
+            <Checkout />
             {item.owner_id !== user.id ? (
               <>
                 <p>Start Date</p>
