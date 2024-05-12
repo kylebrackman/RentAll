@@ -119,7 +119,7 @@ function UserProvider({ children }) {
     };
 
     const createRentalRequest = (rentalRequestData) => {
-        console.log("user context", rentalRequestData)
+        // console.log("user context", rentalRequestData)
         fetch("/api/rental_requests", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -137,6 +137,28 @@ function UserProvider({ children }) {
             })
             .catch((error) => console.error("Error creating rental request:", error));
     };
+
+    const createCheckoutSession = (rentalRequestData) => {
+        fetch("/api/create-checkout-session", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(rentalRequestData),
+        })
+
+            .then((res) => res.json())
+            .then((data) => {
+                if (!data.errors) {
+                    // Handle successful creation of rental request
+                    console.log("Rental request created successfully:", data);
+                } else {
+                    const errorLis = data.errors.map((e) => <li>{e}</li>);
+                    setErrors(errorLis);
+                }
+            })
+            .catch((error) => console.error("Error creating rental request:", error));
+    };
+
+
 
     const approveRequest = (requestId) => {
         // Fetch the rental request details
@@ -287,7 +309,8 @@ function UserProvider({ children }) {
                 userRentalRequests,
                 pendingRentals,
                 approveRequest,
-                createRentalRequest
+                createRentalRequest,
+                createCheckoutSession
             }}
         >
             {children}

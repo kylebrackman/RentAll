@@ -6,7 +6,7 @@ import Checkout from './Checkout';
 
 const RentEditItemCard = () => {
   const { id } = useParams();
-  const { allItems, user, createRental, errors, deleteItem, editItem, resetErrors, loggedIn, createRentalRequest } = useContext(UserContext);
+  const { allItems, user, errors, deleteItem, editItem, resetErrors, loggedIn, createRentalRequest, createCheckoutSession } = useContext(UserContext);
   const [startDate, setStartDate] = useState(new Date().toISOString().substring(0, 10));
   const [endDate, setEndDate] = useState(new Date().toISOString().substring(0, 10));
   const [isEditing, setIsEditing] = useState(false);
@@ -38,7 +38,8 @@ const RentEditItemCard = () => {
       owner_id: item.owner_id,
     };
     console.log("card", rentalRequestData)
-    createRentalRequest(rentalRequestData);
+    createCheckoutSession(rentalRequestData);
+    // createRentalRequest(rentalRequestData);
     if (errors.length === 0) {
       navigate(`/confirmRentalRequest/${item.id}`);
     }
@@ -112,7 +113,11 @@ const RentEditItemCard = () => {
             <br />
             <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{item.condition}</span>
             <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{item.item_type}</span>
-            <Checkout />
+            <p>
+                <button onClick={() => createCheckoutSession()}>
+                  Checkout
+                </button>
+            </p>
             {item.owner_id !== user.id ? (
               <>
                 <p>Start Date</p>
