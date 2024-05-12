@@ -1,4 +1,4 @@
-class StripeController < ApplicationController
+class Api::StripeController < ApplicationController
     def create_checkout_session
         session = Stripe::Checkout::Session.create({
           line_items: [{
