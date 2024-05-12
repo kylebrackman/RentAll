@@ -23,8 +23,7 @@ Rails.application.routes.draw do
     resources :rental_requests
 
     post '/rental_requests/finalize_approval', to: 'rental_requests#finalize_approval'
-
-
+      
 
   end
 

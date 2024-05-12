@@ -60,3 +60,5 @@ gem 'aws-sdk'
 gem "aws-sdk-s3", require: false
 
 gem 'stripe', '11.0.0'
+
+gem 'sinatra', '~> 2.0'

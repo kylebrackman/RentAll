@@ -4,7 +4,7 @@ require 'stripe'
 # This is your test secret API key.
 Stripe.api_key = 'sk_test_51PDe70FP63jGg694moqCnde4b4dKzMgZzMxIJeyeUUo4FdQ4HMj9Rs2OA9PBdIiEE79maARTTHI8cu6nPpU5c3rK00nyqfALSW'
 
-Stripe.api_version = '2023-10-16'
+# Stripe.api_version = '2023-10-16'
 
 Stripe::Checkout::Session.create({
   line_items: [
