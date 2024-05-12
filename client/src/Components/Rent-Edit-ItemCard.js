@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { UserContext } from '../Context/user';
 import EditItemForm from './EditItemForm';
-import Checkout from './Checkout';
 
 const RentEditItemCard = () => {
   const { id } = useParams();
