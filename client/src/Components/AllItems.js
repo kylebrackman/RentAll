@@ -6,9 +6,10 @@ import { NavLink } from "react-router-dom";
 const AllItems = () => {
     const { allItems } = useContext(UserContext);
     // console.log(pendingRentals)
+    const items = Array.isArray(allItems) ? allItems : [];
 
 
-    const allItemsList = allItems.map((i) => (
+    const allItemsList = items.map((i) => (
         <AllItemCard
             key={i.id}
             id={i.owner_id}
@@ -28,7 +29,13 @@ const AllItems = () => {
                 <div class="container mx-auto px-4">
                     <h2 class="text-3xl font-bold text-white mb-8">All Items</h2>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {items.length > 0 ? (
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {allItemsList}
+                    </div>
+                ) : (
+                    <p className="text-white">No items uploaded.</p>
+                )}
 
                     </div>
 

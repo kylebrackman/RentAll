@@ -6,7 +6,7 @@ class Item < ApplicationRecord
     validate :validate_item_type
     validate :validate_condition
     validates :price, numericality: { greater_than: 0 }
-    validate :validate_lat_lng
+    # validate :validate_lat_lng
     
     has_many :rentals, dependent: :destroy
     has_many :renters, through: :rentals, source: :renter
