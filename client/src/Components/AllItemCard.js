@@ -5,7 +5,8 @@ const AllItemCard = ({ itemName, itemId, image, itemPrice, description }) => {
     return (
         <Link to={`/item/${itemId}`}>
             <div class="bg-white rounded-lg shadow-lg p-8">
-                <div class="relative overflow-hidden h-80 w-full"> {/* Set a fixed height and width for the container */}
+               <div class="relative overflow-hidden h-[50vh] w-full">
+ {/* Set a fixed height and width for the container */}
                     <img class="object-cover w-full h-full" src={image} alt="Product" />
                     <div class="absolute inset-0 bg-black opacity-40"></div>
                     <div class="absolute inset-0 flex items-center justify-center">

@@ -25,22 +25,22 @@ const AllItems = () => {
     ));
 
     return (
-            <div class="bg-gray-900 py-16">
-                <div class="container mx-auto px-4">
-                    <h2 class="text-3xl font-bold text-white mb-8">All Items</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-gray-900 py-16">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-white mb-8">All Items</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {items.length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {allItemsList}
-                    </div>
-                ) : (
-                    <p className="text-white">No items uploaded.</p>
-                )}
-
-                    </div>
+                        <div>
+                            {allItemsList}
+                        </div>
+                    ) : (
+                        <p className="text-white">No items uploaded.</p>
+                    )}
 
                 </div>
+
             </div>
+        </div>
     );
 };
 

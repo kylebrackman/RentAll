@@ -547,18 +547,18 @@ function About() {
                         </div>
                       ))}
                     </Slider> */}
-<div className="flex items-start">
-  <div className="text-[17px] Light font-normal font-hindVadodara leading-[146.3%] tracking-wide md:text-right max-w-[400px]">
-    <span>
-   Software Engineer, Climber, Runner, and Outdoor Enthusiast. He has a passion for building and creating, and is excited to bring that passion to the GearMate platform. He is building GearMate to build a community to encourage more people to stay active, get outdoors, and create more sustainability while fighting against wasteful consumerism.
-      <br />
-      Goals: Grow as a developer, build and grow GearMate, and climb 5.14a in under three years of climbing. 
-      <br />
-      Proudest Accomplishments: Transitioning to software while working full-time, breaking 14:00 for 5k, and overall climbing progress.
-    </span>
-  </div>
-  <img src="/photos/Headshot.png" className="ml-4" style={{height:500, borderRadius: 40}}/>
-</div>
+                    <div className="flex items-start">
+                      <div className="text-[17px] Light font-normal font-hindVadodara leading-[146.3%] tracking-wide md:text-right max-w-[400px]">
+                        <span>
+                          Software Engineer, Climber, Runner, and Outdoor Enthusiast. He has a passion for building and creating, and is excited to bring that passion to the GearMate platform. He is building GearMate to build a community to encourage more people to stay active, get outdoors, and create more sustainability while fighting against wasteful consumerism.
+                          <br />
+                          Goals: Grow as a developer, build and grow GearMate, and climb 5.14a in under three years of climbing.
+                          <br />
+                          Proudest Accomplishments: Transitioning to software while working full-time, breaking 14:00 for 5k, and overall climbing progress.
+                        </span>
+                      </div>
+                      <img src="/photos/Headshot.png" className="ml-4" style={{ height: 500, borderRadius: 40 }} />
+                    </div>
 
 
                   </div>
