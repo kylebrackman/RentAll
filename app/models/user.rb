@@ -17,6 +17,7 @@ class User < ApplicationRecord
     has_many :items_requested, through: :rental_requests_made, source: :item
 
     has_one :profile
+    has_one :account
 
     def rental_requests_made_with_items
         ActiveModel::Serializer::CollectionSerializer.new(self.rental_requests_made, serializer: RentalRequestSerializer, scope: self)
