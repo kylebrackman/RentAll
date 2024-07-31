@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { UserContext } from '../Context/user';
+import { UserContext } from '../Context/user.tsx';
 
 const RentalRequestApprovalCard = () => {
     const navigate = useNavigate();

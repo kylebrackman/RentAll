@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { UserProvider } from '../Context/user';
+import { UserProvider } from '../Context/user.tsx';
 import Navbar from './Navbar';
 import Login from './Login';
 import Signup from './Signup';

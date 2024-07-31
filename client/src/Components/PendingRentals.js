@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { UserContext } from '../Context/user';
+import { UserContext } from '../Context/user.tsx';
 import RentalRequestApproval from './RentalRequestApproval';
 
 const PendingRentals = () => {

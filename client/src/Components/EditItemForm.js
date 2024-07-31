@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { UserContext } from '../Context/user';
+import { UserContext } from '../Context/user.tsx';
 
 const EditItemForm = ({ item, handleEditItem }) => {
     const [name, setName] = useState(item.name);

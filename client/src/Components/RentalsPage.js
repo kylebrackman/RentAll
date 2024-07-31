@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { UserContext } from '../Context/user';
+import { UserContext } from '../Context/user.tsx';
 import UpcomingRentals from './UpcomingRentals';
 import PastRentals from './PastRentals';
 import CurrentRentals from './CurrentRentals';
