@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { UserContext } from '../Context/user';
+import { UserContext } from '../Context/user.tsx';
 import { useParams } from 'react-router-dom';
 
 // import ProfileGeo from './ProfileGeo';

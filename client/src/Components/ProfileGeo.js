@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import { useJsApiLoader } from "@react-google-maps/api";
-import { UserContext } from "../Context/user";
+import { UserContext } from '../Context/user.tsx';
 
 const ProfileGeo = () => {
 

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { UserContext } from '../Context/user';
+import { UserContext } from '../Context/user.tsx';
 
 import Geo from './Geo';
 

@@ -1,11 +1,11 @@
 import React, { useState, useContext } from 'react';
-import { UserContext } from '../Context/user';
+import { UserContext } from '../Context/user.tsx';
 import { Link } from 'react-router-dom';
 
 const MyRequestCard = ( {itemId, itemName, itemImage, itemPrice, itemCondition} ) => {
 
     const { loggedIn,  } = useContext(UserContext);
-    console.log(itemCondition)
+
     if (loggedIn) {
         return (
             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">

@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { UserContext } from '../Context/user';
+import { UserContext } from '../Context/user.tsx';
 import GeoItem from './GeoItem';
 import '../App.css';
 

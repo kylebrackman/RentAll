@@ -1,17 +1,109 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 
-const UserContext = React.createContext();
+interface UserContextTypes {
+    user: User;
+    login: (user: Record<string, any>) => void; // return to this later
+    logout: () => void; // return to this later
+    signup: (user: Record<string, any>) => void; // return to this later
+    loggedIn: boolean;
+    allItems: Array<Record<string, any>>;
+    addNewItem: (newItemData: Record<string, any>) => void;
+    userItems: Array<Record<string, any>>;
+    createRental: (rentalData: Record<string, any>) => void;
+    currentRentals: Array<Record<string, any>>;
+    errors: Array<JSX.Element>;
+    newProfile: (newProfileData: Record<string, any>) => void;
+    deleteItem: (id: number) => void;
+    editItem: (item: Record<string, any>) => void;
+    upcomingRentals: Array<Record<string, any>>;
+    pastRentals: Array<Record<string, any>>;
+    fetchAllItems: () => void;
+    resetErrors: () => void;
+    userRentalRequests: Array<Record<string, any>>;
+    pendingRentals: Array<Record<string, any>>;
+    approveRequest: (requestId: number) => void;
+    createRentalRequest: (rentalRequestData: Record<string, any>) => void;
+    createCheckoutSession: (rentalRequestData: Record<string, any>) => void;
+}
 
-function UserProvider({ children }) {
-    const [user, setUser] = useState({});
+interface User {
+    id: number;
+    email: string;
+    first_name: string;
+    last_name: string;
+    owned_items: Array<Record<string, any>>;
+    current_rentals: Array<Record<string, any>>;
+    upcoming_rentals: Array<Record<string, any>>;
+    past_rentals: Array<Record<string, any>>;
+    profile: Record<string, any>;
+    rental_requests_received: Array<Record<string, any>>;
+}
+
+const defaultContextValue: UserContextTypes = {
+    user: {
+        id: 0,
+        email: '',
+        first_name: '',
+        last_name: '',
+        owned_items: [],
+        current_rentals: [],
+        upcoming_rentals: [],
+        past_rentals: [],
+        profile: {},
+        rental_requests_received: [],
+    },
+    login: () => { },
+    logout: () => { },
+    signup: () => { },
+    loggedIn: false,
+    allItems: [],
+    addNewItem: () => { },
+    userItems: [],
+    createRental: () => { },
+    currentRentals: [],
+    errors: [],
+    newProfile: () => { },
+    deleteItem: () => { },
+    editItem: () => { },
+    upcomingRentals: [],
+    pastRentals: [],
+    fetchAllItems: () => { },
+    resetErrors: () => { },
+    userRentalRequests: [],
+    pendingRentals: [],
+    approveRequest: () => { },
+    createRentalRequest: () => { },
+    createCheckoutSession: () => { },
+};
+
+interface UserProviderProps {
+    children: ReactNode;
+}
+
+const UserContext = React.createContext<UserContextTypes>(defaultContextValue);
+
+
+const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
+    const [user, setUser] = useState<User>({
+        id: 0,
+        email: '',
+        first_name: '',
+        last_name: '',
+        owned_items: [],
+        current_rentals: [],
+        upcoming_rentals: [],
+        past_rentals: [],
+        profile: {},
+        rental_requests_received: [],
+    });
     const [loggedIn, setLoggedIn] = useState(false);
-    const [allItems, setAllItems] = useState([]);
-    const [userItems, setUserItems] = useState([]);
+    const [allItems, setAllItems] = useState<Array<Record<string, any>>>([])
+    const [userItems, setUserItems] = useState<Array<Record<string, any>>>([]);
     const [errors, setErrors] = useState([]);
-    const [currentRentals, setCurrentRentals] = useState([]);
-    const [upcomingRentals, setUpcomingRentals] = useState([]);
-    const [pastRentals, setPastRentals] = useState([]);
+    const [currentRentals, setCurrentRentals] = useState<Array<Record<string, any>>>([]);
+    const [upcomingRentals, setUpcomingRentals] = useState<Array<Record<string, any>>>([]);
+    const [pastRentals, setPastRentals] = useState<Array<Record<string, any>>>([]);
     const [userRentalRequests, setUserRentalRequests] = useState([]);
     const [pendingRentals, setPendingRentals] = useState([]);
 
@@ -277,7 +369,7 @@ function UserProvider({ children }) {
             method: "DELETE",
         })
             .then(() => handleDeleteItem(id))
-            .then(navigate("/myItems"))
+            .then(() => navigate("/myItems"))
             .catch((error) => console.log(error));
     };
 
@@ -310,7 +402,7 @@ function UserProvider({ children }) {
                 pendingRentals,
                 approveRequest,
                 createRentalRequest,
-                createCheckoutSession
+                createCheckoutSession,
             }}
         >
             {children}
