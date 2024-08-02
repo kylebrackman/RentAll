@@ -1,7 +1,7 @@
 import React, { useState, useEffect, ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 
-interface UserContextTypes {
+interface UserContextType {
     user: User;
     login: (user: Record<string, any>) => void; // return to this later
     logout: () => void; // return to this later
@@ -40,7 +40,7 @@ interface User {
     rental_requests_received: Array<Record<string, any>>;
 }
 
-const defaultContextValue: UserContextTypes = {
+const defaultContextValue: UserContextType = {
     user: {
         id: 0,
         email: '',
@@ -81,7 +81,7 @@ interface UserProviderProps {
     children: ReactNode;
 }
 
-const UserContext = React.createContext<UserContextTypes>(defaultContextValue);
+const UserContext = React.createContext<UserContextType>(defaultContextValue);
 
 
 const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
@@ -104,6 +104,7 @@ const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     const [currentRentals, setCurrentRentals] = useState<Array<Record<string, any>>>([]);
     const [upcomingRentals, setUpcomingRentals] = useState<Array<Record<string, any>>>([]);
     const [pastRentals, setPastRentals] = useState<Array<Record<string, any>>>([]);
+    // eslint-disable-next-line
     const [userRentalRequests, setUserRentalRequests] = useState([]);
     const [pendingRentals, setPendingRentals] = useState([]);
 
@@ -410,4 +411,4 @@ const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     );
 }
 
-export { UserContext, UserProvider };
+export { UserContext, UserProvider, UserContextType };

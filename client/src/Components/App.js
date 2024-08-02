@@ -5,7 +5,7 @@ import Navbar from './Navbar';
 import Login from './Login';
 import Signup from './Signup';
 import UploadItem from './UploadItem';
-import AllItems from './AllItems';
+import AllItems from './AllItems.tsx';
 import UserItems from './UserItems';
 import RentEditItemCard from './Rent-Edit-ItemCard';
 import RentalsPage from './RentalsPage';
@@ -15,12 +15,12 @@ import PastRentalsPage from './PastRentals';
 import UpcomingRentalsPage from './UpcomingRentals';
 import ProfileOtherUser from './ProfileOtherUser';
 import MyRequests from './MyRequests';
-import ConfirmRentalRequestMessage from './ConfirmRentalRequestMessage';
+import ConfirmRentalRequestMessage from './ConfirmRentalRequestMessage.tsx';
 import Footer from './footer';
 import About from './About';
 import RentalRequestApprovalCard from './RentalRequestApprovalCard';
-import {Elements} from '@stripe/react-stripe-js';
-import {loadStripe} from '@stripe/stripe-js';
+// import {Elements} from '@stripe/react-stripe-js';
+// import {loadStripe} from '@stripe/stripe-js';
 
 function App() {
   return (
