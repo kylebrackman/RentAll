@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../Context/user.tsx';
-import UserItemCard from './UserItemCard';
+import UserItemCard from './UserItemCard.tsx';
 
 const UpcomingRentals = () => {
     const { upcomingRentals } = useContext(UserContext)
