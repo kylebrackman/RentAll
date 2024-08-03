@@ -3,6 +3,7 @@
   "_version": "2.0.0",
   // "extends": "@tsconfig/create-react-app/tsconfig.json",
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
     /* Projects */
