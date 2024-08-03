@@ -1,28 +1,27 @@
-import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { UserProvider } from '../Context/user.tsx';
-import Navbar from './Navbar';
-import Login from './Login';
-import Signup from './Signup';
-import UploadItem from './UploadItem';
+import Navbar from './Navbar.js';
+import Login from './Login.js';
+import Signup from './Signup.js';
+import UploadItem from './UploadItem.js';
 import AllItems from './AllItems.tsx';
-import UserItems from './UserItems';
-import RentEditItemCard from './Rent-Edit-ItemCard';
-import RentalsPage from './RentalsPage';
-import Profile from './Profile';
-import CreateProfile from './CreateProfile';
-import PastRentalsPage from './PastRentals';
-import UpcomingRentalsPage from './UpcomingRentals';
-import ProfileOtherUser from './ProfileOtherUser';
-import MyRequests from './MyRequests';
+import UserItems from './UserItems.js';
+import RentEditItemCard from './Rent-Edit-ItemCard.js';
+import RentalsPage from './RentalsPage.js';
+import Profile from './Profile.js';
+import CreateProfile from './CreateProfile.js';
+import PastRentalsPage from './PastRentals.js';
+import UpcomingRentalsPage from './UpcomingRentals.js';
+import ProfileOtherUser from './ProfileOtherUser.js';
+import MyRequests from './MyRequests.js';
 import ConfirmRentalRequestMessage from './ConfirmRentalRequestMessage.tsx';
-import Footer from './footer';
+import Footer from './footer.js';
 import About from './About.js';
-import RentalRequestApprovalCard from './RentalRequestApprovalCard';
+import RentalRequestApprovalCard from './RentalRequestApprovalCard.js';
 // import {Elements} from '@stripe/react-stripe-js';
 // import {loadStripe} from '@stripe/stripe-js';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App flex flex-col min-h-screen relative">
       <UserProvider>
@@ -47,7 +46,7 @@ function App() {
             <Route exact path="/about" element={<About />} />
             <Route exact path="/rentalRequest/:id" element={<RentalRequestApprovalCard />} />
           </Routes>
-          </main>
+        </main>
         <Footer />
       </UserProvider>
     </div>

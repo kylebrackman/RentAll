@@ -18,11 +18,11 @@ const UserItemCard: React.FC<UserItemCardProps> = ({
 }) => {
     return (
         <div className="max-w-sm rounded-lg overflow-hidden shadow-lg">
-            <Link to={`/item/${id}`}>
+            <a href={`/item/${id}`}>
                 <div className="relative overflow-hidden h-64"> {/* Set a fixed height for the container */}
                     <img className="object-cover w-full h-full" src={image} alt={description} />
                 </div>
-            </Link>
+            </a>
             <div className="px-6 py-4 bg-gray-800">
                 <div className="font-bold text-xl mb-2 text-white">{itemName}</div>
                 <p className="text-gray-700 text-base"></p>
@@ -30,9 +30,9 @@ const UserItemCard: React.FC<UserItemCardProps> = ({
             <div className="px-6 pt-4 pb-2 bg-gray-800">
                 <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">${price} Per Day</span>
                 <br />
-                <Link to={`/item/${id}`}>
+                <a href={`/item/${id}`}>
                     <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Rent</span>
-                </Link>
+                </a>
             </div>
         </div>
     );

@@ -7,9 +7,9 @@ interface UserContextType {
     logout: () => void; // return to this later
     signup: (user: Record<string, any>) => void; // return to this later
     loggedIn: boolean;
-    allItems: Array<Record<string, any>>;
+    allItems: Item[];
     addNewItem: (newItemData: Record<string, any>) => void;
-    userItems: Array<Record<string, any>>;
+    userItems: Item[];
     createRental: (rentalData: Record<string, any>) => void;
     currentRentals: Array<Record<string, any>>;
     errors: Array<JSX.Element>;
@@ -17,7 +17,7 @@ interface UserContextType {
     deleteItem: (id: number) => void;
     editItem: (item: Record<string, any>) => void;
     upcomingRentals: Array<Record<string, any>>;
-    pastRentals: Array<Record<string, any>>;
+    pastRentals: Item[];
     fetchAllItems: () => void;
     resetErrors: () => void;
     userRentalRequests: Array<Record<string, any>>;
@@ -25,6 +25,16 @@ interface UserContextType {
     approveRequest: (requestId: number) => void;
     createRentalRequest: (rentalRequestData: Record<string, any>) => void;
     createCheckoutSession: (rentalRequestData: Record<string, any>) => void;
+}
+interface Item {
+    id: number;
+    name: string;
+    type: string;
+    condition: string;
+    image: string;
+    description: string;
+    price: number;
+    owner_id: number;
 }
 
 interface User {
@@ -411,4 +421,5 @@ const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     );
 }
 
-export { UserContext, UserProvider, UserContextType };
+export { UserContext, UserProvider };
+export type { UserContextType, Item, User };
