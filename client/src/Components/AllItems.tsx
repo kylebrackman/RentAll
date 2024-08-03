@@ -1,29 +1,17 @@
 import React, { useContext } from 'react';
-import { UserContext, UserContextType } from '../Context/user.tsx';
-import AllItemCard from './AllItemCard.js';
+import { UserContext, UserContextType, Item } from '../Context/user.tsx';
+import AllItemCard from './AllItemCard';
 
-interface AllItemsProps {
-    id: number;
-    itemId: number;
-    itemName: string;
-    type: string;
-    condition: string;
-    image: string;
-    description: string;
-    itemPrice: number;
-    ownerId: number;
-}
-
-const AllItems: React.FC<AllItemsProps> = () => {
+const AllItems: React.FC = () => {
     const { allItems } = useContext<UserContextType>(UserContext);
-    // console.log(pendingRentals)
-    const items = Array.isArray(allItems) ? allItems : [];
 
+    // Ensure allItems is an array
+    const items: Item[] = Array.isArray(allItems) ? allItems : [];
 
     const allItemsList = items.map((i) => (
         <AllItemCard
             key={i.id}
-            id={i.owner_id}
+            id={i.id}
             itemId={i.id}
             itemName={i.name}
             type={i.type}
@@ -47,9 +35,7 @@ const AllItems: React.FC<AllItemsProps> = () => {
                     ) : (
                         <p className="text-white">No items uploaded.</p>
                     )}
-
                 </div>
-
             </div>
         </div>
     );
