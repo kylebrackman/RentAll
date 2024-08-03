@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { UserContext, UserContextType } from '../Context/user.tsx';
-import AllItemCard from './AllItemCard';
+import AllItemCard from './AllItemCard.js';
 
 interface AllItemsProps {
     id: number;
@@ -36,10 +36,10 @@ const AllItems: React.FC<AllItemsProps> = () => {
     ));
 
     return (
-        <div class="bg-gray-900 py-16">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-white mb-8">All Items</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="bg-slate-950 min-h-screen">
+            <div className="container mx-auto px-4">
+                <h2 className="text-3xl font-bold text-white mb-8">All Items</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {items.length > 0 ? (
                         <div>
                             {allItemsList}
