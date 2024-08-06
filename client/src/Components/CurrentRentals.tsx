@@ -9,8 +9,6 @@ const CurrentRentals: React.FC = () => {
         return <UserItemCard
             key={r.id}
             itemName={r.item.name}
-            type={r.item.type}
-            condition={r.item.condition}
             image={r.item.image}
             description={r.item.description}
             id={r.item.id}
