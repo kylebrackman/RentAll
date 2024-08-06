@@ -155,7 +155,7 @@ const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
         }
     }, [loggedIn, user]);
 
-    const login = (user) => {
+    const login = (user: User) => {
         setUser(user);
         setLoggedIn(true);
         setUserItems(user.owned_items);
@@ -173,7 +173,7 @@ const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
         navigate("/login");
     };
 
-    const signup = (user) => {
+    const signup = (user: User) => {
         setUser(user);
         setLoggedIn(true);
     };
@@ -185,7 +185,7 @@ const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
             .catch((error) => console.log("Error fetching allItems:", error));
     };
 
-    const addNewItem = (newItemData) => {
+    const addNewItem = (newItemData: Item) => {
         fetch("/api/items", {
             method: "POST",
             body: newItemData,
@@ -263,7 +263,7 @@ const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
 
 
 
-    const approveRequest = (requestId) => {
+    const approveRequest = (requestId: number) => {
         // Fetch the rental request details
         fetch(`/api/rental_requests/${requestId}`)
             .then((res) => {
@@ -274,7 +274,6 @@ const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
             })
             .then((data) => {
                 if (!data.errors) {
-                    // Make a POST request to the finalize_approval endpoint
                     return fetch(`/api/rental_requests/finalize_approval`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
@@ -293,7 +292,7 @@ const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
             })
             .then((response) => {
                 console.log("Rental request finalized successfully.");
-                // Optionally, refresh the list of rentals or show a success message
+                // Refresh list, show image?
             })
             .catch((error) => console.error("Error:", error.message));
     };
