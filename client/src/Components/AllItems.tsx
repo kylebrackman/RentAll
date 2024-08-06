@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { UserContext, UserContextType, Item } from '../Context/user.tsx';
-import AllItemCard from './AllItemCard';
+import AllItemCard from './AllItemCard.js';
 
 const AllItems: React.FC = () => {
     const { allItems } = useContext<UserContextType>(UserContext);
@@ -11,15 +11,11 @@ const AllItems: React.FC = () => {
     const allItemsList = items.map((i) => (
         <AllItemCard
             key={i.id}
-            id={i.id}
             itemId={i.id}
             itemName={i.name}
-            type={i.type}
-            condition={i.condition}
             image={i.image}
             description={i.description}
             itemPrice={i.price}
-            ownerId={i.owner_id}
         />
     ));
 

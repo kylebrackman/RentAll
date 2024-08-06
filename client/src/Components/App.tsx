@@ -29,22 +29,22 @@ const App: React.FC = () => {
         <main className="flex-grow">
           <Routes>
             <Route path='/' element={<AllItems />} />
-            <Route exact path="/signup" element={<Signup />} />
-            <Route exact path="/login" element={<Login />} />
-            <Route exact path="/uploaditem" element={<UploadItem />} />
-            <Route exact path="/allItems" element={<AllItems />} />
-            <Route exact path="/myItems" element={<UserItems />} />
-            <Route exact path="/item/:id" element={<RentEditItemCard />} />
-            <Route exact path="/myRentals" element={<RentalsPage />} />
-            <Route exact path="/pastRentals" element={<PastRentalsPage />} />
-            <Route exact path="/upcomingRentals" element={<UpcomingRentalsPage />} />
-            <Route exact path="/profile" element={<Profile />} />
-            <Route exact path="/profiles/:otherUserId" element={<ProfileOtherUser />} />
-            <Route exact path="/createProfile" element={<CreateProfile />} />
-            <Route exact path="/myRequests" element={<MyRequests />} />
-            <Route exact path="/confirmRentalRequest/:id" element={<ConfirmRentalRequestMessage />} />
-            <Route exact path="/about" element={<About />} />
-            <Route exact path="/rentalRequest/:id" element={<RentalRequestApprovalCard />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/uploaditem" element={<UploadItem />} />
+            <Route path="/allItems" element={<AllItems />} />
+            <Route path="/myItems" element={<UserItems />} />
+            <Route path="/item/:id" element={<RentEditItemCard />} />
+            <Route path="/myRentals" element={<RentalsPage />} />
+            <Route path="/pastRentals" element={<PastRentalsPage />} />
+            <Route path="/upcomingRentals" element={<UpcomingRentalsPage />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/profiles/:otherUserId" element={<ProfileOtherUser />} />
+            <Route path="/createProfile" element={<CreateProfile />} />
+            <Route path="/myRequests" element={<MyRequests />} />
+            <Route path="/confirmRentalRequest/:id" element={<ConfirmRentalRequestMessage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/rentalRequest/:id" element={<RentalRequestApprovalCard />} />
           </Routes>
         </main>
         <Footer />
