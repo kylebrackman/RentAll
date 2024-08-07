@@ -6,7 +6,7 @@ import Signup from './Signup.js';
 import UploadItem from './UploadItem.js';
 import AllItems from './AllItems.tsx';
 import UserItems from './UserItems.js';
-import RentEditItemCard from './Rent-Edit-ItemCard.js';
+import RentEditItemCard from './Rent-Edit-ItemCard.tsx';
 import RentalsPage from './RentalsPage.js';
 import Profile from './Profile.js';
 import CreateProfile from './CreateProfile.js';
