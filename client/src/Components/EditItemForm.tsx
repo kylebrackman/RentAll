@@ -17,14 +17,14 @@ const EditItemForm: React.FC<EditItemFormProps> = ({ item, handleEditItem }) => 
     const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         const editedItem: EditableItem = {
-          id: item.id,
-          name,
-          description,
-          price,
-          condition,
+            id: item.id,
+            name,
+            description,
+            price,
+            condition,
         };
-        handleEditItem(editedItem); // This now correctly matches the EditableItem interface
-      };
+        handleEditItem(editedItem); // Now editedItem conforms to EditableItem
+    };
 
     const errorLis = errors.map((e) => {
         return (<li>{e}</li>)
