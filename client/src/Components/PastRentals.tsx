@@ -8,13 +8,11 @@ const PastRentals = () => {
     const pastRentalsList = pastRentals.map(r => {
         return <UserItemCard
             key={r.id}
-            itemName={r.item.name}
-            type={r.item.type}
-            condition={r.item.condition}
-            image={r.item.image}
-            description={r.item.description}
-            id={r.item.id}
-            price={r.item.price}
+            itemName={r.name}
+            image={r.image}
+            description={r.description}
+            id={r.id}
+            price={r.price}
         />
     })
 
@@ -22,9 +20,9 @@ const PastRentals = () => {
         <div>
             <br />
             <div>
-                <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-white">Past Rentals</h1>
+                <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-white">Past Rentals</h1>
             </div>
-            <div class="grid grid-cols-4 gap-4 mx-auto text-white">
+            <div className="grid grid-cols-4 gap-4 mx-auto text-white">
                 {pastRentals.length > 0 ? pastRentalsList : "You have no past rentals"}
             </div>
         </div>

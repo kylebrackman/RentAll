@@ -35,8 +35,19 @@ interface Item {
     description: string;
     price: number;
     owner_id: number;
+    item_type: string;
+    owner_first_name: string;
+    owner_last_name: string;
 }
 
+interface EditableItem {
+    id: number;
+    name: string;
+    condition: string;
+    description: string;
+    price: number;
+  }
+  
 interface User {
     id: number;
     email: string;
@@ -331,7 +342,7 @@ const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
             });
     };
 
-    const editItem = (item) => {
+    const editItem = (item: Item) => {
         fetch(`/api/items/${item.id}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
@@ -348,7 +359,7 @@ const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
             })
     };
 
-    const handleEditItem = (editedItem) => {
+    const handleEditItem = (editedItem: EditableItem) => {
         const updatedAllItemList = allItems.map((item) => {
             if (item.id === editedItem.id) {
                 return editedItem;
@@ -421,4 +432,4 @@ const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
 }
 
 export { UserContext, UserProvider };
-export type { UserContextType, Item, User };
+export type { UserContextType, Item, User, EditableItem };
