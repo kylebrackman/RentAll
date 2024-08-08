@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { UserContext } from '../Context/user.tsx';
 import UserItemCard from './UserItemCard.tsx';
-import PendingRentals from './PendingRentals';
+import PendingRentals from './PendingRentals.js';
 
 const UserItems = () => {
 
@@ -12,12 +12,8 @@ const UserItems = () => {
             key={i.id}
             id={i.id}
             itemName={i.name}
-            type={i.type}
-            condition={i.condition}
             image={i.image}
             description={i.description}
-            itemPrice={i.price}
-            itemId={i.id}
             price={i.price}
         />
     })
