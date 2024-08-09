@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../Context/user.tsx';
-import UpcomingRentals from './UpcomingRentals';
+import UpcomingRentals from './UpcomingRentals.tsx';
 import PastRentals from './PastRentals.tsx';
 import CurrentRentals from './CurrentRentals.tsx';
 import PendingRentals from './PendingRentals';
