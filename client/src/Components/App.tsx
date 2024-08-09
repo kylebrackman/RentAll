@@ -17,7 +17,7 @@ import MyRequests from './MyRequests.js';
 import ConfirmRentalRequestMessage from './ConfirmRentalRequestMessage.tsx';
 import Footer from './footer.tsx';
 import About from './About.js';
-import RentalRequestApprovalCard from './RentalRequestApprovalCard.js';
+import RentalRequestApprovalCard from './RentalRequestApprovalCard.tsx';
 // import {Elements} from '@stripe/react-stripe-js';
 // import {loadStripe} from '@stripe/stripe-js';
 

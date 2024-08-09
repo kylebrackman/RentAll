@@ -57,8 +57,8 @@ gem 'active_storage_validations'
 
 gem 'aws-sdk'
 
-gem "aws-sdk-s3", require: false
+gem "aws-sdk-s3"
 
-gem 'stripe', '11.0.0'
+gem 'stripe', '9.1.0'
 
 gem 'sinatra', '~> 2.0'

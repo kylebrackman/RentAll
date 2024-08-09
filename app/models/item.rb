@@ -13,6 +13,7 @@ class Item < ApplicationRecord
     belongs_to :owner, class_name: "User"
     has_many :rental_requests, dependent: :destroy
     has_many :requested_renters, through: :rental_requests, source: :renter
+    # Reivew source: renter relationship here
 
     private
 

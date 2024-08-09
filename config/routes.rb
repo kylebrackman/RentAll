@@ -29,6 +29,8 @@ Rails.application.routes.draw do
 
   end
 
+  # post '/'
+
   get '*path',
       to: 'fallback#index',
       constraints: ->(req) { !req.xhr? && req.format.html? }
