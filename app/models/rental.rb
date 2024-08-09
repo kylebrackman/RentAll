@@ -1,6 +1,6 @@
 class Rental < ApplicationRecord
 
-    validate :start_date
+    # validate :start_date
     validate :end_date
     validate :no_overlapping_rentals
     validate :start_date_minimum
